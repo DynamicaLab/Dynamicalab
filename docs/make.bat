@@ -8,7 +8,7 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=python -msphinx
 )
 set SOURCEDIR=source
-set BUILDDIR=build
+set BUILDDIR=html
 set SPHINXPROJ=DynamicaLab
 
 if "%1" == "" goto help
