@@ -5,11 +5,10 @@
 Drawing
 ***************
 
+.. automodule:: dynamicalab.drawing
 
 Networks
 ==========
-
-.. automodule:: dynamicalab.drawing
 
 .. autosummary::
    :toctree: generated/
@@ -20,3 +19,8 @@ Networks
 
 Ploting
 ==========
+
+.. autosummary::
+   :toctree: generated/
+
+   plot_spectrum

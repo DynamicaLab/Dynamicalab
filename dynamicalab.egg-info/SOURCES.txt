@@ -12,6 +12,7 @@ dynamicalab/algorithms/__init__.py
 dynamicalab/classes/__init__.py
 dynamicalab/drawing/__init__.py
 dynamicalab/drawing/draw.py
+dynamicalab/drawing/plots.py
 dynamicalab/generators/__init__.py
 dynamicalab/tests/__init__.py
 dynamicalab/tests/test.py
