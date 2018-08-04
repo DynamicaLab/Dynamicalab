@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>How to contribute &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributors" href="contributors.html" />
+    <link rel="prev" title="dynamicalab.drawing.draw_networks" href="reference/drawing/generated/dynamicalab.drawing.draw_networks.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clone-the-repository">
+<h2>1. Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>Clone the <a class="reference external" href="https://github.com/DynamicaUL/Dynamica-lab">DynamicaLab</a>. repository. Do your modifications in the code on a separate branch.</p>
+<p>We suggest the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> style guide for Python code. Even though it won’t be enforced, we suggest to implement test functions for each method.</p>
+</div>
+<div class="section" id="link-your-packages">
+<h2>2. Link your packages<a class="headerlink" href="#link-your-packages" title="Permalink to this headline">¶</a></h2>
+<p>If your modification include adding functions or modules, please link them into the main module. This is done by modifying the corresponding <code class="docutils literal"><span class="pre">__init__.py</span></code> that is found in the directory of the module.</p>
+<p>For instance, if you add a file into the drawing module. Then, in <code class="docutils literal"><span class="pre">/drawing/__init__.py</span></code>, you should add</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.new_file</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>If you plan to add a new submodule to <code class="docutils literal"><span class="pre">DynamicaLab</span></code>, then use <code class="docutils literal"><span class="pre">__init__.py</span></code> located into the root directory.</p>
+</div>
+<div class="section" id="add-documentation-page">
+<h2>3. Add documentation page<a class="headerlink" href="#add-documentation-page" title="Permalink to this headline">¶</a></h2>
+<p>For each new function or modification, we require a up-to-date documentation. The documentation should be included into the source code. We use <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. to automatically generate documentation, so you should use <code class="docutils literal"><span class="pre">rst</span></code> format.</p>
+<p>After having added a clear documentation to your code, you need to link the methods or module into Sphinx generator. To do so, locate the directory <code class="docutils literal"><span class="pre">doc/source/reference</span></code>. Then, select the appropriate <code class="docutils literal"><span class="pre">index.rst</span></code>, and add below <code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> your new method. For example:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> <span class="nf">generated/</span>
+
+   method_1
+   method_2
+   new_method
+</pre></div>
+</div>
+<p>Check that everything is properly done by building the documentation using</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sphinx-build -b html <span class="nb">source</span> build -a
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-new-pull-request">
+<h2>4. Create a new pull request<a class="headerlink" href="#create-a-new-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>When everything is tested and clean, create a new pull request on the <code class="docutils literal"><span class="pre">master</span></code> branch of the repo (See <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github instructions</a>). Your pull request will be reviewed. If everything goes well, your modification will be merged on the <code class="docutils literal"><span class="pre">master</span></code> branch.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/drawing/index.html">Drawing</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="reference/drawing/generated/dynamicalab.drawing.draw_networks.html" title="previous chapter">dynamicalab.drawing.draw_networks</a></li>
+      <li>Next: <a href="contributors.html" title="next chapter">Contributors</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/contributing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
