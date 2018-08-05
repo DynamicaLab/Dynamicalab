@@ -177,7 +177,7 @@ def draw_networks(G, pos, ax, mu=0.08,
 			A dictionnary of nodes position.
 
 		ax : Matplotlib Axes object
-			Draw the edges in the specified Matplotlib axes.
+			Draw the network in the specified Matplotlib axes.
 	
 		mu : float : (default=0.05)
 			Level of curvature. Should always be positive. If zero, then edges are straight.  

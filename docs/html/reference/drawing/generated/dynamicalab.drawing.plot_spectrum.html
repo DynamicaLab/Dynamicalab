@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.drawing.plot_spectrum &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="How to contribute" href="../../../contributing.html" />
+    <link rel="prev" title="dynamicalab.drawing.draw_networks" href="dynamicalab.drawing.draw_networks.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dynamicalab-drawing-plot-spectrum">
+<h1>dynamicalab.drawing.plot_spectrum<a class="headerlink" href="#dynamicalab-drawing-plot-spectrum" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dynamicalab.drawing.plot_spectrum">
+<code class="descclassname">dynamicalab.drawing.</code><code class="descname">plot_spectrum</code><span class="sig-paren">(</span><em>ax</em>, <em>matrix_generator</em>, <em>n_networks=20</em>, <em>nbins=100</em>, <em>vals=[]</em>, <em>axvline_color='#ef8a62'</em>, <em>bar_color='#67a9cf'</em>, <em>normed=True</em>, <em>xlabel='$\\lambda$'</em>, <em>ylabel='$\\rho(\\lambda)$'</em>, <em>label_fontsize=13</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/plots.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot an histogram of the density spectrum of a family of matrices.</p>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">Matplotlib Axes object</span></dt>
+<dd>Draw the spectrum in the specified Matplotlib axes.</dd>
+<dt>matrix_generator <span class="classifier-delimiter">:</span> <span class="classifier">function</span></dt>
+<dd>Random generator of the random matrices. Check the example to convert networks to matrices.</dd>
+<dt>n_networks <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=20)</span></dt>
+<dd>Number of networks to sample the statistics</dd>
+<dt>n_bins <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(defualt=100)</span></dt>
+<dd>Number of bins of the histogram.</dd>
+<dt>vals <span class="classifier-delimiter">:</span> <span class="classifier">list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=[])</span></dt>
+<dd>Draw a vertical line for each value in the list</dd>
+<dt>axvline_color <span class="classifier-delimiter">:</span> <span class="classifier">str or list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#ef8a62”)</span></dt>
+<dd>If a string, each vertical lines will be this color. If a list, it gives the color of each vertical line for elements of <code class="docutils literal"><span class="pre">vals</span></code>, and must be the same length as <code class="docutils literal"><span class="pre">vals</span></code>.</dd>
+<dt>bar_color <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#67a9cf”)</span></dt>
+<dd>Fill color of the bars of the histogram.</dd>
+<dt>normed <span class="classifier-delimiter">:</span> <span class="classifier">Bool</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=True)</span></dt>
+<dd>If <code class="docutils literal"><span class="pre">True</span></code>, the integral of the histogram is equal to one.</dd>
+<dt>xlabel <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default= <span class="math">\(\lambda\)</span> )</span></dt>
+<dd>Label of the X axis.</dd>
+<dt>ylabel <span class="classifier-delimiter">:</span> <span class="classifier">str :</span></dt>
+<dd>Label of the Y axis.</dd>
+<dt>label_fontsize <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=13)</span></dt>
+<dd>Fontsize of the labels</dd>
+</dl>
+<p><strong>Example</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">matrix_generator</span><span class="p">():</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">draw</span><span class="o">.</span><span class="n">plot_spectrum</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">matrix_generator</span><span class="p">,</span> 
+                        <span class="n">n_networks</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+                        <span class="n">nbins</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+                        <span class="n">vals</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="o">*</span><span class="mf">0.5</span><span class="p">],</span> 
+                        <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">label_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/spectrum_example.png" class="align-center" src="../../../_images/spectrum_example.png" />
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drawing</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Reference</a><ul>
+  <li><a href="../index.html">Drawing</a><ul>
+      <li>Previous: <a href="dynamicalab.drawing.draw_networks.html" title="previous chapter">dynamicalab.drawing.draw_networks</a></li>
+      <li>Next: <a href="../../../contributing.html" title="next chapter">How to contribute</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/reference/drawing/generated/dynamicalab.drawing.plot_spectrum.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
