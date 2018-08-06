@@ -47,12 +47,12 @@
 <div class="section" id="clone-the-repository">
 <h2>1. Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this headline">¶</a></h2>
 <p>Clone the <a class="reference external" href="https://github.com/DynamicaUL/Dynamica-lab">DynamicaLab</a>. repository. Do your modifications in the code on a separate branch.</p>
-<p>We suggest the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> style guide for Python code. Even though it won’t be enforced, we suggest to implement test functions for each method.</p>
+<p>We suggest the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> style guide for Python code. Even though it won’t be enforced, we suggest implementing test functions for each method.</p>
 </div>
 <div class="section" id="link-your-packages">
 <h2>2. Link your packages<a class="headerlink" href="#link-your-packages" title="Permalink to this headline">¶</a></h2>
-<p>If your modification include adding functions or modules, please link them into the main module. This is done by modifying the corresponding <code class="docutils literal"><span class="pre">__init__.py</span></code> that is found in the directory of the module.</p>
-<p>For instance, if you add a file into the drawing module. Then, in <code class="docutils literal"><span class="pre">/drawing/__init__.py</span></code>, you should add</p>
+<p>If your modification includes adding functions or modules, please add them into the main module. This is done by modifying the corresponding <code class="docutils literal"><span class="pre">__init__.py</span></code> that is found in the directory of the module.</p>
+<p>For instance, if you add a file into the drawing module, then you should add in <code class="docutils literal"><span class="pre">/drawing/__init__.py</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.new_file</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
@@ -60,8 +60,8 @@
 </div>
 <div class="section" id="add-documentation-page">
 <h2>3. Add documentation page<a class="headerlink" href="#add-documentation-page" title="Permalink to this headline">¶</a></h2>
-<p>For each new function or modification, we require a up-to-date documentation. The documentation should be included into the source code. We use <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. to automatically generate documentation, so you should use <code class="docutils literal"><span class="pre">rst</span></code> format.</p>
-<p>After having added a clear documentation to your code, you need to link the methods or module into Sphinx generator. To do so, locate the directory <code class="docutils literal"><span class="pre">doc/source/reference</span></code>. Then, select the appropriate <code class="docutils literal"><span class="pre">index.rst</span></code>, and add below <code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> your new method. For example:</p>
+<p>For each new function or modification, we require an up-to-date documentation. The documentation should be included into the source code. We use <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. to automatically generate documentation, so you should use <code class="docutils literal"><span class="pre">rst</span></code> format. To add images, please place them in <code class="docutils literal"><span class="pre">docs/source/_static/assets/</span></code>.</p>
+<p>After documenting your code, you need to link the methods or modules into Sphinx generator. To do so, locate the directory <code class="docutils literal"><span class="pre">doc/source/reference</span></code>. Then, select the appropriate <code class="docutils literal"><span class="pre">index.rst</span></code>, and add your new method below <code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> . For example:</p>
 <div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
    <span class="nc">:toctree:</span> <span class="nf">generated/</span>
 
@@ -74,11 +74,11 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>make html
 </pre></div>
 </div>
-<p>You can verify that the documentation by opening <code class="docutils literal"><span class="pre">/docs/index.html</span></code>.</p>
+<p>You can verify the documentation by opening <code class="docutils literal"><span class="pre">/docs/index.html</span></code>.</p>
 </div>
 <div class="section" id="create-a-new-pull-request">
 <h2>4. Create a new pull request<a class="headerlink" href="#create-a-new-pull-request" title="Permalink to this headline">¶</a></h2>
-<p>When everything is tested and clean, create a new pull request on the <code class="docutils literal"><span class="pre">master</span></code> branch of the repo (See <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github instructions</a>). Your pull request will be reviewed. If everything goes well, your modification will be merged on the <code class="docutils literal"><span class="pre">master</span></code> branch.</p>
+<p>When everything is tested and cleaned, create a new pull request on the <code class="docutils literal"><span class="pre">master</span></code> branch of the repo (See <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github instructions</a>). Your pull request will be reviewed. If everything goes well, your modification will be merged on the <code class="docutils literal"><span class="pre">master</span></code> branch.</p>
 </div>
 </div>
 

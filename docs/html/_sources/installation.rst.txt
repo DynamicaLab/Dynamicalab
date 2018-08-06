@@ -10,7 +10,7 @@ Then, install the module:
 	python setup.py install
 
 
-You can now test:
+You can now import the module in python:
 
 .. code:: python
 	
