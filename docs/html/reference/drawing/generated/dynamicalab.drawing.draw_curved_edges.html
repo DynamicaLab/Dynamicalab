@@ -47,14 +47,14 @@
 <dl class="function">
 <dt id="dynamicalab.drawing.draw_curved_edges">
 <code class="descclassname">dynamicalab.drawing.</code><code class="descname">draw_curved_edges</code><span class="sig-paren">(</span><em>edges</em>, <em>pos</em>, <em>ax</em>, <em>mu=0.05</em>, <em>edge_color='black'</em>, <em>edge_width=1.0</em>, <em>alpha=1.0</em>, <em>arrow_scale=20.0</em>, <em>loopsize=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/draw.html#draw_curved_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.draw_curved_edges" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function plot the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
-to plot an edge that does a circle passing throught the node. The size of the circle is controlled by the parameter <code class="docutils literal"><span class="pre">loopsize</span></code>.</p>
+<dd><p>This function plots the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
+to plot an edge that does a circle passing through the node. The size of the circle is controlled by the parameter <code class="docutils literal"><span class="pre">loopsize</span></code>.</p>
 <p><strong>Parameters</strong></p>
 <dl class="docutils">
 <dt>edges <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>A list of edges succh taht edges are tuple of node ids, <code class="docutils literal"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</dd>
-<dt>pos <span class="classifier-delimiter">:</span> <span class="classifier">dictionnary</span></dt>
-<dd>A dictionnary of nodes position.</dd>
+<dd>A list of edges in the tuple format of node ids, <code class="docutils literal"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</dd>
+<dt>pos <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>A dictionary of nodes position.</dd>
 <dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">Matplotlib Axes object</span></dt>
 <dd>Draw the edges in the specified Matplotlib axes.</dd>
 <dt>mu <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.05)</span></dt>
@@ -62,9 +62,9 @@ to plot an edge that does a circle passing throught the node. The size of the ci
 <dt>edge_color <span class="classifier-delimiter">:</span> <span class="classifier">str or list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”black”)</span></dt>
 <dd>If a list, then each entry is the color of the edge when iterated through edges. If a string, then each edge will have the same color.</dd>
 <dt>alpha <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1)</span></dt>
-<dd>Edges opacity</dd>
+<dd>Edges opacity.</dd>
 <dt>arrow_scale <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=20)</span></dt>
-<dd>Control the size of the arrows. If equal to zero, then the arrows become invisible.</dd>
+<dd>Control the size of the arrows. If equal to zero, then the arrows are invisible.</dd>
 <dt>loopsize <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0)</span></dt>
 <dd>If <code class="docutils literal"><span class="pre">edges</span></code> contains self-loops, i.e. <code class="docutils literal"><span class="pre">edge==(nodeA,</span> <span class="pre">nodeA)</span></code>, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by <code class="docutils literal"><span class="pre">loopsize</span></code></dd>
 </dl>

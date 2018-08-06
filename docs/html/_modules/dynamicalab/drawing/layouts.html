@@ -44,7 +44,7 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <div class="viewcode-block" id="group_radial_layout"><a class="viewcode-back" href="../../../reference/drawing/generated/dynamicalab.drawing.group_radial_layout.html#dynamicalab.drawing.group_radial_layout">[docs]</a><span class="k">def</span> <span class="nf">group_radial_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Construct a circular layout of nodes with groups. Each group is separated by a certain angle.</span>
+    <span class="sd">&quot;&quot;&quot;This constructs a circular layout of nodes with groups. Each group is separated by a certain angle.</span>
 
 <span class="sd">    **Parameters**</span>
 
@@ -73,7 +73,7 @@
 <span class="sd">    **Returns**</span>
 
 <span class="sd">    dict</span>
-<span class="sd">        Dictionnary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. </span>
+<span class="sd">        Dictionary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. </span>
 
 <span class="sd">    .. code:: python</span>
 
