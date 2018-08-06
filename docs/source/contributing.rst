@@ -29,7 +29,7 @@ If you plan to add a new submodule to ``DynamicaLab``, then use ``__init__.py`` 
 3. Add documentation page
 ==========================
 
-For each new function or modification, we require a up-to-date documentation. The documentation should be included into the source code. We use `Sphinx <http://sphinx.pocoo.org>`_. to automatically generate documentation, so you should use ``rst`` format. 
+For each new function or modification, we require a up-to-date documentation. The documentation should be included into the source code. We use `Sphinx <http://sphinx.pocoo.org>`_. to automatically generate documentation, so you should use ``rst`` format. To add images, please place them in ``docs/source/_static/assets/``.
 
 After having added a clear documentation to your code, you need to link the methods or module into Sphinx generator. To do so, locate the directory ``doc/source/reference``. Then, select the appropriate ``index.rst``, and add below ``.. autosummary::`` your new method. For example:
 
@@ -44,13 +44,15 @@ After having added a clear documentation to your code, you need to link the meth
 
 
 
-Check that everything is properly done by building the documentation using
+Compile the documentation by doing:
 
 
 .. code-block:: bash
 
-	sphinx-build -b html source build -a
+	make html
 
+
+You can verify that the documentation by opening ``/docs/index.html``.
 
 4. Create a new pull request
 ============================
