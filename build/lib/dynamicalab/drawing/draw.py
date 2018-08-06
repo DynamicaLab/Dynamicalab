@@ -275,7 +275,7 @@ def draw_networks(G, pos, ax, mu=0.08,
 	"""
 
 	# Edges
-	weights = [0]*len(G.edges())
+	weights = [0]*G.number_of_edges()
 	for i,edge in enumerate(G.edges()):
 		if use_edge_weigth:
 			weights[i] = G[edge[0]][edge[1]]['weight']

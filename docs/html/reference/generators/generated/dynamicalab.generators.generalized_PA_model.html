@@ -1,0 +1,188 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.generators.generalized_PA_model &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="How to contribute" href="../../../contributing.html" />
+    <link rel="prev" title="Network generators" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dynamicalab-generators-generalized-pa-model">
+<h1>dynamicalab.generators.generalized_PA_model<a class="headerlink" href="#dynamicalab-generators-generalized-pa-model" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dynamicalab.generators.generalized_PA_model">
+<code class="descclassname">dynamicalab.generators.</code><code class="descname">generalized_PA_model</code><span class="sig-paren">(</span><em>nu</em>, <em>p</em>, <em>N</em>, <em>directed=False</em>, <em>max_step=10000.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/kernel.html#generalized_PA_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.generators.generalized_PA_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a network using the generalized preferential attachment model. The process goes as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Initialize the network with two connected nodes.</li>
+<li><dl class="first docutils">
+<dt>Choose a birth event with probability <code class="docutils literal"><span class="pre">p</span></code>, or a growing event with probability <code class="docutils literal"><span class="pre">1-p</span></code>. Then:</dt>
+<dd><ol class="first last loweralpha">
+<li>If a birth event, choose and place a new node in the network.</li>
+<li>If a growth event, choose an existing node proportionnal to its total degree powers <code class="docutils literal"><span class="pre">nu</span></code>.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>Choose an existing node following 2b.</li>
+<li>Connect the node from step 2 with node from step 3.</li>
+<li>Repeat steps 2,3,4 until the number <code class="docutils literal"><span class="pre">N</span></code> is reached.</li>
+</ol>
+</div></blockquote>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>nu <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Kernel power.</dd>
+<dt>p <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Birth probability.</dd>
+<dt>N <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Number of nodes. The estimated steps to reach <code class="docutils literal"><span class="pre">N</span></code> nodes is <code class="docutils literal"><span class="pre">N/p</span></code>.</dd>
+<dt>directed <span class="classifier-delimiter">:</span> <span class="classifier">bool</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=False)</span></dt>
+<dd>Construct a directed network. If true, new edges are connected toward older nodes and the output is a <code class="docutils literal"><span class="pre">nx.Digraph</span></code></dd>
+<dt>max_step <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1e4)</span></dt>
+<dd>Maximum number of events before the algorithm ends. This does not apply if the desired number of nodes is reached.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="docutils">
+<dt>nx.Digraph or nx.Graph</dt>
+<dd>The resulting graph.</dd>
+</dl>
+<p><strong>Raise</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">ValueError</span></code>&nbsp;</dt>
+<dd>Occurs if the birth probability <code class="docutils literal"><span class="pre">p</span></code> is smaller or equal to zero.</dd>
+</dl>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
+
+<span class="n">nu</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">dlb</span><span class="o">.</span><span class="n">generalized_PA_model</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference external" href="https://arxiv.org/pdf/1803.09191.pdf">Young et al., 2018</a> for an intensive description of the model.</p>
+</div>
+<img alt="../../../_images/zoo.png" class="align-center" src="../../../_images/zoo.png" />
+<p>Example of networks for <code class="docutils literal"><span class="pre">p=1</span></code>. Figure inspired of <a class="reference external" href="https://arxiv.org/pdf/1803.09191.pdf">Young et al., 2018</a>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../drawing/index.html">Drawing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Network generators</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Reference</a><ul>
+  <li><a href="../index.html">Network generators</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Network generators</a></li>
+      <li>Next: <a href="../../../contributing.html" title="next chapter">How to contribute</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/reference/generators/generated/dynamicalab.generators.generalized_PA_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

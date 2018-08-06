@@ -1,4 +1,4 @@
-.. _reference:
+.. _reference:   
 
 Reference
 *********
@@ -10,3 +10,4 @@ Reference
    introduction
    algorithms/index
    drawing/index
+   generators/index       
