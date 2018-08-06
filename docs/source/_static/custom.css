@@ -191,5 +191,11 @@ div.admonition p.admonition-title {
     line-height: 1.5;
 }
 
+dl.function dd p {
+	/*border-top: solid 1px #F0F0F0;*/
+	padding-top: 23px;
+}
 
-
+dl.function dd strong {
+	font-size: 110%;
+}

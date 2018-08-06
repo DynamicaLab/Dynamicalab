@@ -15,6 +15,7 @@ dynamicalab/drawing/draw.py
 dynamicalab/drawing/layouts.py
 dynamicalab/drawing/plots.py
 dynamicalab/generators/__init__.py
+dynamicalab/generators/kernel.py
 dynamicalab/tests/__init__.py
 dynamicalab/tests/test.py
 dynamicalab/tests/test_exceptions.py
