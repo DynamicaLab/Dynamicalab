@@ -7,18 +7,18 @@ from matplotlib.font_manager import FontProperties
 
 
 def draw_curved_edges(edges, pos, ax, mu=0.05, edge_color="black", edge_width=1.0, alpha=1.0, arrow_scale=20.0, loopsize=0):
-	"""This function plot the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
-		to plot an edge that does a circle passing throught the node. The size of the circle is controlled by the parameter ``loopsize``. 
+	"""This function plots the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
+		to plot an edge that does a circle passing through the node. The size of the circle is controlled by the parameter ``loopsize``. 
 		
 
 		**Parameters**
 		
 	
 		edges : list
-			A list of edges succh taht edges are tuple of node ids, ``(nodeA, nodeB)``.
+			A list of edges in the tuple format of node ids, ``(nodeA, nodeB)``.
 		
-		pos : dictionnary
-			A dictionnary of nodes position.
+		pos : dict
+			A dictionary of nodes position.
 
 		ax : Matplotlib Axes object
 			Draw the edges in the specified Matplotlib axes.
@@ -30,10 +30,10 @@ def draw_curved_edges(edges, pos, ax, mu=0.05, edge_color="black", edge_width=1.
 			If a list, then each entry is the color of the edge when iterated through edges. If a string, then each edge will have the same color.
 		
 		alpha : float : (default=1)
-			Edges opacity
+			Edges opacity.
 
 		arrow_scale : float : (default=20)
-			Control the size of the arrows. If equal to zero, then the arrows become invisible.
+			Control the size of the arrows. If equal to zero, then the arrows are invisible.
 
 		loopsize : float : (default=0)
 			If ``edges`` contains self-loops, i.e. ``edge==(nodeA, nodeA)``, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by ``loopsize``
@@ -152,7 +152,7 @@ def draw_networks(G, pos, ax, mu=0.08,
 					edge_color="black", 
 					edge_width=1.0, 
 					edge_alpha=1.0,
-					use_edge_weigth=True,
+					use_edge_weigth=False,
 					node_width=1.0,
 					node_size=80.0,
 					node_border_color="#404040",
@@ -173,8 +173,8 @@ def draw_networks(G, pos, ax, mu=0.08,
 		G : Networkx Graph
 			A Networkx ``Graph`` or ``DiGraph``.
 		
-		pos : dictionnary
-			A dictionnary of nodes position.
+		pos : dict
+			A dictionary of nodes positions.
 
 		ax : Matplotlib Axes object
 			Draw the network in the specified Matplotlib axes.
@@ -183,7 +183,7 @@ def draw_networks(G, pos, ax, mu=0.08,
 			Level of curvature. Should always be positive. If zero, then edges are straight.  
 
 		edge_color :  str or list : (default="black")
-			If a list, then each entry is the color of the edge when iterated through edges. If a string, then each edge will have the same color.
+			If a list, then each entry matches the color of the edge. when iterated through ``edges``. If a string, then each edge will have the same color.
 		
 		edge_width : float or list : (default=1.0)
 			Use this if ``use_edge_weigth==False`` for edge widths. If a list, each element must be in the same order as ``G.edges()``
@@ -191,14 +191,14 @@ def draw_networks(G, pos, ax, mu=0.08,
 		edge_alpha : float : (default=1)
 			Edges opacity.
 	
-		use_edge_weigth : Bool : (default=True)
+		use_edge_weigth : Bool : (default=False)
 			Use the key ``weight`` of the edges attributes to choose the thickness of the edges.
 
 		node_width : Float : (default=1.0)
-			Node border width
+			Node border width.
 
 		node_size : Float : (default=80)
-			Controls the node size (proportional to radius).
+			Controls the node size (proportional to its radius).
 
 		node_border_color : String : (default="#404040")
 			Node border color.
@@ -210,22 +210,22 @@ def draw_networks(G, pos, ax, mu=0.08,
 			Node opacity.
 
 		arrow_scale : float : (default=20)
-			Control the size of the arrows. If equal to zero, then the arrows become invisible.
+			Control the size of the arrows. If equals to zero, then the arrows are invisible.
 
 		loop_radius : float : (default=0)
-			If ``edges`` contains self-loops, i.e. ``edge==(nodeA, nodeA)``, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by ``loop_radius``
+			If ``edges`` contains self-loops, i.e. ``edge==(nodeA, nodeA)``, then it draws a self-loop which is composed of a simple circle. The radius of the circle is controlled by ``loop_radius``.
 
 		letter : string : (default="")
-			Text that can be postionioned in the figure.
+			Text that can be positioned on the figure.
 
 		letter_fontsize : float : (default=13)
-			Font size of the text 
+			Font size of the text .
 
 		letter_pos : List : (default=[0.87,0.02])
 			Position of the text given in relative size of the plot. The first element is ``x``, the second is ``y``. 
 
 		letter_color : String : (default="black")
-			Color of the text
+			Color of the text.
 		
 		**Example**
 		

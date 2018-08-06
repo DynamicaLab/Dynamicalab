@@ -1,7 +1,7 @@
 import numpy as np
 
 def group_radial_layout(G, groups, radius=1, margin=np.pi/10.0, phase=0.0, dx=0.0, dy=0.0):
-    """Construct a circular layout of nodes with groups. Each group is separated by a certain angle.
+    """This constructs a circular layout of nodes with groups. Each group is separated by a certain angle.
 
     **Parameters**
 
@@ -30,7 +30,7 @@ def group_radial_layout(G, groups, radius=1, margin=np.pi/10.0, phase=0.0, dx=0.
     **Returns**
 
     dict
-        Dictionnary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. 
+        Dictionary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. 
 
     .. code:: python
 
