@@ -24,3 +24,11 @@ Ploting
    :toctree: generated/
 
    plot_spectrum
+
+Layouts
+==========
+
+.. autosummary::
+   :toctree: generated/
+
+   group_radial_layout

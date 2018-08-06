@@ -44,13 +44,15 @@ After having added a clear documentation to your code, you need to link the meth
 
 
 
-Check that everything is properly done by building the documentation using
+Compile the documentation by doing:
 
 
 .. code-block:: bash
 
-	sphinx-build -b html source build -a
+	make html
 
+
+You can verify that the documentation by opening ``/docs/index.html``.
 
 4. Create a new pull request
 ============================

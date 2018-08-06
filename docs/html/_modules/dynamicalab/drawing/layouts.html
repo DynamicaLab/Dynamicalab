@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.drawing.layouts &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.drawing.layouts</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="group_radial_layout"><a class="viewcode-back" href="../../../reference/drawing/generated/dynamicalab.drawing.group_radial_layout.html#dynamicalab.drawing.group_radial_layout">[docs]</a><span class="k">def</span> <span class="nf">group_radial_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct a circular layout of nodes with groups. Each group is separated by a certain angle.</span>
+
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    G : Networkx Graph</span>
+<span class="sd">        A Networkx ``Graph`` or ``DiGraph``.</span>
+
+<span class="sd">    groups : list of lists</span>
+<span class="sd">        A list of groups of nodes. Each element of groups must be a list of ``node_id``. </span>
+
+<span class="sd">    radius : float : (default=1)</span>
+<span class="sd">        Radius of the circle. Could be useful if you plan to plot two graphs of different size on the same figure.</span>
+
+<span class="sd">    margin : float : (default=np.pi/10)</span>
+<span class="sd">        Angle space between groups. Increase to add space between groups.</span>
+
+<span class="sd">    phase : float : (default=0.0)</span>
+<span class="sd">        Initial phase of the circle. This mostly induce a rotation of the nodes on the circle.</span>
+
+<span class="sd">    dx : float : (default=0.0)</span>
+<span class="sd">        X translation of nodes.</span>
+
+<span class="sd">    dy : float : (default=0.0)</span>
+<span class="sd">        Y translation of nodes.</span>
+
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    dict</span>
+<span class="sd">        Dictionnary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. </span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        {</span>
+<span class="sd">            0 : [-0.5,0.1],</span>
+<span class="sd">            1 : [-0.1, 0.5],</span>
+<span class="sd">            ...</span>
+<span class="sd">        }</span>
+
+<span class="sd">    **Raise**</span>
+<span class="sd">    </span>
+<span class="sd">    ``ValueError``</span>
+<span class="sd">        Occurs if ``groups`` does not contain all nodes (low criterion).</span>
+
+
+<span class="sd">    **Example**</span>
+<span class="sd">    </span>
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import networkx as nx</span>
+<span class="sd">        import dynamicalab.drawing as draw</span>
+<span class="sd">        import matplotlib.pyplot as plt</span>
+<span class="sd">        import seaborn as sns</span>
+
+<span class="sd">        # Generate network</span>
+<span class="sd">        N = 20</span>
+<span class="sd">        G = nx.erdos_renyi_graph(N,0.4)</span>
+
+<span class="sd">        sns.set(style=&quot;ticks&quot;)</span>
+<span class="sd">        fig = plt.figure(figsize=(2,2))</span>
+<span class="sd">        ax = plt.gca()</span>
+
+<span class="sd">        # Divide in three groups</span>
+<span class="sd">        groups = [range(6), range(6,14), range(14,N)]</span>
+<span class="sd">        pos = draw.group_radial_layout(G, groups)</span>
+
+<span class="sd">        node_colors = [&#39;#e41a1c&#39;]*6+[&#39;#377eb8&#39;]*8+[&#39;#4daf4a&#39;]*(N-14)</span>
+<span class="sd">        draw.draw_networks(G, pos, ax, </span>
+<span class="sd">                          mu=0.00, </span>
+<span class="sd">                          arrow_scale=0.0, </span>
+<span class="sd">                          edge_color=&quot;black&quot;, </span>
+<span class="sd">                          node_color=node_colors, </span>
+<span class="sd">                          use_edge_weigth=False)</span>
+
+
+<span class="sd">    .. image:: /_static/assets/circular_layout.png</span>
+<span class="sd">            :align: center</span>
+
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+    
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span><span class="o">!=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">])):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All nodes must be grouped in list in groups.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">n_groups</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+    <span class="n">theta_accessible</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="n">n_groups</span><span class="o">*</span><span class="n">margin</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">theta_accessible</span><span class="o">/</span><span class="n">N</span>
+    
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">phase</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+            <span class="n">t0</span> <span class="o">+=</span> <span class="n">dt</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">radius</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">radius</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+            <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">]</span>
+            
+        <span class="n">t0</span> <span class="o">+=</span> <span class="n">margin</span>
+    
+    <span class="k">return</span> <span class="n">pos</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.drawing.group_radial_layout &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="How to contribute" href="../../../contributing.html" />
+    <link rel="prev" title="dynamicalab.drawing.plot_spectrum" href="dynamicalab.drawing.plot_spectrum.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dynamicalab-drawing-group-radial-layout">
+<h1>dynamicalab.drawing.group_radial_layout<a class="headerlink" href="#dynamicalab-drawing-group-radial-layout" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dynamicalab.drawing.group_radial_layout">
+<code class="descclassname">dynamicalab.drawing.</code><code class="descname">group_radial_layout</code><span class="sig-paren">(</span><em>G</em>, <em>groups</em>, <em>radius=1</em>, <em>margin=0.3141592653589793</em>, <em>phase=0.0</em>, <em>dx=0.0</em>, <em>dy=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/layouts.html#group_radial_layout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.group_radial_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a circular layout of nodes with groups. Each group is separated by a certain angle.</p>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>G <span class="classifier-delimiter">:</span> <span class="classifier">Networkx Graph</span></dt>
+<dd>A Networkx <code class="docutils literal"><span class="pre">Graph</span></code> or <code class="docutils literal"><span class="pre">DiGraph</span></code>.</dd>
+<dt>groups <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd>A list of groups of nodes. Each element of groups must be a list of <code class="docutils literal"><span class="pre">node_id</span></code>.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1)</span></dt>
+<dd>Radius of the circle. Could be useful if you plan to plot two graphs of different size on the same figure.</dd>
+<dt>margin <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=np.pi/10)</span></dt>
+<dd>Angle space between groups. Increase to add space between groups.</dd>
+<dt>phase <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>Initial phase of the circle. This mostly induce a rotation of the nodes on the circle.</dd>
+<dt>dx <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>X translation of nodes.</dd>
+<dt>dy <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>Y translation of nodes.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<dl class="docutils">
+<dt>dict</dt>
+<dd>Dictionnary of positions that can be use directly with <code class="docutils literal"><span class="pre">draw_networks</span></code>. Each key is a <code class="docutils literal"><span class="pre">node_id</span></code> (from <code class="docutils literal"><span class="pre">groups</span></code>) and the value is a position <code class="docutils literal"><span class="pre">[x,y]</span></code>.</dd>
+</dl>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="mi">0</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span>
+    <span class="mi">1</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Raise</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">ValueError</span></code></dt>
+<dd>Occurs if <code class="docutils literal"><span class="pre">groups</span></code> does not contain all nodes (low criterion).</dd>
+</dl>
+<p><strong>Example</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Generate network</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="c1"># Divide in three groups</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">14</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">group_radial_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
+
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#e41a1c&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;#377eb8&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">8</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;#4daf4a&#39;</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">draw</span><span class="o">.</span><span class="n">draw_networks</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> 
+                  <span class="n">mu</span><span class="o">=</span><span class="mf">0.00</span><span class="p">,</span> 
+                  <span class="n">arrow_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
+                  <span class="n">edge_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> 
+                  <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> 
+                  <span class="n">use_edge_weigth</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/circular_layout.png" class="align-center" src="../../../_images/circular_layout.png" />
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drawing</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Reference</a><ul>
+  <li><a href="../index.html">Drawing</a><ul>
+      <li>Previous: <a href="dynamicalab.drawing.plot_spectrum.html" title="previous chapter">dynamicalab.drawing.plot_spectrum</a></li>
+      <li>Next: <a href="../../../contributing.html" title="next chapter">How to contribute</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../../../_sources/reference/drawing/generated/dynamicalab.drawing.group_radial_layout.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
