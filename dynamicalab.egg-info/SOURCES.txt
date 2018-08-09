@@ -9,12 +9,14 @@ dynamicalab.egg-info/dependency_links.txt
 dynamicalab.egg-info/requires.txt
 dynamicalab.egg-info/top_level.txt
 dynamicalab/algorithms/__init__.py
+dynamicalab/classes/Dataset.py
 dynamicalab/classes/__init__.py
 dynamicalab/drawing/__init__.py
 dynamicalab/drawing/draw.py
 dynamicalab/drawing/layouts.py
 dynamicalab/drawing/plots.py
 dynamicalab/generators/__init__.py
+dynamicalab/generators/bipartites.py
 dynamicalab/generators/kernel.py
 dynamicalab/tests/__init__.py
 dynamicalab/tests/test.py

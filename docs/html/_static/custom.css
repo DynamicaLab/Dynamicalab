@@ -160,6 +160,21 @@ dl.docutils dt {
 	color: black;
 }
 
+dl.class > :first-child {
+	background: #F0F0F0;
+	padding: 8px 8px 8px 8px;
+}
+
+
+dl.method {
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+dl.method > :first-child {
+	background: #F0F0F0;
+	padding: 8px 8px 8px 8px;
+}
 code.descclassname {
 	color: black;
 }

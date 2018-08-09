@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.generators.bipartites &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.generators.bipartites</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">from</span> <span class="nn">dynamicalab</span> <span class="k">import</span> <span class="n">Dataset</span>
+
+
+<span class="c1"># def pool_blogs(save_path=&quot;./data&quot;):</span>
+
+<span class="c1"># 	url = &quot;http://www-personal.umich.edu/~mejn/netdata/polblogs.zip&quot;</span>
+<span class="c1"># 	data_type = &quot;gml&quot;</span>
+<span class="c1"># 	compress_type = &quot;ZIP&quot;</span>
+<span class="c1"># 	infos = {</span>
+<span class="c1"># 		&quot;type&quot; : data_type,</span>
+<span class="c1"># 		&quot;url&quot; : url,</span>
+<span class="c1"># 		&quot;description&quot; : &quot;A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance. Please cite L. A. Adamic and N. Glance, \&quot;The political blogosphere and the 2004 US Election\&quot;, in Proceedings of the WWW-2005 Workshop on the Weblogging Ecosystem (2005). Thanks to Lada Adamic for permission to post these data on this web site.&quot;</span>
+<span class="c1"># 	}</span>
+
+<span class="c1"># 	data = Dataset(url, save_path, data_type, compress_type, infos)</span>
+<span class="c1"># 	return data</span>
+
+
+<span class="c1"># def internet2006(save_path=&quot;./data&quot;):</span>
+
+<span class="c1"># 	url = &quot;http://www-personal.umich.edu/~mejn/netdata/as-22july06.zip&quot;</span>
+<span class="c1"># 	data_type = &quot;gml&quot;</span>
+<span class="c1"># 	compress_type = &quot;ZIP&quot;</span>
+<span class="c1"># 	infos = {</span>
+<span class="c1"># 		&quot;type&quot; : data_type,</span>
+<span class="c1"># 		&quot;url&quot; : url,</span>
+<span class="c1"># 		&quot;description&quot; : &quot;a symmetrized snapshot of the structure of the Internet at the level of autonomous systems, reconstructed from BGP tables posted by the University of Oregon Route Views Project. This snapshot was created by Mark Newman from data for July 22, 2006 and is not previously published.&quot;	}</span>
+
+<span class="c1"># 	data = Dataset(url, save_path, data_type, compress_type, infos)</span>
+<span class="c1"># 	return data</span>
+
+
+
+<div class="viewcode-block" id="plants_pollinators_Ramirez1992"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Ramirez1992.html#dynamicalab.plants_pollinators_Ramirez1992">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Ramirez1992</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Ramirez et al., 1992 &lt;https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html&gt;`_  .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Ramirez, N., and Y. Brito. 1992. Pollination Biology in a Palm Swamp Community in the Venezuelan Central Plains. Botanical Journal of the Linnean Society 110:277-302.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/ram_matr.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;ram_matr.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study was conducted in the central plains of Guarico State, Venezuela. Field observations were made in the years 1983, 1984 and 1989. This paper characterizes the floral biology and pollination spectrum of the &quot;morichal&quot; community, and tests whether pollination systems and unspecialized pollen transpotation are in accord with the high proportion of self-compatibility found in the &quot;morichal.&quot; (The &quot;morichal&quot; is a tropical swamp community dominated by Mauritia flexuosa.)&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The authors recorded the identities of flower visitor and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s2">&quot;Ramirez, N., and Y. Brito. 1992. Pollination Biology in a Palm Swamp Community in the Venezuelan Central Plains. Botanical Journal of the Linnean Society 110:277-302.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_McCullen1993"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_McCullen1993.html#dynamicalab.plants_pollinators_McCullen1993">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_McCullen1993</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `McCullen C.K., 1993 &lt;https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html&gt;`_  .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	McCullen, C. K. 1993. Flower-visiting insects of the Galapagos Islands. Pan-Pacific Entomologist 69:95-106.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/mc_mullen.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;mc_mullen.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study presents a compilation of records on plant-flower visitor interactions in the Galápagos archipelago found in the literature. Results of a field study conducted on Pinta Island recording the interactions between six plant species and their flower visitors are also reported.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The author recorded the identities of flower visitor and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s2">&quot;McCullen, C. K. 1993. Flower-visiting insects of the Galapagos Islands. Pan-Pacific Entomologist 69:95-106.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes/index.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/datasets/index.html">Datasets</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
