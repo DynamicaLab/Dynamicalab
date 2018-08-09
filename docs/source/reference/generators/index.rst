@@ -14,3 +14,5 @@ Kernel-based
    :toctree: generated/
 
    generalized_PA_model
+
+
