@@ -2,36 +2,6 @@
 from dynamicalab import Dataset
 
 
-# def pool_blogs(save_path="./data"):
-
-# 	url = "http://www-personal.umich.edu/~mejn/netdata/polblogs.zip"
-# 	data_type = "gml"
-# 	compress_type = "ZIP"
-# 	infos = {
-# 		"type" : data_type,
-# 		"url" : url,
-# 		"description" : "A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance. Please cite L. A. Adamic and N. Glance, \"The political blogosphere and the 2004 US Election\", in Proceedings of the WWW-2005 Workshop on the Weblogging Ecosystem (2005). Thanks to Lada Adamic for permission to post these data on this web site."
-# 	}
-
-# 	data = Dataset(url, save_path, data_type, compress_type, infos)
-# 	return data
-
-
-# def internet2006(save_path="./data"):
-
-# 	url = "http://www-personal.umich.edu/~mejn/netdata/as-22july06.zip"
-# 	data_type = "gml"
-# 	compress_type = "ZIP"
-# 	infos = {
-# 		"type" : data_type,
-# 		"url" : url,
-# 		"description" : "a symmetrized snapshot of the structure of the Internet at the level of autonomous systems, reconstructed from BGP tables posted by the University of Oregon Route Views Project. This snapshot was created by Mark Newman from data for July 22, 2006 and is not previously published."	}
-
-# 	data = Dataset(url, save_path, data_type, compress_type, infos)
-# 	return data
-
-
-
 def plants_pollinators_Ramirez1992(save_path="./data"):
 	"""Plant pollinators dataset of `Ramirez et al., 1992 <https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html>`_  .
 	
