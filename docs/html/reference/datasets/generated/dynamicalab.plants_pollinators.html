@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dynamicalab.plants_pollinators_Ramirez1992 &#8212; DynamicaLab 0.0.1 documentation</title>
+    <title>dynamicalab.plants_pollinators &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="dynamicalab.plants_pollinators_McCullen1993" href="dynamicalab.plants_pollinators_McCullen1993.html" />
-    <link rel="prev" title="dynamicalab.plants_pollinators" href="dynamicalab.plants_pollinators.html" />
+    <link rel="next" title="dynamicalab.plants_pollinators_Ramirez1992" href="dynamicalab.plants_pollinators_Ramirez1992.html" />
+    <link rel="prev" title="Datasets" href="../index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -42,24 +42,27 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="dynamicalab-plants-pollinators-ramirez1992">
-<h1>dynamicalab.plants_pollinators_Ramirez1992<a class="headerlink" href="#dynamicalab-plants-pollinators-ramirez1992" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dynamicalab-plants-pollinators">
+<h1>dynamicalab.plants_pollinators<a class="headerlink" href="#dynamicalab-plants-pollinators" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dynamicalab.plants_pollinators_Ramirez1992">
-<code class="descclassname">dynamicalab.</code><code class="descname">plants_pollinators_Ramirez1992</code><span class="sig-paren">(</span><em>save_path='./data'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/bipartites.html#plants_pollinators_Ramirez1992"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.plants_pollinators_Ramirez1992" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html">Ramirez et al., 1992</a>  .</p>
-<p><strong>Reference</strong></p>
-<p>Ramirez, N., and Y. Brito. 1992. Pollination Biology in a Palm Swamp Community in the Venezuelan Central Plains. Botanical Journal of the Linnean Society 110:277-302.</p>
-<p><strong>Parameters</strong></p>
+<dt id="dynamicalab.plants_pollinators">
+<code class="descclassname">dynamicalab.</code><code class="descname">plants_pollinators</code><span class="sig-paren">(</span><em>save_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/bipartites.html#plants_pollinators"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.plants_pollinators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator through all plants pollinators datasets.</p>
+<p><strong>Parameter</strong></p>
 <dl class="docutils">
-<dt>save_path <span class="classifier-delimiter">:</span> <span class="classifier">String</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”./data”)</span></dt>
+<dt>save_path <span class="classifier-delimiter">:</span> <span class="classifier">String</span></dt>
 <dd>Directory to which the data will be saved.</dd>
 </dl>
-<p><strong>Returns</strong></p>
-<dl class="docutils">
-<dt>Dataset </dt>
-<dd>Object dataset. Use <code class="docutils literal"><span class="pre">dataset.graph()</span></code> to download the graph.</dd>
-</dl>
+<p><strong>Example</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">dlb</span><span class="o">.</span><span class="n">plants_pollinators</span><span class="p">(</span><span class="s2">&quot;./da&quot;</span><span class="p">):</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">graph</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It loads all methods of <code class="docutils literal"><span class="pre">Dynamicalab</span></code> for which the name contains <code class="docutils literal"><span class="pre">plants_pollinators_</span></code>. 
+Therefore, the name convention must be enforced.</p>
+</div>
 </dd></dl>
 
 </div>
@@ -105,8 +108,8 @@
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">Reference</a><ul>
   <li><a href="../index.html">Datasets</a><ul>
-      <li>Previous: <a href="dynamicalab.plants_pollinators.html" title="previous chapter">dynamicalab.plants_pollinators</a></li>
-      <li>Next: <a href="dynamicalab.plants_pollinators_McCullen1993.html" title="next chapter">dynamicalab.plants_pollinators_McCullen1993</a></li>
+      <li>Previous: <a href="../index.html" title="previous chapter">Datasets</a></li>
+      <li>Next: <a href="dynamicalab.plants_pollinators_Ramirez1992.html" title="next chapter">dynamicalab.plants_pollinators_Ramirez1992</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -134,7 +137,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../../../_sources/reference/datasets/generated/dynamicalab.plants_pollinators_Ramirez1992.rst.txt"
+      <a href="../../../_sources/reference/datasets/generated/dynamicalab.plants_pollinators.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

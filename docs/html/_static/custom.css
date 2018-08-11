@@ -188,7 +188,6 @@ span.classifier {
 }
 
 
-
 /*
 	Admonition
 */
@@ -213,4 +212,9 @@ dl.function dd p {
 
 dl.function dd strong {
 	font-size: 110%;
+}
+
+
+a.reference.external {
+	color: #0D8EF3;
 }

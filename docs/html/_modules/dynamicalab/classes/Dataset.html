@@ -71,7 +71,7 @@
 <span class="sd">		Information about the dataset. It is accessible through ``print(dataset)``.</span>
 
 <span class="sd">	&quot;&quot;&quot;</span>
-<div class="viewcode-block" id="Dataset.__init__"><a class="viewcode-back" href="../../../reference/classes/Dataset.html#dynamicalab.Dataset.__init__">[docs]</a>	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="o">=</span><span class="p">{}):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="o">=</span><span class="p">{}):</span>
 		<span class="sd">&quot;&quot;&quot;Initialization of the dataset. Anything is done at this point. To download the dataset, you need to call the method ``dataset.graph()``.</span>
 
 <span class="sd">		**Parameters**</span>
@@ -103,7 +103,7 @@
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_valid_compression</span><span class="p">(</span><span class="n">compress_type</span><span class="p">):</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">compress_type</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">infos</span> <span class="o">=</span> <span class="n">infos</span>
-		<span class="k">return</span></div>
+		<span class="k">return</span>
 
 <div class="viewcode-block" id="Dataset.graph"><a class="viewcode-back" href="../../../reference/classes/Dataset.html#dynamicalab.Dataset.graph">[docs]</a>	<span class="k">def</span> <span class="nf">graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_data2graph</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 		<span class="sd">&quot;&quot;&quot;Construct a networkx Graph of the dataset. </span>
@@ -182,7 +182,9 @@
 				<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
 					<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
 			<span class="k">return</span> <span class="n">G</span>
-
+		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">==</span> <span class="s2">&quot;edgelist&quot;</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+			
 		<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">==</span> <span class="s2">&quot;adjacency&quot;</span><span class="p">:</span>
 			<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 			<span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_numpy_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
