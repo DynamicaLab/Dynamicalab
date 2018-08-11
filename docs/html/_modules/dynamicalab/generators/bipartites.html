@@ -45,35 +45,36 @@
 <span class="kn">from</span> <span class="nn">dynamicalab</span> <span class="k">import</span> <span class="n">Dataset</span>
 
 
-<span class="c1"># def pool_blogs(save_path=&quot;./data&quot;):</span>
+<div class="viewcode-block" id="plants_pollinators"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators.html#dynamicalab.plants_pollinators">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Iterator through all plants pollinators datasets.</span>
+<span class="sd">	</span>
+<span class="sd">	**Parameter**</span>
 
-<span class="c1"># 	url = &quot;http://www-personal.umich.edu/~mejn/netdata/polblogs.zip&quot;</span>
-<span class="c1"># 	data_type = &quot;gml&quot;</span>
-<span class="c1"># 	compress_type = &quot;ZIP&quot;</span>
-<span class="c1"># 	infos = {</span>
-<span class="c1"># 		&quot;type&quot; : data_type,</span>
-<span class="c1"># 		&quot;url&quot; : url,</span>
-<span class="c1"># 		&quot;description&quot; : &quot;A directed network of hyperlinks between weblogs on US politics, recorded in 2005 by Adamic and Glance. Please cite L. A. Adamic and N. Glance, \&quot;The political blogosphere and the 2004 US Election\&quot;, in Proceedings of the WWW-2005 Workshop on the Weblogging Ecosystem (2005). Thanks to Lada Adamic for permission to post these data on this web site.&quot;</span>
-<span class="c1"># 	}</span>
+<span class="sd">	save_path : String</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+<span class="sd">	</span>
+<span class="sd">	**Example**</span>
 
-<span class="c1"># 	data = Dataset(url, save_path, data_type, compress_type, infos)</span>
-<span class="c1"># 	return data</span>
+<span class="sd">	.. code:: python</span>
 
+<span class="sd">		for data in dlb.plants_pollinators(&quot;./da&quot;):</span>
+<span class="sd">			G = data.graph()</span>
 
-<span class="c1"># def internet2006(save_path=&quot;./data&quot;):</span>
+<span class="sd">	.. note:: </span>
 
-<span class="c1"># 	url = &quot;http://www-personal.umich.edu/~mejn/netdata/as-22july06.zip&quot;</span>
-<span class="c1"># 	data_type = &quot;gml&quot;</span>
-<span class="c1"># 	compress_type = &quot;ZIP&quot;</span>
-<span class="c1"># 	infos = {</span>
-<span class="c1"># 		&quot;type&quot; : data_type,</span>
-<span class="c1"># 		&quot;url&quot; : url,</span>
-<span class="c1"># 		&quot;description&quot; : &quot;a symmetrized snapshot of the structure of the Internet at the level of autonomous systems, reconstructed from BGP tables posted by the University of Oregon Route Views Project. This snapshot was created by Mark Newman from data for July 22, 2006 and is not previously published.&quot;	}</span>
+<span class="sd">		It loads all methods of ``Dynamicalab`` for which the name contains ``plants_pollinators_``. </span>
+<span class="sd">		Therefore, the name convention must be enforced.</span>
 
-<span class="c1"># 	data = Dataset(url, save_path, data_type, compress_type, infos)</span>
-<span class="c1"># 	return data</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
+	<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">methods</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">dlb</span><span class="p">)</span>
+	<span class="n">pp_methods</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dlb</span><span class="p">,</span><span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span> <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;plants_pollinators_&quot;</span> <span class="ow">in</span> <span class="n">method</span><span class="p">)]</span>
+	<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">pp_methods</span><span class="p">]</span>
 
-
+	<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
+		<span class="k">yield</span> <span class="n">datasets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+		<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span></div>
 
 <div class="viewcode-block" id="plants_pollinators_Ramirez1992"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Ramirez1992.html#dynamicalab.plants_pollinators_Ramirez1992">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Ramirez1992</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Ramirez et al., 1992 &lt;https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html&gt;`_  .</span>
@@ -109,7 +110,6 @@
 	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">data</span></div>
 
-
 <div class="viewcode-block" id="plants_pollinators_McCullen1993"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_McCullen1993.html#dynamicalab.plants_pollinators_McCullen1993">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_McCullen1993</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `McCullen C.K., 1993 &lt;https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html&gt;`_  .</span>
 <span class="sd">	</span>
@@ -144,7 +144,174 @@
 	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">data</span></div>
 
+<div class="viewcode-block" id="plants_pollinators_Arroyo1992_I"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Arroyo1992_I.html#dynamicalab.plants_pollinators_Arroyo1992_I">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Arroyo1992_I</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Arroyo et al., 1982 &lt;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&gt;`_  at elevation I.</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.</span>
 
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_1_matr.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;arr_1_matr.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study took place at three different altitudinal levels in the Andean (alpine) zone on the Cordon del Crepo in central Chile. This paper reports the results of a community-oriented study on pollination mechanisms in the high temperate Andes and discusses how pollination mechanisms vary with altitude.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The authors recorded the identities of insect and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction. &#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.&#39;</span>	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Arroyo1992_II"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Arroyo1992_II.html#dynamicalab.plants_pollinators_Arroyo1992_II">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Arroyo1992_II</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Arroyo et al., 1982 &lt;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&gt;`_  at elevation II.</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_2_matr.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;arr_2_matr.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study took place at three different altitudinal levels in the Andean (alpine) zone on the Cordon del Crepo in central Chile. This paper reports the results of a community-oriented study on pollination mechanisms in the high temperate Andes and discusses how pollination mechanisms vary with altitude.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The authors recorded the identities of insect and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction. &#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.&#39;</span>	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Arroyo1992_III"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Arroyo1992_III.html#dynamicalab.plants_pollinators_Arroyo1992_III">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Arroyo1992_III</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Arroyo et al., 1982 &lt;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&gt;`_  at elevation III.</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_3_matr.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;arr_3_matr.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study took place at three different altitudinal levels in the Andean (alpine) zone on the Cordon del Crepo in central Chile. This paper reports the results of a community-oriented study on pollination mechanisms in the high temperate Andes and discusses how pollination mechanisms vary with altitude.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The authors recorded the identities of insect and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction. &#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.&#39;</span>	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Barrett1987"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Barrett1987.html#dynamicalab.plants_pollinators_Barrett1987">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Barrett1987</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Barrett &amp; Helenurm, 1987 &lt;https://www.nceas.ucsb.edu/interactionweb/html/barrett_helenurm_1987.html&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Barrett, S. C. H., and K. Helenurm. 1987. The Reproductive-Biology of Boreal Forest Herbs.1. Breeding Systems and Pollination. Canadian Journal of Botany 65:2036-2046.</span>
+<span class="sd">	</span>
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/barrett_matr_f.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;barrett_matr_f.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/barrett_helenurm_1987.htm&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study took place in the boreal forest of central New Brunswick, Canada, from May to September of 1978, 1979, and 1980. The objective was to investigate the role of animals in pollination and seed dispersal. The study was designed to provide basic descriptive information on breeding systems, pollination biology, and phenology of understory herbs.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The authors recorded their data by counting the number of individual flower visitors caught on each plant species. The total number of individuals collected on each plant species provide a rough estimate of the level of visitation that each species received. Data are presented as an interaction frequency matrix, in which cells with positive integers indicate the frequency of interaction between a pair of species, and cells with zeros indicate no interaction.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Barrett, S. C. H., and K. Helenurm. 1987. The Reproductive-Biology of Boreal Forest Herbs.1. Breeding Systems and Pollination. Canadian Journal of Botany 65:2036-2046.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="plants_pollinators_Robsertson1992"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Robsertson1992.html#dynamicalab.plants_pollinators_Robsertson1992">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Robsertson1992</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Robertson 1992 &lt;https://www.nceas.ucsb.edu/interactionweb/html/robertson_1929.html&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Original data: Robertson, C. 1929. Flowers and insects: lists of visitors to four hundred and fifty-three flowers. Carlinville, IL, USA, C. Robertson.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/robertson_1929_matr.txt&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;bipartite&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;robertson_1929_matr.txt&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.nceas.ucsb.edu/interactionweb/html/robertson_1929.html&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The author listed 1429 animal species visiting flowers of 456 plant species that grew in a small area in southwestern Illinois, USA. Marlin and LaBerge (2001) describe Robertson’s methods.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s1">&#39;The author recorded the identities of flower visitor and plant species and their interactions. Data are presented as a binary interaction matrix, in which cells with a &quot;1&quot; indicate an interaction between a pair of species, and a &quot;0&quot; indicates no interaction.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Original data: Robertson, C. 1929. Flowers and insects: lists of visitors to four hundred and fifty-three flowers. Carlinville, IL, USA, C. Robertson.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
 
 
 

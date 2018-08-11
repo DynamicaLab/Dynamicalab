@@ -17,6 +17,7 @@ dynamicalab/drawing/layouts.py
 dynamicalab/drawing/plots.py
 dynamicalab/generators/__init__.py
 dynamicalab/generators/bipartites.py
+dynamicalab/generators/connectomes.py
 dynamicalab/generators/kernel.py
 dynamicalab/tests/__init__.py
 dynamicalab/tests/test.py

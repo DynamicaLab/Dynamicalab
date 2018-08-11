@@ -139,7 +139,9 @@ class Dataset(object):
 				for j in range(A.shape[1]):
 					G.add_edge(i,j, weight=A[i,j])
 			return G
-
+		elif self.data_type == "edgelist":
+			return nx.read_edgelist(path, comments="#")
+			
 		elif self.data_type == "adjacency":
 			A = np.loadtxt(path)
 			return nx.from_numpy_matrix(A)

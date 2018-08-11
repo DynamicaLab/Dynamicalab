@@ -1,0 +1,227 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.generators.connectomes &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.generators.connectomes</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">dynamicalab</span> <span class="k">import</span> <span class="n">Dataset</span>
+
+<div class="viewcode-block" id="connectomes"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.connectomes.html#dynamicalab.connectomes">[docs]</a><span class="k">def</span> <span class="nf">connectomes</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Iterator through all connectomes datasets.</span>
+<span class="sd">	</span>
+<span class="sd">	**Parameter**</span>
+
+<span class="sd">	save_path : String</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+<span class="sd">	</span>
+<span class="sd">	**Example**</span>
+
+<span class="sd">	.. code:: python</span>
+
+<span class="sd">		for data in dlb.connectomes(&quot;./da&quot;):</span>
+<span class="sd">			G = data.graph()</span>
+
+<span class="sd">	.. note:: </span>
+
+<span class="sd">		It loads all methods of ``Dynamicalab`` for which the name contains ``connectomes_``. </span>
+<span class="sd">		Therefore, the name convention must be enforced.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
+	<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">methods</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">dlb</span><span class="p">)</span>
+	<span class="n">pp_methods</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dlb</span><span class="p">,</span><span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span> <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;connectomes_&quot;</span> <span class="ow">in</span> <span class="n">method</span><span class="p">)]</span>
+	<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">pp_methods</span><span class="p">]</span>
+
+	<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
+		<span class="k">yield</span> <span class="n">datasets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+		<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="connectomes_CElegansSNAP"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.connectomes_CElegansSNAP.html#dynamicalab.connectomes_CElegansSNAP">[docs]</a><span class="k">def</span> <span class="nf">connectomes_CElegansSNAP</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;This is a neural network of neurons and synapses in C. elegans, a type of worm. This dataset also includes two-dimensional spatial positions of the rostral ganglia neurons, by `SNAP &lt;https://snap.stanford.edu/data/C-elegans-frontal.html&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Marcus Kaiser and Claus C. Hilgetag. &quot;Nonoptimal component placement, but short processing paths, due to long-distance projections in neural systems.&quot; PLoS Comput Biol 2.7 (2006): e95.</span>
+<span class="sd">	</span>
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://snap.stanford.edu/data/C-elegans-frontal.txt.gz&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;edgelist&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;C-elegans-frontal.txt.gz&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www-personal.umich.edu/~mejn/netdata/&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;This is a neural network of neurons and synapses in C. elegans, a type of worm. This dataset also includes two-dimensional spatial positions of the rostral ganglia neurons.&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Marcus Kaiser and Claus C. Hilgetag. &quot;Nonoptimal component placement, but short processing paths, due to long-distance projections in neural systems.&quot; PLoS Comput Biol 2.7 (2006): e95.&#39;</span>	
+		<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<span class="k">def</span> <span class="nf">connectomes_CElegans1986</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Neural network of the nematode C. Elegans by `White et al. &lt;https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	J. G. White, E. Southgate, J. N. Thompson, and S. Brenner, &quot;The structure of the nervous system of the nematode C. Elegans&quot;, Phil. Trans. R. Soc. London 314, 1-340 (1986).</span>
+<span class="sd">	</span>
+<span class="sd">	D. J. Watts and S. H. Strogatz, &quot;Collective dynamics of `small-world&#39; networks&quot;, Nature 393, 440-442 (1998).</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. warning::</span>
+
+<span class="sd">		It doesn&#39;t work yet because data are contain multiedges.</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www-personal.umich.edu/~mejn/netdata/celegansneural.zip&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;gml&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;celegansneural.gml&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="s2">&quot;ZIP&quot;</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www-personal.umich.edu/~mejn/netdata/&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s1">&#39;This study took place at three different altitudinal levels in the Andean (alpine) zone on the Cordon del Crepo in central Chile. This paper reports the results of a community-oriented study on pollination mechanisms in the high temperate Andes and discusses how pollination mechanisms vary with altitude.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;data description&quot;</span> <span class="p">:</span> <span class="s2">&quot;The file celegansneural.gml describes a weighted, directed network representing the neural network of C. Elegans.  The data were taken from the web site of Prof. Duncan Watts at Columbia University, http://cdg.columbia.edu/cdg/datasets.  The nodes in the original data were not consecutively numbered, so they have been renumbered to be consecutive. The original node numbers from Watts&#39; data file are retained as the labels of the nodes.  Edge weights are the weights given by Watts. &quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;J. G. White, E. Southgate, J. N. Thompson, and S. Brenner, &quot;The structure of the nervous system of the nematode C. Elegans&quot;, Phil. Trans. R. Soc. London 314, 1-340 (1986).</span><span class="se">\n\n</span><span class="s1">D. J. Watts and S. H. Strogatz, </span><span class="se">\&quot;</span><span class="s1">Collective dynamics of small-world networks</span><span class="se">\&quot;</span><span class="s1">, Nature 393, 440-442 (1998).&#39;</span>	
+		<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span>
+
+
+
+  
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes/index.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/datasets/index.html">Datasets</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
