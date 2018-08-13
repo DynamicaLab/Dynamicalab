@@ -9,11 +9,16 @@ def onion_decomposition(graph):
       
     
       graph : nx.Graph
-          The simple undirected graph without self-loops.
+          A simple undirected graph without self-loops.
+      
+      
+      .. warning::
+
+        The graph must be **simple** (no multiedges), **undirected** and **without self-loops**. Otherwise, the graph is converted into a simple and undirected graph. 
+        Therefore, the converted graph may be different from the original one.
       
 
       **Retuns**
-
 
       onion : dict
           Dictionary mapping the vertices (identified by their name) to their layer in the onion decomposition.
@@ -23,10 +28,10 @@ def onion_decomposition(graph):
 
 
       **References**
-      .. [1] L. Hébert-Dufresne, J. A. Grochow, and A. Allard
-         Multi-scale structure and topological anomaly detection via a new network statistic: The onion decomposition
-         [Scientific Reports 6, 31708 (2016)](http://dx.doi.org/10.1038/srep31708)
 
+      .. 
+
+        [1] L. Hébert-Dufresne, J. A. Grochow, and A. Allard, Multi-scale structure and topological anomaly detection via a new network statistic: The onion decomposition. `Scientific Reports 6, 31708 (2016) <http://dx.doi.org/10.1038/srep31708>`_
       
       **Example**
       
@@ -37,8 +42,8 @@ def onion_decomposition(graph):
         import dynamicalab.algorithms as algo
 
         G = nx.florentine_families_graph()
-        onion, kcore = algo.onion_decomposition()
-        
+        onion, kcore = algo.onion_decomposition(G)
+      
 
     """
     # Creates a copy of the graph (to be able to remove vertices and edges) and .
@@ -52,7 +57,8 @@ def onion_decomposition(graph):
     _current_layer = 1
     while _the_graph.number_of_nodes() > 0:
         # Sets properly the current core.
-        _current_degree_list = list(_the_graph.degree().values())
+        _current_degree_list =  [d for n, d in _the_graph.degree()]
+        # _current_degree_list = list(_the_graph.degree().values())
         if (len(_current_degree_list) > 0) and (np.min(_current_degree_list) >= (_current_core+1)):
             _current_core  = np.min(_current_degree_list)
         # Identifies vertices in the current layer.
@@ -69,3 +75,11 @@ def onion_decomposition(graph):
         _current_layer = _current_layer + 1
     # Returns the dictionaries containing the k-shell and onion layer of each vertices.
     return (_layer_map, _coreness_map)
+
+
+
+
+
+
+
+
