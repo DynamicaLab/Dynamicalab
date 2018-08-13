@@ -4,4 +4,12 @@
 Algorithms
 =================
 
-.. include:: /empty_page.rst
+.. automodule:: dynamicalab.algorithms
+
+Centrality
+==========
+
+.. autosummary::
+   :toctree: generated/
+
+   onion_decomposition
