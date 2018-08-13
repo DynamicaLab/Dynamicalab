@@ -107,7 +107,9 @@ html_theme = 'alabaster'
 html_theme_options = {
     "sidebar_includehidden": False,
     "sidebar_collapse": False,
-    "description": "A Python module dedicated to network science."
+    "description": "A Python module dedicated to network science.",
+    "extra_nav_links": {"Github": "https://github.com/DynamicaLab/Dynamicalab"},
+    "show_powered_by": False
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
