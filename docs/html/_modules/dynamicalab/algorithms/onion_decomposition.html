@@ -1,0 +1,201 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.algorithms.onion_decomposition &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.algorithms.onion_decomposition</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="onion_decomposition"><a class="viewcode-back" href="../../../reference/algorithms/generated/dynamicalab.algorithms.onion_decomposition.html#dynamicalab.algorithms.onion_decomposition">[docs]</a><span class="k">def</span> <span class="nf">onion_decomposition</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function extracts the onion decomposition and the k-core decomposition of a simple undirected graph. </span>
+<span class="sd">      </span>
+
+<span class="sd">      **Parameters**</span>
+<span class="sd">      </span>
+<span class="sd">    </span>
+<span class="sd">      graph : nx.Graph</span>
+<span class="sd">          A simple undirected graph without self-loops.</span>
+<span class="sd">      </span>
+<span class="sd">      </span>
+<span class="sd">      .. warning::</span>
+
+<span class="sd">        The graph must be **simple** (no multiedges), **undirected** and **without self-loops**. Otherwise, the graph is converted into a simple and undirected graph. </span>
+<span class="sd">        Therefore, the converted graph may be different from the original one.</span>
+<span class="sd">      </span>
+
+<span class="sd">      **Retuns**</span>
+
+<span class="sd">      onion : dict</span>
+<span class="sd">          Dictionary mapping the vertices (identified by their name) to their layer in the onion decomposition.</span>
+
+<span class="sd">      kcore : dict</span>
+<span class="sd">          Dictionary mapping the vertices (identified by their name) to the maximal k-core to which they belong.</span>
+
+
+<span class="sd">      **References**</span>
+
+<span class="sd">      .. </span>
+
+<span class="sd">        [1] L. Hébert-Dufresne, J. A. Grochow, and A. Allard, Multi-scale structure and topological anomaly detection via a new network statistic: The onion decomposition. `Scientific Reports 6, 31708 (2016) &lt;http://dx.doi.org/10.1038/srep31708&gt;`_</span>
+<span class="sd">      </span>
+<span class="sd">      **Example**</span>
+<span class="sd">      </span>
+
+<span class="sd">      .. code:: python</span>
+
+<span class="sd">        import networkx as nx</span>
+<span class="sd">        import dynamicalab.algorithms as algo</span>
+
+<span class="sd">        G = nx.florentine_families_graph()</span>
+<span class="sd">        onion, kcore = algo.onion_decomposition(G)</span>
+<span class="sd">      </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Creates a copy of the graph (to be able to remove vertices and edges) and .</span>
+    <span class="n">_the_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+    <span class="n">_the_graph</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span> <span class="n">_the_graph</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">()</span> <span class="p">)</span>
+    <span class="c1"># Dictionaries to register the k-core/onion decompositions. </span>
+    <span class="n">_coreness_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_layer_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># Performs the onion decomposition.</span>
+    <span class="n">_current_core</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">_current_layer</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">_the_graph</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Sets properly the current core.</span>
+        <span class="n">_current_degree_list</span> <span class="o">=</span>  <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">_the_graph</span><span class="o">.</span><span class="n">degree</span><span class="p">()]</span>
+        <span class="c1"># _current_degree_list = list(_the_graph.degree().values())</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_current_degree_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">_current_degree_list</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">_current_core</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="n">_current_core</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">_current_degree_list</span><span class="p">)</span>
+        <span class="c1"># Identifies vertices in the current layer.</span>
+        <span class="n">_this_layer_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_the_graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">_the_graph</span><span class="o">.</span><span class="n">degree</span><span class="p">()[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">_current_core</span><span class="p">:</span>
+                <span class="n">_this_layer_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="c1"># Identifies the core/layer of the vertices in the current layer.</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_this_layer_</span><span class="p">:</span>
+            <span class="n">_coreness_map</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">_current_core</span>
+            <span class="n">_layer_map</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">_current_layer</span>
+            <span class="n">_the_graph</span><span class="o">.</span><span class="n">remove_node</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="c1"># Updates the layer count.</span>
+        <span class="n">_current_layer</span> <span class="o">=</span> <span class="n">_current_layer</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1"># Returns the dictionaries containing the k-shell and onion layer of each vertices.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">_layer_map</span><span class="p">,</span> <span class="n">_coreness_map</span><span class="p">)</span></div>
+
+
+
+
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes/index.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/datasets/index.html">Datasets</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
