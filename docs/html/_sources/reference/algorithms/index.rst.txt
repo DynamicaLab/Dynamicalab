@@ -6,6 +6,16 @@ Algorithms
 
 .. automodule:: dynamicalab.algorithms
 
+
+Clustering
+==========
+
+.. autosummary::
+   :toctree: generated/
+
+   clustering_spectrum
+
+
 Centrality
 ==========
 

@@ -4,51 +4,51 @@ import numpy as np
 def clustering_spectrum(g):
     """This function extracts the clustering spectrum of a simple undirected graph. 
       
-
-      **Parameters**
-      
+    **Parameters**
     
-      graph : nx.Graph
-          A simple undirected graph without self-loops.
-      
-      
-      .. warning::
+    g : nx.Graph
+        A simple undirected graph without self-loops.
+    
+    
+    .. warning::
 
-        The graph must be **simple** (no multiedges), **undirected** and **without self-loops**.
-      
+      The graph must be **simple** (no multiedges), **undirected** and **without self-loops**.
+    
 
-      **Returns**
+    **Returns**
 
-      clust_spect : dict
-          Dictionary mapping each degree class (integers) to the corresponding average local clustering coefficient (float).
+    clust_spect : dict
+        Dictionary mapping each degree class (integers) to the corresponding average local clustering coefficient (float).
 
 
-      **Example**
-      
+    **Example**
+    
 
-      .. code:: python
+    .. code:: python
 
-        import numpy as np
-        import networkx as nx
-        import matplotlib.pyplot as plt
-        import dynamicalab.algorithms as algo
+      import numpy as np
+      import networkx as nx
+      import matplotlib.pyplot as plt
+      import dynamicalab.algorithms as algo
 
-        # Gets a network and extracts its clustering spectrum.
-        G = nx.karate_club_graph()
-        clust_spect = algo.clustering_spectrum(G)
+      # Gets a network and extracts its clustering spectrum.
+      G = nx.karate_club_graph()
+      clust_spect = algo.clustering_spectrum(G)
 
-        # Plots the clustering spectrum.
-        fig, ax = plt.subplots()
-        plt.bar(clust_spect.keys(), clust_spect.values(), width=0.50, color='g')
+      # Plots the clustering spectrum.
+      fig, ax = plt.subplots()
+      plt.bar(clust_spect.keys(), clust_spect.values(), width=0.50, color='g')
 
-        plt.title("Clustering spectrum")
-        ax.set_ylabel("Average local clustering")
-        ax.set_xlabel("Degree")
-        ax.set_ylim(bottom=0, top=1)
-        ax.set_xticks(np.arange(max(clust_spect.keys()) + 1))
+      plt.title("Clustering spectrum")
+      ax.set_ylabel("Average local clustering")
+      ax.set_xlabel("Degree")
+      ax.set_ylim(bottom=0, top=1)
+      ax.set_xticks(np.arange(max(clust_spect.keys()) + 1))
 
-        plt.show()
-      
+      plt.show()
+    
+    .. image:: /_static/assets/clustering_spectrum_example.png
+      :align: center
 
     """
     # Gets the degree and the local clustering coefficient of each node.
