@@ -9,6 +9,7 @@ dynamicalab.egg-info/dependency_links.txt
 dynamicalab.egg-info/requires.txt
 dynamicalab.egg-info/top_level.txt
 dynamicalab/algorithms/__init__.py
+dynamicalab/algorithms/clustering_spectrum.py
 dynamicalab/algorithms/onion_decomposition.py
 dynamicalab/classes/Dataset.py
 dynamicalab/classes/__init__.py
