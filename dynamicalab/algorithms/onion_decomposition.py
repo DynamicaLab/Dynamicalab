@@ -1,5 +1,4 @@
 import networkx as nx
-import numpy as np
 
 def onion_decomposition(graph):
     """This function extracts the onion decomposition and the k-core decomposition of a simple undirected graph. 
@@ -14,8 +13,7 @@ def onion_decomposition(graph):
       
       .. warning::
 
-        The graph must be **simple** (no multiedges), **undirected** and **without self-loops**. Otherwise, the graph is converted into a simple and undirected graph. 
-        Therefore, the converted graph may be different from the original one.
+        The algorithm only considers the **simple** (no multiedges), **undirected** and **without self-loops** version of the original graph.
       
 
       **Retuns**
@@ -57,10 +55,9 @@ def onion_decomposition(graph):
     _current_layer = 1
     while _the_graph.number_of_nodes() > 0:
         # Sets properly the current core.
-        _current_degree_list =  [d for n, d in _the_graph.degree()]
-        # _current_degree_list = list(_the_graph.degree().values())
-        if (len(_current_degree_list) > 0) and (np.min(_current_degree_list) >= (_current_core+1)):
-            _current_core  = np.min(_current_degree_list)
+        _min_degree =  min([d for n, d in _the_graph.degree()])
+        if _min_degree >= (_current_core+1):
+            _current_core = _min_degree
         # Identifies vertices in the current layer.
         _this_layer_ = []
         for v in _the_graph.nodes():
@@ -75,11 +72,3 @@ def onion_decomposition(graph):
         _current_layer = _current_layer + 1
     # Returns the dictionaries containing the k-shell and onion layer of each vertices.
     return (_layer_map, _coreness_map)
-
-
-
-
-
-
-
-
