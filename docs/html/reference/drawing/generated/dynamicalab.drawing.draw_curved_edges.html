@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>dynamicalab.drawing.draw_curved_edges &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
@@ -33,13 +25,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="dynamicalab-drawing-draw-curved-edges">
@@ -48,11 +41,11 @@
 <dt id="dynamicalab.drawing.draw_curved_edges">
 <code class="descclassname">dynamicalab.drawing.</code><code class="descname">draw_curved_edges</code><span class="sig-paren">(</span><em>edges</em>, <em>pos</em>, <em>ax</em>, <em>mu=0.05</em>, <em>edge_color='black'</em>, <em>edge_width=1.0</em>, <em>alpha=1.0</em>, <em>arrow_scale=20.0</em>, <em>loopsize=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/draw.html#draw_curved_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.draw_curved_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function plots the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
-to plot an edge that does a circle passing through the node. The size of the circle is controlled by the parameter <code class="docutils literal"><span class="pre">loopsize</span></code>.</p>
+to plot an edge that does a circle passing through the node. The size of the circle is controlled by the parameter <code class="docutils literal notranslate"><span class="pre">loopsize</span></code>.</p>
 <p><strong>Parameters</strong></p>
 <dl class="docutils">
 <dt>edges <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>A list of edges in the tuple format of node ids, <code class="docutils literal"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</dd>
+<dd>A list of edges in the tuple format of node ids, <code class="docutils literal notranslate"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</dd>
 <dt>pos <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
 <dd>A dictionary of nodes position.</dd>
 <dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">Matplotlib Axes object</span></dt>
@@ -66,10 +59,10 @@ to plot an edge that does a circle passing through the node. The size of the cir
 <dt>arrow_scale <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=20)</span></dt>
 <dd>Control the size of the arrows. If equal to zero, then the arrows are invisible.</dd>
 <dt>loopsize <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0)</span></dt>
-<dd>If <code class="docutils literal"><span class="pre">edges</span></code> contains self-loops, i.e. <code class="docutils literal"><span class="pre">edge==(nodeA,</span> <span class="pre">nodeA)</span></code>, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by <code class="docutils literal"><span class="pre">loopsize</span></code></dd>
+<dd>If <code class="docutils literal notranslate"><span class="pre">edges</span></code> contains self-loops, i.e. <code class="docutils literal notranslate"><span class="pre">edge==(nodeA,</span> <span class="pre">nodeA)</span></code>, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by <code class="docutils literal notranslate"><span class="pre">loopsize</span></code></dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -95,6 +88,7 @@ to plot an edge that does a circle passing through the node. The size of the cir
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -150,12 +144,14 @@ to plot an edge that does a circle passing through the node. The size of the cir
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>

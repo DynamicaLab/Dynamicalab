@@ -137,7 +137,9 @@ class Dataset(object):
 
 			for i in range(A.shape[0]):
 				for j in range(A.shape[1]):
-					G.add_edge(i,j, weight=A[i,j])
+					if A[i,j]>0:
+						G.add_edge(i,j+A.shape[0], weight=A[i,j])
+
 			return G
 		elif self.data_type == "edgelist":
 			return nx.read_edgelist(path, comments="#")

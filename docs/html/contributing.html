@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>How to contribute &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -33,13 +25,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="how-to-contribute">
@@ -51,18 +44,18 @@
 </div>
 <div class="section" id="link-your-packages">
 <h2>2. Link your packages<a class="headerlink" href="#link-your-packages" title="Permalink to this headline">¶</a></h2>
-<p>If your modification includes adding functions or modules, please add them into the main module. This is done by modifying the corresponding <code class="docutils literal"><span class="pre">__init__.py</span></code> that is found in the directory of the module.</p>
-<p>For instance, if you add a file into the drawing module, then you should add in <code class="docutils literal"><span class="pre">/drawing/__init__.py</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.new_file</span> <span class="kn">import</span> <span class="o">*</span>
+<p>If your modification includes adding functions or modules, please add them into the main module. This is done by modifying the corresponding <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> that is found in the directory of the module.</p>
+<p>For instance, if you add a file into the drawing module, then you should add in <code class="docutils literal notranslate"><span class="pre">/drawing/__init__.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.new_file</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>If you plan to add a new submodule to <code class="docutils literal"><span class="pre">DynamicaLab</span></code>, then use <code class="docutils literal"><span class="pre">__init__.py</span></code> located into the root directory.</p>
+<p>If you plan to add a new submodule to <code class="docutils literal notranslate"><span class="pre">DynamicaLab</span></code>, then use <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> located into the root directory.</p>
 </div>
 <div class="section" id="add-documentation-page">
 <h2>3. Add documentation page<a class="headerlink" href="#add-documentation-page" title="Permalink to this headline">¶</a></h2>
-<p>For each new function or modification, we require an up-to-date documentation. The documentation should be included into the source code. We use <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. to automatically generate documentation, so you should use <code class="docutils literal"><span class="pre">rst</span></code> format. To add images, please place them in <code class="docutils literal"><span class="pre">docs/source/_static/assets/</span></code>.</p>
-<p>After documenting your code, you need to link the methods or modules into Sphinx generator. To do so, locate the directory <code class="docutils literal"><span class="pre">doc/source/reference</span></code>. Then, select the appropriate <code class="docutils literal"><span class="pre">index.rst</span></code>, and add your new method below <code class="docutils literal"><span class="pre">..</span> <span class="pre">autosummary::</span></code> . For example:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+<p>For each new function or modification, we require an up-to-date documentation. The documentation should be included into the source code. We use <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a>. to automatically generate documentation, so you should use <code class="docutils literal notranslate"><span class="pre">rst</span></code> format. To add images, please place them in <code class="docutils literal notranslate"><span class="pre">docs/source/_static/assets/</span></code>.</p>
+<p>After documenting your code, you need to link the methods or modules into Sphinx generator. To do so, locate the directory <code class="docutils literal notranslate"><span class="pre">doc/source/reference</span></code>. Then, select the appropriate <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, and add your new method below <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">autosummary::</span></code> . For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
    <span class="nc">:toctree:</span> <span class="nf">generated/</span>
 
    method_1
@@ -71,19 +64,20 @@
 </pre></div>
 </div>
 <p>Compile the documentation by doing:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>make html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
 </pre></div>
 </div>
-<p>You can verify the documentation by opening <code class="docutils literal"><span class="pre">/docs/index.html</span></code>.</p>
+<p>You can verify the documentation by opening <code class="docutils literal notranslate"><span class="pre">/docs/index.html</span></code>.</p>
 </div>
 <div class="section" id="create-a-new-pull-request">
 <h2>4. Create a new pull request<a class="headerlink" href="#create-a-new-pull-request" title="Permalink to this headline">¶</a></h2>
-<p>When everything is tested and cleaned, create a new pull request on the <code class="docutils literal"><span class="pre">master</span></code> branch of the repo (See <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github instructions</a>). Your pull request will be reviewed. If everything goes well, your modification will be merged on the <code class="docutils literal"><span class="pre">master</span></code> branch.</p>
+<p>When everything is tested and cleaned, create a new pull request on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of the repo (See <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">Github instructions</a>). Your pull request will be reviewed. If everything goes well, your modification will be merged on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
 </div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -135,12 +129,14 @@
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
