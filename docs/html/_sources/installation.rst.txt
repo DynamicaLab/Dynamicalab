@@ -7,8 +7,7 @@ Then, install the module:
 
 .. code:: bash
 
-	python setup.py install
-
+	python setup.py develop
 
 You can now import the module in python:
 
