@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>dynamicalab.drawing.plot_spectrum &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
@@ -33,13 +25,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="dynamicalab-drawing-plot-spectrum">
@@ -61,12 +54,12 @@
 <dt>vals <span class="classifier-delimiter">:</span> <span class="classifier">list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=[])</span></dt>
 <dd>Draw a vertical line for each value in the list</dd>
 <dt>axvline_color <span class="classifier-delimiter">:</span> <span class="classifier">str or list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#ef8a62”)</span></dt>
-<dd>If a string, each vertical lines will be this color. If a list, it gives the color of each vertical line for elements of <code class="docutils literal"><span class="pre">vals</span></code>, and must be the same length as <code class="docutils literal"><span class="pre">vals</span></code>.</dd>
+<dd>If a string, each vertical lines will be this color. If a list, it gives the color of each vertical line for elements of <code class="docutils literal notranslate"><span class="pre">vals</span></code>, and must be the same length as <code class="docutils literal notranslate"><span class="pre">vals</span></code>.</dd>
 <dt>bar_color <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#67a9cf”)</span></dt>
 <dd>Fill color of the bars of the histogram.</dd>
 <dt>normed <span class="classifier-delimiter">:</span> <span class="classifier">Bool</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=True)</span></dt>
-<dd>If <code class="docutils literal"><span class="pre">True</span></code>, the integral of the histogram is equal to one.</dd>
-<dt>xlabel <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default= <span class="math">\(\lambda\)</span> )</span></dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the integral of the histogram is equal to one.</dd>
+<dt>xlabel <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default= <span class="math notranslate nohighlight">\(\lambda\)</span> )</span></dt>
 <dd>Label of the X axis.</dd>
 <dt>ylabel <span class="classifier-delimiter">:</span> <span class="classifier">str :</span></dt>
 <dd>Label of the Y axis.</dd>
@@ -74,7 +67,7 @@
 <dd>Fontsize of the labels</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -105,6 +98,7 @@
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -160,12 +154,14 @@
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>

@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>dynamicalab.generators.generalized_PA_model &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
@@ -33,13 +25,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="dynamicalab-generators-generalized-pa-model">
@@ -52,17 +45,17 @@
 <div><ol class="arabic simple">
 <li>Initialize the network with two connected nodes.</li>
 <li><dl class="first docutils">
-<dt>Choose a birth event with probability <code class="docutils literal"><span class="pre">p</span></code>, or a growing event with probability <code class="docutils literal"><span class="pre">1-p</span></code>. Then:</dt>
+<dt>Choose a birth event with probability <code class="docutils literal notranslate"><span class="pre">p</span></code>, or a growing event with probability <code class="docutils literal notranslate"><span class="pre">1-p</span></code>. Then:</dt>
 <dd><ol class="first last loweralpha">
 <li>If a birth event, choose and place a new node in the network.</li>
-<li>If a growth event, choose an existing node proportionnal to its total degree powers <code class="docutils literal"><span class="pre">nu</span></code>.</li>
+<li>If a growth event, choose an existing node proportionnal to its total degree powers <code class="docutils literal notranslate"><span class="pre">nu</span></code>.</li>
 </ol>
 </dd>
 </dl>
 </li>
 <li>Choose an existing node following 2b.</li>
 <li>Connect the node from step 2 with node from step 3.</li>
-<li>Repeat steps 2,3,4 until the number <code class="docutils literal"><span class="pre">N</span></code> is reached.</li>
+<li>Repeat steps 2,3,4 until the number <code class="docutils literal notranslate"><span class="pre">N</span></code> is reached.</li>
 </ol>
 </div></blockquote>
 <p><strong>Parameters</strong></p>
@@ -72,9 +65,9 @@
 <dt>p <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
 <dd>Birth probability.</dd>
 <dt>N <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Number of nodes. The estimated steps to reach <code class="docutils literal"><span class="pre">N</span></code> nodes is <code class="docutils literal"><span class="pre">N/p</span></code>.</dd>
+<dd>Number of nodes. The estimated steps to reach <code class="docutils literal notranslate"><span class="pre">N</span></code> nodes is <code class="docutils literal notranslate"><span class="pre">N/p</span></code>.</dd>
 <dt>directed <span class="classifier-delimiter">:</span> <span class="classifier">bool</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=False)</span></dt>
-<dd>Construct a directed network. If true, new edges are connected toward older nodes and the output is a <code class="docutils literal"><span class="pre">nx.Digraph</span></code></dd>
+<dd>Construct a directed network. If true, new edges are connected toward older nodes and the output is a <code class="docutils literal notranslate"><span class="pre">nx.Digraph</span></code></dd>
 <dt>max_step <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1e4)</span></dt>
 <dd>Maximum number of events before the algorithm ends. This does not apply if the desired number of nodes is reached.</dd>
 </dl>
@@ -86,12 +79,12 @@
 <p><strong>Raise</strong></p>
 <blockquote>
 <div><dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">ValueError</span></code>&nbsp;</dt>
-<dd>Occurs if the birth probability <code class="docutils literal"><span class="pre">p</span></code> is smaller or equal to zero.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ValueError</span></code>&nbsp;</dt>
+<dd>Occurs if the birth probability <code class="docutils literal notranslate"><span class="pre">p</span></code> is smaller or equal to zero.</dd>
 </dl>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
 
 <span class="n">nu</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -104,13 +97,14 @@
 <p class="last">See <a class="reference external" href="https://arxiv.org/pdf/1803.09191.pdf">Young et al., 2018</a> for an intensive description of the model.</p>
 </div>
 <img alt="../../../_images/zoo.png" class="align-center" src="../../../_images/zoo.png" />
-<p>Example of networks for <code class="docutils literal"><span class="pre">p=1</span></code>. Figure inspired of <a class="reference external" href="https://arxiv.org/pdf/1803.09191.pdf">Young et al., 2018</a>.</p>
+<p>Example of networks for <code class="docutils literal notranslate"><span class="pre">p=1</span></code>. Figure inspired of <a class="reference external" href="https://arxiv.org/pdf/1803.09191.pdf">Young et al., 2018</a>.</p>
 </dd></dl>
 
 </div>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -166,12 +160,14 @@
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
