@@ -36,10 +36,15 @@ def plants_pollinators(save_path):
 def plants_pollinators_Ramirez1992(save_path="./data"):
 	"""Plant pollinators dataset of `Ramirez et al., 1992 <https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html>`_  .
 	
+	- Nodes: **81**
+	- Edges: **109**
+	- Bipartite: **True**
+	- Components: **5**
+
 	**Reference**
 	
 	Ramirez, N., and Y. Brito. 1992. Pollination Biology in a Palm Swamp Community in the Venezuelan Central Plains. Botanical Journal of the Linnean Society 110:277-302.
-
+	
 	**Parameters**
 
 	save_path : String : (default="./data")
@@ -49,6 +54,12 @@ def plants_pollinators_Ramirez1992(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+
+    .. image:: /_static/assets/dataset/ramirez1992.png 
+        :align: center
+
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/ram_matr.txt"
@@ -70,6 +81,12 @@ def plants_pollinators_Ramirez1992(save_path="./data"):
 def plants_pollinators_McCullen1993(save_path="./data"):
 	"""Plant pollinators dataset of `McCullen C.K., 1993 <https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html>`_  .
 	
+	- Nodes: **159**
+	- Edges: **204**
+	- Bipartite: **True**
+	- Components: **4**
+
+
 	**Reference**
 	
 	McCullen, C. K. 1993. Flower-visiting insects of the Galapagos Islands. Pan-Pacific Entomologist 69:95-106.
@@ -83,6 +100,10 @@ def plants_pollinators_McCullen1993(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+    .. image:: /_static/assets/dataset/mccullen1993.png 
+        :align: center
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/mc_mullen.txt"
@@ -104,6 +125,11 @@ def plants_pollinators_McCullen1993(save_path="./data"):
 def plants_pollinators_Arroyo1992_I(save_path="./data"):    
 	"""Plant pollinators dataset of `Arroyo et al., 1982 <https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html>`_  at elevation I.
 	
+	- Nodes: **186**
+	- Edges: **365**
+	- Bipartite: **True**
+	- Components: **3**
+
 	**Reference**
 	
 	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.
@@ -117,6 +143,10 @@ def plants_pollinators_Arroyo1992_I(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+	.. image:: /_static/assets/dataset/arroyo1992I.png 
+		:align: center
+
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_1_matr.txt"
@@ -134,9 +164,16 @@ def plants_pollinators_Arroyo1992_I(save_path="./data"):
 	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
 	return data
 
+
 def plants_pollinators_Arroyo1992_II(save_path="./data"):    
 	"""Plant pollinators dataset of `Arroyo et al., 1982 <https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html>`_  at elevation II.
 	
+	- Nodes: **103**
+	- Edges: **183**
+	- Bipartite: **True**
+	- Components: **3**
+
+
 	**Reference**
 	
 	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.
@@ -150,6 +187,9 @@ def plants_pollinators_Arroyo1992_II(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+
+	.. image:: /_static/assets/dataset/arroyo1992II.png 
+		:align: center
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_2_matr.txt"
@@ -170,6 +210,12 @@ def plants_pollinators_Arroyo1992_II(save_path="./data"):
 def plants_pollinators_Arroyo1992_III(save_path="./data"):    
 	"""Plant pollinators dataset of `Arroyo et al., 1982 <https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html>`_  at elevation III.
 	
+	- Nodes: **69**
+	- Edges: **87**
+	- Bipartite: **True**
+	- Components: **3**
+
+
 	**Reference**
 	
 	Arroyo, M. T. K., R. B. Primack, and J. J. Armesto. 1982. Community studies in pollination ecology in the high temperate Andes of Central Chile. I. Pollination mechanisms and altitudinal variation. American Journal of Botany 69:82-97.
@@ -183,6 +229,9 @@ def plants_pollinators_Arroyo1992_III(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+	.. image:: /_static/assets/dataset/arroyo1992III.png 
+		:align: center
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/arr_3_matr.txt"
@@ -203,6 +252,12 @@ def plants_pollinators_Arroyo1992_III(save_path="./data"):
 def plants_pollinators_Barrett1987(save_path="./data"):    
 	"""Plant pollinators dataset of `Barrett & Helenurm, 1987 <https://www.nceas.ucsb.edu/interactionweb/html/barrett_helenurm_1987.html>`_ .
 	
+	- Nodes: **114**
+	- Edges: **167**
+	- Bipartite: **True**
+	- Components: **2**
+
+
 	**Reference**
 	
 	Barrett, S. C. H., and K. Helenurm. 1987. The Reproductive-Biology of Boreal Forest Herbs.1. Breeding Systems and Pollination. Canadian Journal of Botany 65:2036-2046.
@@ -216,6 +271,9 @@ def plants_pollinators_Barrett1987(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+	.. image:: /_static/assets/dataset/barrett1987.png 
+		:align: center
 
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/barrett_matr_f.txt"
@@ -239,6 +297,12 @@ def plants_pollinators_Barrett1987(save_path="./data"):
 def plants_pollinators_Robsertson1992(save_path="./data"):    
 	"""Plant pollinators dataset of `Robertson 1992 <https://www.nceas.ucsb.edu/interactionweb/html/robertson_1929.html>`_ .
 	
+	- Nodes: **1500**
+	- Edges: **15255**
+	- Bipartite: **True**
+	- Components: **1**
+
+
 	**Reference**
 	
 	Original data: Robertson, C. 1929. Flowers and insects: lists of visitors to four hundred and fifty-three flowers. Carlinville, IL, USA, C. Robertson.
@@ -252,7 +316,7 @@ def plants_pollinators_Robsertson1992(save_path="./data"):
 
 	Dataset 
 		Object dataset. Use ``dataset.graph()`` to download the graph.
-
+	
 	"""
 	url = "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/text/robertson_1929_matr.txt"
 	data_type = "bipartite"
@@ -269,6 +333,51 @@ def plants_pollinators_Robsertson1992(save_path="./data"):
 
 	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
 	return data
+
+
+def plants_pollinators_Kaiser2010(save_path="./data"):    
+	"""Plant pollinators dataset of `Kaiser-Bunbury 2010 <https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2009.01437.x>`_ .
+	
+	- Nodes: **38**
+	- Edges: **46**
+	- Bipartite: **True**
+	- Components: **2**
+
+
+	**Reference**
+	
+	Original data: Kaiser-Bunbury, C. N., S. Muff, J. Memmott, C. B. Müller, and A. Caflisch. 2010. The robustness of pollination networks to the loss of species and interactions: A quantitative approach incorporating pollinator behaviour. Ecology Letters 13:442-452.
+
+	**Parameters**
+
+	save_path : String : (default="./data")
+		Directory to which the data will be saved.
+
+	**Returns**
+
+	Dataset 
+		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+	.. image:: /_static/assets/dataset/kaiser2010.png 
+		:align: center
+
+	"""
+	url = "http://www.web-of-life.es/networkjson.php?id=M_PL_060_24"
+	data_type = "weboflife_json"
+	data_name = "networkjson.php?id=M_PL_060_24"
+	compress_type = None
+	infos = {
+		"type" : data_type,
+		"download_url" : url,
+		"info_url": "http://www.web-of-life.es/map.php?type=5",
+		"abstract" : 'Species extinctions pose serious threats to the functioning of ecological communities worldwide. We used two qualitative and quantitative pollination networks to simulate extinction patterns following three removal scenarios: random removal and systematic removal of the strongest and weakest interactors. We accounted for pollinator behaviour by including potential links into temporal snapshots (12 consecutive 2‐week networks) to reflect mutualists’ ability to ‘switch’ interaction partners (re‐wiring). Qualitative data suggested a linear or slower than linear secondary extinction while quantitative data showed sigmoidal decline of plant interaction strength upon removal of the strongest interactor. Temporal snapshots indicated greater stability of re‐wired networks over static systems. Tolerance of generalized networks to species extinctions was high in the random removal scenario, with an increase in network stability if species formed new interactions. Anthropogenic disturbance, however, that promote the extinction of the strongest interactors might induce a sudden collapse of pollination networks.',
+		"source" : 'Kaiser-Bunbury, C. N., S. Muff, J. Memmott, C. B. Müller, and A. Caflisch. 2010. The robustness of pollination networks to the loss of species and interactions: A quantitative approach incorporating pollinator behaviour. Ecology Letters 13:442-452.'
+	}
+
+	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
+	return data
+
+
 
 
 
