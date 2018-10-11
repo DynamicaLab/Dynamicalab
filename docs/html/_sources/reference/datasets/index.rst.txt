@@ -21,6 +21,7 @@ Bipartites
    plants_pollinators_Arroyo1992_III
    plants_pollinators_Barrett1987
    plants_pollinators_Robsertson1992
+   plants_pollinators_Kaiser2010
 
 
 Connectomes

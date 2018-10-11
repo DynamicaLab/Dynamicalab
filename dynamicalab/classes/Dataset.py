@@ -141,6 +141,21 @@ class Dataset(object):
 						G.add_edge(i,j+A.shape[0], weight=A[i,j])
 
 			return G
+
+		elif self.data_type == "weboflife_json":
+			import json
+			with open(path) as f:
+				json_data = json.load(f)
+				G = nx.Graph()
+				for node in json_data["nodes"]:
+					G.add_node(int(node["nodeid"]), attr_dict=node)
+				for edge in json_data["links"]:
+					source = int(edge["source"])
+					target = int(edge["target"])
+					G.add_edge(source, target)
+
+			return G
+
 		elif self.data_type == "edgelist":
 			return nx.read_edgelist(path, comments="#")
 			
