@@ -13,3 +13,4 @@ Reference
    drawing/index
    generators/index       
    datasets/index
+   utils/index

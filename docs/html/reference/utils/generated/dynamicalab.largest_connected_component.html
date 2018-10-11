@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dynamicalab.plants_pollinators_McCullen1993 &#8212; DynamicaLab 0.0.1 documentation</title>
+    <title>dynamicalab.largest_connected_component &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="dynamicalab.plants_pollinators_Arroyo1992_I" href="dynamicalab.plants_pollinators_Arroyo1992_I.html" />
-    <link rel="prev" title="dynamicalab.plants_pollinators_Ramirez1992" href="dynamicalab.plants_pollinators_Ramirez1992.html" />
+    <link rel="next" title="How to contribute" href="../../../contributing.html" />
+    <link rel="prev" title="Utils" href="../index.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -35,33 +35,21 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="dynamicalab-plants-pollinators-mccullen1993">
-<h1>dynamicalab.plants_pollinators_McCullen1993<a class="headerlink" href="#dynamicalab-plants-pollinators-mccullen1993" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dynamicalab-largest-connected-component">
+<h1>dynamicalab.largest_connected_component<a class="headerlink" href="#dynamicalab-largest-connected-component" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dynamicalab.plants_pollinators_McCullen1993">
-<code class="descclassname">dynamicalab.</code><code class="descname">plants_pollinators_McCullen1993</code><span class="sig-paren">(</span><em>save_path='./data'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/bipartites.html#plants_pollinators_McCullen1993"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.plants_pollinators_McCullen1993" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html">McCullen C.K., 1993</a>  .</p>
-<blockquote>
-<div><ul class="simple">
-<li>Nodes: <strong>159</strong></li>
-<li>Edges: <strong>204</strong></li>
-<li>Bipartite: <strong>True</strong></li>
-<li>Components: <strong>4</strong></li>
-</ul>
-<p><strong>Reference</strong></p>
-<p>McCullen, C. K. 1993. Flower-visiting insects of the Galapagos Islands. Pan-Pacific Entomologist 69:95-106.</p>
+<dt id="dynamicalab.largest_connected_component">
+<code class="descclassname">dynamicalab.</code><code class="descname">largest_connected_component</code><span class="sig-paren">(</span><em>G</em>, <em>relabel=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/utils/preprocessing.html#largest_connected_component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.largest_connected_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the largest connected component of the graph.</p>
 <p><strong>Parameters</strong></p>
 <dl class="docutils">
-<dt>save_path <span class="classifier-delimiter">:</span> <span class="classifier">String</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”./data”)</span></dt>
-<dd>Directory to which the data will be saved.</dd>
+<dt>G <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
+<dd>Networkx graph</dd>
+<dt>relabel <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.</dd>
 </dl>
 <p><strong>Returns</strong></p>
-<dl class="docutils">
-<dt>Dataset </dt>
-<dd>Object dataset. Use <code class="docutils literal notranslate"><span class="pre">dataset.graph()</span></code> to download the graph.</dd>
-</dl>
-</div></blockquote>
-<img alt="../../../_images/mccullen1993.png" class="align-center" src="../../../_images/mccullen1993.png" />
+<p>nx.Graph</p>
 </dd></dl>
 
 </div>
@@ -93,8 +81,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../drawing/index.html">Drawing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../generators/index.html">Network generators</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../datasets/index.html">Datasets</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Utils</a></li>
 </ul>
 </li>
 </ul>
@@ -115,9 +103,9 @@
 <ul>
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">Reference</a><ul>
-  <li><a href="../index.html">Datasets</a><ul>
-      <li>Previous: <a href="dynamicalab.plants_pollinators_Ramirez1992.html" title="previous chapter">dynamicalab.plants_pollinators_Ramirez1992</a></li>
-      <li>Next: <a href="dynamicalab.plants_pollinators_Arroyo1992_I.html" title="next chapter">dynamicalab.plants_pollinators_Arroyo1992_I</a></li>
+  <li><a href="../index.html">Utils</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Utils</a></li>
+      <li>Next: <a href="../../../contributing.html" title="next chapter">How to contribute</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -143,7 +131,7 @@
       &copy;2018, Dynamica Research Group.
       
       |
-      <a href="../../../_sources/reference/datasets/generated/dynamicalab.plants_pollinators_McCullen1993.rst.txt"
+      <a href="../../../_sources/reference/utils/generated/dynamicalab.largest_connected_component.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
