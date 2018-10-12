@@ -415,8 +415,690 @@
 
 
 
+<div class="viewcode-block" id="plants_pollinators_Petanidou1991"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Petanidou1991.html#dynamicalab.plants_pollinators_Petanidou1991">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Petanidou1991</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Petanidou 1991 &lt;http://thesis.ekt.gr/thesisBookReader/id/10184#page/1/mode/2up&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **797** (131 plants, 666 pollinators)</span>
+<span class="sd">	- Edges: **2933**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
 
 
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Petanidou, T. (1991). Pollination ecology in a phryganic ecosystem. Unp. PhD. Thesis, Aristotelian University, Thessaloniki.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_015&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_015&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Petanidou, T. (1991). Pollination ecology in a phryganic ecosystem. Unp. PhD. Thesis, Aristotelian University, Thessaloniki.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="plants_pollinators_Clements1923"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Clements1923.html#dynamicalab.plants_pollinators_Clements1923">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Clements1923</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Clements 1923 &lt;http://ia802604.us.archive.org/21/items/experimentalpoll00clem/experimentalpoll00clem.pdf&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **371** (96 plants, 275 pollinators)</span>
+<span class="sd">	- Edges: **923**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **6**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Clements, R. E., and F. L. Long. 1923, Experimental pollination. An outline of the ecology of flowers and insects. Washington, D.C., USA, Carnegie Institute of Washington.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/clements1923.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_005&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_005&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Clements, R. E., and F. L. Long. 1923, Experimental pollination. An outline of the ecology of flowers and insects. Washington, D.C., USA, Carnegie Institute of Washington.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Dicks2002I"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Dicks2002I.html#dynamicalab.plants_pollinators_Dicks2002I">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Dicks2002I</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Dicks 2002 &lt;https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **78** (17 plants, 61 pollinators)</span>
+<span class="sd">	- Edges: **146**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Dicks, LV, Corbet, SA and Pywell, RF 2002. Compartmentalization in plant–insect flower visitor webs. J. Anim. Ecol. 71: 32–43.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/dicks2002I.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_006&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_006&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Dicks, LV, Corbet, SA and Pywell, RF 2002. Compartmentalization in plant–insect flower visitor webs. J. Anim. Ecol. 71: 32–43.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Dicks2002II"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Dicks2002II.html#dynamicalab.plants_pollinators_Dicks2002II">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Dicks2002II</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Dicks 2002 &lt;https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **52** (16 plants, 36 pollinators)</span>
+<span class="sd">	- Edges: **85**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Dicks, LV, Corbet, SA and Pywell, RF 2002. Compartmentalization in plant–insect flower visitor webs. J. Anim. Ecol. 71: 32–43.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/dicks2002II.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_007&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_007&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Dicks, LV, Corbet, SA and Pywell, RF 2002. Compartmentalization in plant–insect flower visitor webs. J. Anim. Ecol. 71: 32–43.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Dupont2003"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Dupont2003.html#dynamicalab.plants_pollinators_Dupont2003">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Dupont2003</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Dupont 2003 &lt;https://www.jstor.org/stable/3683371&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **49** (11 plants, 38 pollinators)</span>
+<span class="sd">	- Edges: **106**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Dupont YL, Hansen DM and Olesen JM (2003) Structure of a plant-flower-visitor network in the high-altitude sub-alpine desert of Tenerife, Canary Islands. Ecography 26:301-310.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/dupont2003.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_008&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_008&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Dupont YL, Hansen DM and Olesen JM (2003) Structure of a plant-flower-visitor network in the high-altitude sub-alpine desert of Tenerife, Canary Islands. Ecography 26:301-310.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Elberling1999I"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Elberling1999I.html#dynamicalab.plants_pollinators_Elberling1999I">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Elberling1999I</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Elberling 1999 &lt;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **142** (24 plants, 118 pollinators)</span>
+<span class="sd">	- Edges: **242**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Elberling, H. &amp; Olesen, J. M. 1999. The structure of a high latitude plant-pollinator system: The dominance of flies. Ecography 22:314-323.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/elberling1999I.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_009&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_009&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Elberling, H. &amp; Olesen, J. M. 1999. The structure of a high latitude plant-pollinator system: The dominance of flies. Ecography 22:314-323.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Elberling1999II"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Elberling1999II.html#dynamicalab.plants_pollinators_Elberling1999II">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Elberling1999II</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Elberling 1999 &lt;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **107** (31 plants, 76 pollinators)</span>
+<span class="sd">	- Edges: **456**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Unpublished. Found on Web of life.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/elberling1999II.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_010&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_010&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Unpublished&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Olesen2002I"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Olesen2002I.html#dynamicalab.plants_pollinators_Olesen2002I">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Olesen2002I</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of `Olesen 2002 &lt;https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1046/j.1472-4642.2002.00148.x&gt;`_ .</span>
+<span class="sd">	</span>
+<span class="sd">	- Nodes: **27** (14 plants, 13 pollinators)</span>
+<span class="sd">	- Edges: **52**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Olesen, J.M., Eskildsen, L.I. &amp; Venkatasamy, S. (2002). Div. Distr., 8:181-192.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/olesen2002.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_011&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_011&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Olesen, J.M., Eskildsen, L.I. &amp; Venkatasamy, S. (2002). Div. Distr., 8:181-192.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;The structure of pollination networks is described for two oceanic islands, the Azorean Flores and the Mauritian Ile aux Aigrettes. At each island site, all interactions between endemic, non‐endemic native and introduced plants and pollinators were mapped. Linkage level, i.e. number of species interactions per species, was significantly higher for endemic species than for non‐endemic native and introduced species. Linkage levels of the two latter categories were similar. Nine types of interaction may be recognized among endemic, non‐endemic native and introduced plants and pollinators. Similar types had similar frequencies in the two networks. Specifically, we looked for the presence of ‘invader complexes’ of mutualists, defined as groups of introduced species interacting more with each other than expected by chance and thus facilitating each other’s establishment. On both islands, observed frequencies of interactions between native (endemic and non‐endemic) and introduced pollinators and plants differed from random. Introduced pollinators and plants interacted less than expected by chance. Thus, the data did not support the existence of invader complexes. Instead, our study suggested that endemic super‐generalist species, i.e. pollinators or plant species with a very wide pollination niche, include new invaders in their set of food plants or pollinators and thereby improve establishment success of the invaders. Reviewing other studies, super generalists seem to be a widespread island phenomenon, i.e. island pollination networks include one or a few species with a very high generalization level compared to co‐occurring species. Low density of island species may lead to low interspecific competition, high abundance and ultimately wide niches and super generalization.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Olerton2003"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Olerton2003.html#dynamicalab.plants_pollinators_Olerton2003">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Olerton2003</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Ollerton 2003 &lt;https://academic.oup.com/aob/article-pdf/92/6/807/392524/mcg206.pdf&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **65** (9 plants, 56 pollinators)</span>
+<span class="sd">	- Edges: **103**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Ollerton, J., S. D. Johnson, L. Cranmer, and S. Kellie. 2003. The pollination ecology of an assemblage of grassland asclepiads in South Africa. Annals of Botany 92:807-834.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/olerton2003.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_013&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_013&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Ollerton, J., S. D. Johnson, L. Cranmer, and S. Kellie. 2003. The pollination ecology of an assemblage of grassland asclepiads in South Africa. Annals of Botany 92:807-834.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;The KwaZulu-Natal region of South Africa hosts a large diversity of asclepiads (Apocynaceae: Asclepiadoideae), many of which are endemic to the area. The asclepiads are of particular interest because of their characteristically highly evolved  ̄oral morphology. During 3 months of ®eldwork (November 2000 to January 2001) the  ̄ower visitors and pollinators to an assemblage of nine asclepiads at an upland grassland site were studied. These observations were augmented by laboratory studies of  ̄ower morphology (including scan- ning electron microscopy) and  ̄ower colour (using a spectrometer). Two of the specialized pollination systems that were documented are new to the asclepiads: fruit chafer pollination and pompilid wasp pollination. The lat- ter is almost unique in the angiosperms. Taxa possessing these speci®c pollination systems cluster together in multidimensional phenotype space, suggesting that there has been convergent evolution in response to similar selection to attract identical pollinators. Pollination niche breadth varied from the very specialized species, with only one pollinator, to the more generalized, with up to ten pollinators. Pollinator sharing by the specialized taxa does not appear to have resulted in niche differentiation in terms of the temporal or spatial dimensions, or with regards to placement of pollinaria. Nestedness analysis of the data set showed that there was predictability and structure to the pattern of plant-pollinator interactions, with generalist insects visiting specialized plants and vice versa. The research has shown that there is still much to be learned about plant-pollinator interactions in areas of high plant diversity such as South Africa.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Hocking1968"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Hocking1968.html#dynamicalab.plants_pollinators_Hocking1968">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Hocking1968</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Hocking 1968 &lt;https://www.jstor.org/stable/3565022&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **110** (29 plants, 81 pollinators)</span>
+<span class="sd">	- Edges: **179**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Hocking, B. 1968. Insect-flower associations in the high Arctic with special reference to nectar. Oikos 19:359-388.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/hocking1968.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_014&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_014&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Hocking, B. 1968. Insect-flower associations in the high Arctic with special reference to nectar. Oikos 19:359-388.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;665 measurements of nectar concentration and 983 of nectar volume per day, distributed among 37 out of 43 species of flowering plants examined, are recorded and analysed. Nectar production per unit area per season was substantially less at Lake Hazen, 82° N, than at Churchill, 58°N. Nectar yield in mg sugar/flower/day was higher at Lake Hazen than at Churchill in eight of the ten species for which data were obtained at both localities. There is competition between flowers for pollinators rather than among pollinators for nectar. Heliotropic flowers, notably Dryas and Papaver, focus sunlight falling on them in the region of the germ cells; it is shown that the thermal increments obtainable by black insects resting in these flowers can be important. 184 different plant species - insect species associations are reported, based on about 350 observations and 760 insect specimens; these associations fall into 9 activity categories (some into more than one), as follows: ambush (6), basking (4), flying over (20), hidden in (20), courtship behaviour (1), nectar feeding (23), ovipositing (2), pollen feeding or collecting (12), resting on or uncertain (96). It is concluded that flowers and floral groups are important as aggregation centres for insect populations in this environment. &quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Herrera1988"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Herrera1988.html#dynamicalab.plants_pollinators_Herrera1988">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Herrera1988</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Herrara 1988 &lt;https://www.jstor.org/stable/2260469&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **205** (26 plants, 179 pollinators)</span>
+<span class="sd">	- Edges: **412**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Herrera, J. (1988) Pollination relatioships in southern spanish mediterranean shrublands. Journal of Ecology 76: 274-287.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/herrera1988.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_016&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_016&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Herrera, J. (1988) Pollination relatioships in southern spanish mediterranean shrublands. Journal of Ecology 76: 274-287.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;(1) Pollination relationships were investigated for fourteen months in a southern Spanish Mediterranean coastal scrub community, composed of thirty plant species, at Reserva Biologica de Donana, Donana National Park. (2) Flowering encompassed the whole year, as did insect visits to flowers. Distinct seasonal changes, however, in both the number and identity of insect taxa, and in the number of plant species in bloom were apparent: maximum plant and insect richness occurred in spring. (3) Insect visitors mainly included small beetles, honeybees, small halictid bees, syrphids and bombylids. The overall species richness of the pollinator array was very high (187 taxa). (4) Plant species with specialized pollination mechanisms were relatively infrequent. Most plants had non-restrictive or small flowers, or both. Species relying on pollen to attract pollinators outweighed those relying on nectar as the main reward. (5) Joint analysis of flower attributes, blooming phenology and pollination vectors demonstrated that species flowering at about the same time of year tend to have their flowers visited by the same insects, irrespective of floral features. (6) It is hypothesized that fruit set is more resource- than pollen-limited and that to achieve maximum fruit set most plants have unspecialized pollination relationships. The generalized nature of pollination systems may have been a major factor contributing to the survival and weedy behaviour of many Mediterranean scrub species.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Memmott1999"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Memmott1999.html#dynamicalab.plants_pollinators_Memmott1999">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Memmott1999</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Memmott 1999 &lt;https://onlinelibrary.wiley.com/doi/pdf/10.1046/j.1461-0248.1999.00087.x&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **104** (23 plants, 79 pollinators)</span>
+<span class="sd">	- Edges: **299**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Memmott J. 1999. The structure of a plant-pollinator food web. Ecology Letters 2:276-280.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/memmott1999.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_017&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_017&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Memmott J. 1999. The structure of a plant-pollinator food web. Ecology Letters 2:276-280.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;The pollination biology literature is dominated by examples of specialization between plants and their pollinators. However, a recent review shows that it is generalization that prevails in the field, with most plants having a number of pollinators and most pollinators visiting a number of plants. Consequently, the vast majority of plant–pollinator interactions are embedded in a complex web of plant–pollinator interactions. These plant‐pollinator webs can be studied in the manner of conventional food webs and the aim of this paper is to illustrate how contemporary methods of web construction and analysis can be applied to plant‐pollinator communities.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="plants_pollinators_OlesenUnpublished"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_OlesenUnpublished.html#dynamicalab.plants_pollinators_OlesenUnpublished">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_OlesenUnpublished</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of Olesen Unpublished.</span>
+
+<span class="sd">	- Nodes: **144** (39 plants, 105 pollinators)</span>
+<span class="sd">	- Edges: **383**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **1**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Unpublished</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/olesenunpublished.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_018&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_018&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Unpublished&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="plants_pollinators_Inouye1988"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Inouye1988.html#dynamicalab.plants_pollinators_Inouye1988">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Inouye1988</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Inouye 1988 &lt;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.1988.tb00968.x&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **125** (40 plants, 85 pollinators)</span>
+<span class="sd">	- Edges: **264**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Inouye, D. W., and G. H. Pyke. 1988. Pollination biology in the Snowy Mountains of Australia: comparisons with montane Colorado, USA. Australian Journal of Ecology 13:191-210.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/inouye1988.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_019&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_019&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Inouye, D. W., and G. H. Pyke. 1988. Pollination biology in the Snowy Mountains of Australia: comparisons with montane Colorado, USA. Australian Journal of Ecology 13:191-210.&#39;</span><span class="p">,</span>
+		<span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;Various aspects of the pollination biology of the alpine flora of Kosciusko National Park, NSW, were examined from late December 1983 until the end of March 1984, including flowering phenology, corolla tube lengths, flower colour, ultraviolet reflectance patterns, visitation rates to the flowers and proboscis lengths of the flower‐visiting insects. An average of 5.3 species flowered in each of 13, 2 m×2 m montane plots and 5.6 species in the 13 alpine plots. The maximum number in flower simultaneously averaged 4.1 species in the montane and 3.3 in the alpine plots; flowering peaked in mid‐January, Corolla tube lengths of the flora averaged 1.73 mm. The most common floral colour was white or predominantly white (40 species), followed by yellow (14 species). Only six of the 38 species (16%) examined had some type of reflectance pattern; the remaining species all absobed ultraviolet. Flies appeared to be the major pollinators. The insects collected in the study area comprised 60 species of Diptera, 33 species of Hymenoptera, and several species each of Lepidoptera and Coleoptera. On average, 14.4 percents of flowers watched during 379 observation periods (10 min each) were visited. On average, each plant species was visited by 6.4 species of flies, 2.4 species of bees, wasps or sawflies, one species of butterfly or moth and 0.3 species of beetles. Visitation rates increased over the growing season, and were significantly affected by ambient temperature (positively), light levels (positively) and wind speed (negatively). The maximum proboscis length for the 25 most common species of bees was 2.76 mm, but 18 of 51 species of flies had proboscis lengths longer than this. The mean proboscis length for all 25 species of bees was 1.68 mm, and for 51 species of flies was 2.31 mm. Proboscis lengths for flies were positively correlated with the average corolla length for the plant species they visited. For bees, however, the range in proboscis lengths was relatively small and did not show this pattern. There appear to be significant differences between the plant‐pollinator community of alpine Australia and other alpine areas where bumblebees are common pollinators. These differences include shorter proboscis and corolla tube lengths, and perhaps an increased diversity and significance of flies as pollinators.&quot;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Kevan1970"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Kevan1970.html#dynamicalab.plants_pollinators_Kevan1970">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Kevan1970</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Kevan 1970 &lt;https://www.nceas.ucsb.edu/interactionweb/html/kevan_1970.html&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **111** (20 plants, 91 pollinators)</span>
+<span class="sd">	- Edges: **190**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Kevan P. G. 1970. High Arctic insect-flower relations: The interrelationships of arthropods and flowers at Lake Hazen, Ellesmere Island, Northwest Territories, Canada. Ph.D. thesis, University of Alberta, Edmonton, 399 pp.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/kevan1970.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_020&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_020&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Kevan P. G. 1970. High Arctic insect-flower relations: The interrelationships of arthropods and flowers at Lake Hazen, Ellesmere Island, Northwest Territories, Canada. Ph.D. thesis, University of Alberta, Edmonton, 399 pp.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="plants_pollinators_Kato1990"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Kato1990.html#dynamicalab.plants_pollinators_Kato1990">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Kato1990</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
+	<span class="sd">&quot;&quot;&quot;Plant pollinators dataset of  `Kato 1990 &lt;https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/156101/1/cbl02704_309.pdf&gt;`_ .</span>
+
+<span class="sd">	- Nodes: **768** (91 plants, 677 pollinators)</span>
+<span class="sd">	- Edges: **1193**</span>
+<span class="sd">	- Bipartite: **True**</span>
+<span class="sd">	- Components: **2**</span>
+
+
+<span class="sd">	**Reference**</span>
+<span class="sd">	</span>
+<span class="sd">	Kato, M., Kakutani, T., Inoue, T. and Itino, T. (1990). Insect-flower relationship in the primary beech forest of Ashu, Kyoto: An overview of the flowering phenology and the seasonal pattern of insect visits. Contrib. Biol. Lab., Kyoto, Univ., 27, 309-375.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
+<span class="sd">		Directory to which the data will be saved.</span>
+
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Dataset </span>
+<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">	</span>
+<span class="sd">	.. image:: /_static/assets/dataset/kato1990.png </span>
+<span class="sd">		:align: center</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=M_PL_021&quot;</span>
+	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_json&quot;</span>
+	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=M_PL_021&quot;</span>
+	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=5&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Kato, M., Kakutani, T., Inoue, T. and Itino, T. (1990). Insect-flower relationship in the primary beech forest of Ashu, Kyoto: An overview of the flowering phenology and the seasonal pattern of insect visits. Contrib. Biol. Lab., Kyoto, Univ., 27, 309-375.&#39;</span>
+	<span class="p">}</span>
+
+	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">data</span></div>
 </pre></div>
 
           </div>

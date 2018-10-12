@@ -7,8 +7,31 @@ Datasets
 
 .. automodule:: dynamicalab
 
-Bipartites
-==================
+
+
+Usage
+=================
+
+
+We have created a convenient dataset loader. The datasets are automatically downloaded in the `save_path`. 
+If the data have already been downloaded, the dataset are automatically loaded from the local path. 
+
+Each dataset has a graph generator method to convert the raw data to a `nx.Graph`.
+
+
+Example
+--------------
+
+.. code:: python 
+   
+   import dynamicalab as dlb
+
+   data = dlb.plants_pollinators_McCullen1993(save_path="./datas")
+   G = data.graph()
+
+
+Bipartites (24 datasets)
+=========================
 
 .. autosummary::
    :toctree: generated/
@@ -22,10 +45,26 @@ Bipartites
    plants_pollinators_Barrett1987
    plants_pollinators_Robsertson1992
    plants_pollinators_Kaiser2010
+   plants_pollinators_Petanidou1991
+   plants_pollinators_Clements1923
+   plants_pollinators_Dicks2002I
+   plants_pollinators_Dicks2002II
+   plants_pollinators_Dupont2003
+   plants_pollinators_Elberling1999I
+   plants_pollinators_Elberling1999II
+   plants_pollinators_Olesen2002I
+   plants_pollinators_Olerton2003
+   plants_pollinators_Hocking1968
+   plants_pollinators_Herrera1988
+   plants_pollinators_Memmott1999
+   plants_pollinators_OlesenUnpublished
+   plants_pollinators_Inouye1988
+   plants_pollinators_Kevan1970
+   plants_pollinators_Kato1990
 
 
-Connectomes
-=================
+Connectomes (1 dataset)
+=========================
 
 .. autosummary::
 	:toctree: generated/
@@ -33,12 +72,3 @@ Connectomes
 	connectomes
 	connectomes_CElegansSNAP
 
-Usage
-=================
-
-.. code:: python 
-	
-	import dynamicalab as dlb
-
-	data = dlb.plants_pollinators_McCullen1993(save_path="./datas")
-	G = data.graph()
