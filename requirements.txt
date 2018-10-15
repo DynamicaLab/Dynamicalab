@@ -1,0 +1,7 @@
+sphinx>=1.7.6
+sphinx_rtd_theme>=0.4.1
+numpy>=1.15.0
+scipy>=1.1.0
+matplotlib>=2.2.2
+tqdm>=4.26.0
+networkx>=2.1
