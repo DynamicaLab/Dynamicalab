@@ -1,5 +1,6 @@
 import dynamicalab as dlb
 import os
+from ..utils.tqdm_url import TqdmUpTo
 
 class Dataset(object):
 	"""
@@ -104,7 +105,9 @@ class Dataset(object):
 
 		if (self.is_downloaded()==False):
 			from six.moves import urllib
-			urllib.request.urlretrieve(self.url, file_path)
+			from tqdm import tqdm
+			with TqdmUpTo(unit='B', unit_scale=True, unit_divisor=1024, desc="Downloading dataset", miniters=1) as t:  # all optional kwargs
+				urllib.request.urlretrieve(self.url, filename=file_path, reporthook=t.update_to)
 			self.uncompress_data(file_path, filename_no_extension)
 			
 		return self.save_path +"/"+self.data_name
