@@ -32,3 +32,13 @@ Layouts
    :toctree: generated/
 
    group_radial_layout
+   clustered_layout
+
+
+Utils
+==========
+
+.. autosummary::
+   :toctree: generated/
+
+   split_edges
