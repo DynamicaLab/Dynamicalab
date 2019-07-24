@@ -50,7 +50,7 @@
 
 <span class="sd">	.. code:: python</span>
 
-<span class="sd">		for data in dlb.plants_pollinators(&quot;./da&quot;):</span>
+<span class="sd">		for method_name, data in dlb.plants_pollinators(&quot;./da&quot;):</span>
 <span class="sd">			G = data.graph()</span>
 
 <span class="sd">	.. note:: </span>
@@ -63,10 +63,11 @@
 	<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="n">methods</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">dlb</span><span class="p">)</span>
 	<span class="n">pp_methods</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dlb</span><span class="p">,</span><span class="n">method</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span> <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;plants_pollinators_&quot;</span> <span class="ow">in</span> <span class="n">method</span><span class="p">)]</span>
+	<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">pp_methods</span><span class="p">]</span>
 	<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">pp_methods</span><span class="p">]</span>
 
 	<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
-		<span class="k">yield</span> <span class="n">datasets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+		<span class="k">yield</span> <span class="n">names</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">datasets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 		<span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span></div>
 
 <div class="viewcode-block" id="plants_pollinators_Ramirez1992"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.plants_pollinators_Ramirez1992.html#dynamicalab.plants_pollinators_Ramirez1992">[docs]</a><span class="k">def</span> <span class="nf">plants_pollinators_Ramirez1992</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>

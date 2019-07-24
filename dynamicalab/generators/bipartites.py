@@ -14,7 +14,7 @@ def plants_pollinators(save_path):
 
 	.. code:: python
 
-		for data in dlb.plants_pollinators("./da"):
+		for method_name, data in dlb.plants_pollinators("./da"):
 			G = data.graph()
 
 	.. note:: 
@@ -27,10 +27,11 @@ def plants_pollinators(save_path):
 	index = 0
 	methods = dir(dlb)
 	pp_methods = [getattr(dlb,method) for method in methods if ("plants_pollinators_" in method)]
+	names = [method.__name__ for method in pp_methods]
 	datasets = [method(save_path) for method in pp_methods]
 
 	while index < len(datasets):
-		yield datasets[index]
+		yield names[index], datasets[index]
 		index += 1
 
 def plants_pollinators_Ramirez1992(save_path="./data"):

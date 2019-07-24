@@ -25,7 +25,7 @@ sys.path.insert(1, os.path.abspath('./_static'))
 import dynamicalab
 
 
-
+autodoc_mock_imports = ["bpy"]
 
 
 
@@ -90,7 +90,7 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 # generate autosummary pages
-autosummary_generate = True
+autosummary_generate = False
 
 # -- Options for HTML output ----------------------------------------------
 
