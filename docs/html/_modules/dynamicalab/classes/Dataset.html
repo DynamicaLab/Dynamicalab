@@ -36,6 +36,7 @@
   <h1>Source code for dynamicalab.classes.Dataset</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">..utils.tqdm_url</span> <span class="k">import</span> <span class="n">TqdmUpTo</span>
 
 <div class="viewcode-block" id="Dataset"><a class="viewcode-back" href="../../../reference/classes/Dataset.html#dynamicalab.Dataset">[docs]</a><span class="k">class</span> <span class="nc">Dataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;</span>
@@ -140,7 +141,9 @@
 
 		<span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_downloaded</span><span class="p">()</span><span class="o">==</span><span class="kc">False</span><span class="p">):</span>
 			<span class="kn">from</span> <span class="nn">six.moves</span> <span class="k">import</span> <span class="n">urllib</span>
-			<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+			<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm</span>
+			<span class="k">with</span> <span class="n">TqdmUpTo</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit_divisor</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Downloading dataset&quot;</span><span class="p">,</span> <span class="n">miniters</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>  <span class="c1"># all optional kwargs</span>
+				<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">reporthook</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">update_to</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">uncompress_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">filename_no_extension</span><span class="p">)</span>
 			
 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_path</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">data_name</span>

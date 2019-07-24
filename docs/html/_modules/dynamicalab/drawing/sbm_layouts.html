@@ -1,0 +1,241 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.drawing.sbm_layouts &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.drawing.sbm_layouts</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+
+<span class="k">def</span> <span class="nf">sample_from_circle</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">centroid</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="mi">360</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">centroid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">+</span><span class="n">centroid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+
+<span class="k">def</span> <span class="nf">sample_nodes_from_centers</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">radius_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">radius_scale</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">radius_scale</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">)</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">subset</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sample_from_circle</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subset</span><span class="p">),</span> <span class="n">centroid</span><span class="o">=</span><span class="n">centroids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span><span class="o">*</span><span class="n">radius_scale</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subset</span><span class="p">):</span>
+            <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">pos</span>
+
+<div class="viewcode-block" id="split_edges"><a class="viewcode-back" href="../../../reference/drawing/generated/dynamicalab.drawing.split_edges.html#dynamicalab.drawing.split_edges">[docs]</a><span class="k">def</span> <span class="nf">split_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">node_subsets</span><span class="p">):</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">edge_bunchs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nodes_a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">):</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nodes_a</span><span class="p">))</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">edge_bunchs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+        
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nodes_a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">nodes_b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node_subsets</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">!=</span><span class="n">j</span><span class="p">:</span>
+                <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nodes_a</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">nodes_b</span><span class="p">))</span>
+                <span class="n">sub</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">edge_bunchs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+                <span class="n">H</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+                
+    <span class="k">return</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">edge_bunchs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="clustered_layout"><a class="viewcode-back" href="../../../reference/drawing/generated/dynamicalab.drawing.clustered_layout.html#dynamicalab.drawing.clustered_layout">[docs]</a><span class="k">def</span> <span class="nf">clustered_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">radius_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function constructs a layout where nodes are sampled in circles around centroids of groups.</span>
+
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    G : Networkx Graph</span>
+<span class="sd">        A Networkx ``Graph`` or ``DiGraph``.</span>
+
+<span class="sd">    groups : list of lists</span>
+<span class="sd">        A list of groups of nodes. Each element of groups must be a list of ``node_id``.</span>
+
+<span class="sd">    centroids : list of lists</span>
+<span class="sd">        Position of the centers of the groups</span>
+
+<span class="sd">    radius_scale : list of float : (default=None)</span>
+<span class="sd">        Scaling of the radius for each group. If None, then the scaling is equal to 1 for all groups. Smaller scaling increases the nodes density.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    dict </span>
+<span class="sd">        Dictionary of positions that can be use directly with ``draw_networks``. Each key is a ``node_id`` (from ``groups``) and the value is a position ``[x,y]``. </span>
+
+<span class="sd">    list of edges</span>
+<span class="sd">        Split of edges between each group. Makes the plot much simpler. Check the example.</span>
+
+<span class="sd">    **Raise**</span>
+<span class="sd">    </span>
+<span class="sd">    ``ValueError``</span>
+<span class="sd">        Occurs if ``groups`` does not contain all nodes (low criterion).</span>
+
+<span class="sd">    **Example**</span>
+<span class="sd">    </span>
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import numpy as np</span>
+<span class="sd">        import matplotlib.pyplot as plt</span>
+<span class="sd">        import networkx as nx</span>
+<span class="sd">        import dynamicalab.drawing as draw</span>
+
+<span class="sd">        # Generate a network</span>
+<span class="sd">        pin = [0.05, 0.2]</span>
+<span class="sd">        pout= 0.003</span>
+<span class="sd">        sizes = [100,250]</span>
+<span class="sd">        G = nx.random_partition_graph(sizes, 0.25, 0.01)</span>
+
+<span class="sd">        node_subsets = [range(0,sizes[0]), range(sizes[0], sizes[0]+sizes[1])]</span>
+<span class="sd">        centroids = [(0,0), (4,4)]</span>
+<span class="sd">        radius_scale = [0.02,0.03]</span>
+
+<span class="sd">        # Get layout</span>
+<span class="sd">        pos, edge_bunchs = draw.clustered_layout(node_subsets, centroids, radius_scale)</span>
+
+<span class="sd">        # Draw</span>
+<span class="sd">        plt.figure(figsize=(10,10))</span>
+
+<span class="sd">        node_colors = [&#39;#b2182b&#39;, &#39;#2166ac&#39;]</span>
+<span class="sd">        for i, nodes in enumerate(node_subsets):</span>
+<span class="sd">            nx.draw_networkx_nodes(G, pos=pos, node_size=30, nodelist=nodes, node_color=node_colors[i])</span>
+
+<span class="sd">        colors = [&#39;#bdbdbd&#39;, &#39;#bdbdbd&#39;, &#39;#67a9cf&#39;, &#39;#ef8a62&#39;]</span>
+<span class="sd">        for i, edges in enumerate(edge_bunchs):</span>
+<span class="sd">            nx.draw_networkx_edges(G, pos=pos, alpha=0.2, edgelist=edges, edge_color=colors[i])</span>
+<span class="sd">            </span>
+<span class="sd">        plt.axis(&quot;off&quot;)</span>
+
+
+<span class="sd">    .. image:: /_static/assets/cluster_layout.png</span>
+<span class="sd">            :align: center</span>
+
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span><span class="o">!=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">])):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All nodes must be grouped in list in groups.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">sample_nodes_from_centers</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">radius_scale</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">split_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edges</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes/index.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/datasets/index.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/DynamicaLab/Dynamicalab">Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
