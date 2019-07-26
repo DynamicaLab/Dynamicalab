@@ -1,9 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>dynamicalab.drawing.group_radial_layout &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -11,9 +13,8 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="dynamicalab.drawing.clustered_layout" href="dynamicalab.drawing.clustered_layout.html" />
@@ -38,31 +39,31 @@
 <h1>dynamicalab.drawing.group_radial_layout<a class="headerlink" href="#dynamicalab-drawing-group-radial-layout" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.drawing.group_radial_layout">
-<code class="sig-prename descclassname">dynamicalab.drawing.</code><code class="sig-name descname">group_radial_layout</code><span class="sig-paren">(</span><em class="sig-param">G</em>, <em class="sig-param">groups</em>, <em class="sig-param">radius=1</em>, <em class="sig-param">margin=0.3141592653589793</em>, <em class="sig-param">phase=0.0</em>, <em class="sig-param">dx=0.0</em>, <em class="sig-param">dy=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/layouts.html#group_radial_layout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.group_radial_layout" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dynamicalab.drawing.</code><code class="descname">group_radial_layout</code><span class="sig-paren">(</span><em>G</em>, <em>groups</em>, <em>radius=1</em>, <em>margin=0.3141592653589793</em>, <em>phase=0.0</em>, <em>dx=0.0</em>, <em>dy=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/layouts.html#group_radial_layout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.group_radial_layout" title="Permalink to this definition">¶</a></dt>
 <dd><p>This constructs a circular layout of nodes with groups. Each group is separated by a certain angle.</p>
 <p><strong>Parameters</strong></p>
-<dl class="simple">
-<dt>G<span class="classifier">Networkx Graph</span></dt><dd><p>A Networkx <code class="docutils literal notranslate"><span class="pre">Graph</span></code> or <code class="docutils literal notranslate"><span class="pre">DiGraph</span></code>.</p>
-</dd>
-<dt>groups<span class="classifier">list of lists</span></dt><dd><p>A list of groups of nodes. Each element of groups must be a list of <code class="docutils literal notranslate"><span class="pre">node_id</span></code>.</p>
-</dd>
-<dt>radius<span class="classifier">float</span><span class="classifier">(default=1)</span></dt><dd><p>Radius of the circle. Could be useful if you plan to plot two graphs of different size on the same figure.</p>
-</dd>
-<dt>margin<span class="classifier">float</span><span class="classifier">(default=np.pi/10)</span></dt><dd><p>Angle space between groups. Increase to add space between groups.</p>
-</dd>
-<dt>phase<span class="classifier">float</span><span class="classifier">(default=0.0)</span></dt><dd><p>Initial phase of the circle. This mostly induce a rotation of the nodes on the circle.</p>
-</dd>
-<dt>dx<span class="classifier">float</span><span class="classifier">(default=0.0)</span></dt><dd><p>X translation of nodes.</p>
-</dd>
-<dt>dy<span class="classifier">float</span><span class="classifier">(default=0.0)</span></dt><dd><p>Y translation of nodes.</p>
-</dd>
+<dl class="docutils">
+<dt>G <span class="classifier-delimiter">:</span> <span class="classifier">Networkx Graph</span></dt>
+<dd>A Networkx <code class="docutils literal notranslate"><span class="pre">Graph</span></code> or <code class="docutils literal notranslate"><span class="pre">DiGraph</span></code>.</dd>
+<dt>groups <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd>A list of groups of nodes. Each element of groups must be a list of <code class="docutils literal notranslate"><span class="pre">node_id</span></code>.</dd>
+<dt>radius <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1)</span></dt>
+<dd>Radius of the circle. Could be useful if you plan to plot two graphs of different size on the same figure.</dd>
+<dt>margin <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=np.pi/10)</span></dt>
+<dd>Angle space between groups. Increase to add space between groups.</dd>
+<dt>phase <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>Initial phase of the circle. This mostly induce a rotation of the nodes on the circle.</dd>
+<dt>dx <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>X translation of nodes.</dd>
+<dt>dy <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.0)</span></dt>
+<dd>Y translation of nodes.</dd>
 </dl>
 <p><strong>Returns</strong></p>
-<dl class="simple">
-<dt>dict</dt><dd><p>Dictionary of positions that can be use directly with <code class="docutils literal notranslate"><span class="pre">draw_networks</span></code>. Each key is a <code class="docutils literal notranslate"><span class="pre">node_id</span></code> (from <code class="docutils literal notranslate"><span class="pre">groups</span></code>) and the value is a position <code class="docutils literal notranslate"><span class="pre">[x,y]</span></code>.</p>
-</dd>
+<dl class="docutils">
+<dt>dict</dt>
+<dd>Dictionary of positions that can be use directly with <code class="docutils literal notranslate"><span class="pre">draw_networks</span></code>. Each key is a <code class="docutils literal notranslate"><span class="pre">node_id</span></code> (from <code class="docutils literal notranslate"><span class="pre">groups</span></code>) and the value is a position <code class="docutils literal notranslate"><span class="pre">[x,y]</span></code>.</dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="mi">0</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span>
     <span class="mi">1</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
     <span class="o">...</span>
@@ -70,15 +71,15 @@
 </pre></div>
 </div>
 <p><strong>Raise</strong></p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></dt><dd><p>Occurs if <code class="docutils literal notranslate"><span class="pre">groups</span></code> does not contain all nodes (low criterion).</p>
-</dd>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></dt>
+<dd>Occurs if <code class="docutils literal notranslate"><span class="pre">groups</span></code> does not contain all nodes (low criterion).</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="kn">as</span> <span class="nn">draw</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="c1"># Generate network</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
@@ -98,7 +99,7 @@
                   <span class="n">arrow_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
                   <span class="n">edge_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> 
                   <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> 
-                  <span class="n">use_edge_weigth</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                  <span class="n">use_edge_weigth</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../../_images/circular_layout.png" class="align-center" src="../../../_images/circular_layout.png" />
@@ -164,23 +165,17 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>

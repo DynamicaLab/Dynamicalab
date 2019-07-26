@@ -1,9 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>dynamicalab.algorithms.clustering_spectrum &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -11,9 +13,8 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="dynamicalab.algorithms.onion_decomposition" href="dynamicalab.algorithms.onion_decomposition.html" />
@@ -38,27 +39,27 @@
 <h1>dynamicalab.algorithms.clustering_spectrum<a class="headerlink" href="#dynamicalab-algorithms-clustering-spectrum" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.algorithms.clustering_spectrum">
-<code class="sig-prename descclassname">dynamicalab.algorithms.</code><code class="sig-name descname">clustering_spectrum</code><span class="sig-paren">(</span><em class="sig-param">g</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/algorithms/clustering_spectrum.html#clustering_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.algorithms.clustering_spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dynamicalab.algorithms.</code><code class="descname">clustering_spectrum</code><span class="sig-paren">(</span><em>g</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/algorithms/clustering_spectrum.html#clustering_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.algorithms.clustering_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function extracts the clustering spectrum of a simple undirected graph.</p>
 <p><strong>Parameters</strong></p>
-<dl class="simple">
-<dt>g<span class="classifier">nx.Graph</span></dt><dd><p>A simple undirected graph without self-loops.</p>
-</dd>
+<dl class="docutils">
+<dt>g <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
+<dd>A simple undirected graph without self-loops.</dd>
 </dl>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The graph must be <strong>simple</strong> (no multiedges), <strong>undirected</strong> and <strong>without self-loops</strong>.</p>
+<p class="first admonition-title">Warning</p>
+<p class="last">The graph must be <strong>simple</strong> (no multiedges), <strong>undirected</strong> and <strong>without self-loops</strong>.</p>
 </div>
 <p><strong>Returns</strong></p>
-<dl class="simple">
-<dt>clust_spect<span class="classifier">dict</span></dt><dd><p>Dictionary mapping each degree class (integers) to the corresponding average local clustering coefficient (float).</p>
-</dd>
+<dl class="docutils">
+<dt>clust_spect <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>Dictionary mapping each degree class (integers) to the corresponding average local clustering coefficient (float).</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">dynamicalab.algorithms</span> <span class="kn">as</span> <span class="nn">algo</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.algorithms</span> <span class="k">as</span> <span class="nn">algo</span>
 
 <span class="c1"># Gets a network and extracts its clustering spectrum.</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
@@ -140,23 +141,17 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
