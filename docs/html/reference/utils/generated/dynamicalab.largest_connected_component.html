@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>dynamicalab.largest_connected_component &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -13,8 +11,9 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="How to contribute" href="../../../contributing.html" />
@@ -39,14 +38,14 @@
 <h1>dynamicalab.largest_connected_component<a class="headerlink" href="#dynamicalab-largest-connected-component" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.largest_connected_component">
-<code class="descclassname">dynamicalab.</code><code class="descname">largest_connected_component</code><span class="sig-paren">(</span><em>G</em>, <em>relabel=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/utils/preprocessing.html#largest_connected_component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.largest_connected_component" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dynamicalab.</code><code class="sig-name descname">largest_connected_component</code><span class="sig-paren">(</span><em class="sig-param">G</em>, <em class="sig-param">relabel=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/utils/preprocessing.html#largest_connected_component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.largest_connected_component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the largest connected component of the graph.</p>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt>G <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
-<dd>Networkx graph</dd>
-<dt>relabel <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
-<dd>If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.</dd>
+<dl class="simple">
+<dt>G<span class="classifier">nx.Graph</span></dt><dd><p>Networkx graph</p>
+</dd>
+<dt>relabel<span class="classifier">bool</span></dt><dd><p>If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.</p>
+</dd>
 </dl>
 <p><strong>Returns</strong></p>
 <p>nx.Graph</p>
@@ -112,17 +111,23 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>

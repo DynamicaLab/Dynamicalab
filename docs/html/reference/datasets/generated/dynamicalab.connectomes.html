@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>dynamicalab.connectomes &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -13,8 +11,9 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="dynamicalab.connectomes_CElegansSNAP" href="dynamicalab.connectomes_CElegansSNAP.html" />
@@ -39,21 +38,21 @@
 <h1>dynamicalab.connectomes<a class="headerlink" href="#dynamicalab-connectomes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.connectomes">
-<code class="descclassname">dynamicalab.</code><code class="descname">connectomes</code><span class="sig-paren">(</span><em>save_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/connectomes.html#connectomes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.connectomes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dynamicalab.</code><code class="sig-name descname">connectomes</code><span class="sig-paren">(</span><em class="sig-param">save_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/generators/connectomes.html#connectomes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.connectomes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator through all connectomes datasets.</p>
 <p><strong>Parameter</strong></p>
-<dl class="docutils">
-<dt>save_path <span class="classifier-delimiter">:</span> <span class="classifier">String</span></dt>
-<dd>Directory to which the data will be saved.</dd>
+<dl class="simple">
+<dt>save_path<span class="classifier">String</span></dt><dd><p>Directory to which the data will be saved.</p>
+</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">dlb</span><span class="o">.</span><span class="n">connectomes</span><span class="p">(</span><span class="s2">&quot;./da&quot;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">dlb</span><span class="o">.</span><span class="n">connectomes</span><span class="p">(</span><span class="s2">&quot;./da&quot;</span><span class="p">):</span>
         <span class="n">G</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">graph</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">It loads all methods of <code class="docutils literal notranslate"><span class="pre">Dynamicalab</span></code> for which the name contains <code class="docutils literal notranslate"><span class="pre">connectomes_</span></code>. 
+<p class="admonition-title">Note</p>
+<p>It loads all methods of <code class="docutils literal notranslate"><span class="pre">Dynamicalab</span></code> for which the name contains <code class="docutils literal notranslate"><span class="pre">connectomes_</span></code>. 
 Therefore, the name convention must be enforced.</p>
 </div>
 </dd></dl>
@@ -118,17 +117,23 @@ Therefore, the name convention must be enforced.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
