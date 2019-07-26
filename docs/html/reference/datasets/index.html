@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Datasets &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -13,8 +11,9 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/colorParser.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="dynamicalab.plants_pollinators" href="generated/dynamicalab.plants_pollinators.html" />
@@ -44,7 +43,7 @@ If the data have already been downloaded, the dataset are automatically loaded f
 <p>Each dataset has a graph generator method to convert the raw data to a <cite>nx.Graph</cite>.</p>
 <div class="section" id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="k">as</span> <span class="nn">dlb</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab</span> <span class="kn">as</span> <span class="nn">dlb</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">dlb</span><span class="o">.</span><span class="n">plants_pollinators_McCullen1993</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./datas&quot;</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">graph</span><span class="p">()</span>
@@ -54,103 +53,107 @@ If the data have already been downloaded, the dataset are automatically loaded f
 </div>
 <div class="section" id="bipartites-24-datasets">
 <h2>Bipartites (24 datasets)<a class="headerlink" href="#bipartites-24-datasets" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators.html#dynamicalab.plants_pollinators" title="dynamicalab.plants_pollinators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators</span></code></a>(save_path)</td>
-<td>Iterator through all plants pollinators datasets.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators.html#dynamicalab.plants_pollinators" title="dynamicalab.plants_pollinators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators</span></code></a>(save_path)</p></td>
+<td><p>Iterator through all plants pollinators datasets.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Ramirez1992.html#dynamicalab.plants_pollinators_Ramirez1992" title="dynamicalab.plants_pollinators_Ramirez1992"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Ramirez1992</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html">Ramirez et al., 1992</a>  .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Ramirez1992.html#dynamicalab.plants_pollinators_Ramirez1992" title="dynamicalab.plants_pollinators_Ramirez1992"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Ramirez1992</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/ramirez_1992.html">Ramirez et al., 1992</a>  .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_McCullen1993.html#dynamicalab.plants_pollinators_McCullen1993" title="dynamicalab.plants_pollinators_McCullen1993"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_McCullen1993</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html">McCullen C.K., 1993</a>  .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_McCullen1993.html#dynamicalab.plants_pollinators_McCullen1993" title="dynamicalab.plants_pollinators_McCullen1993"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_McCullen1993</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html">McCullen C.K., 1993</a>  .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_I.html#dynamicalab.plants_pollinators_Arroyo1992_I" title="dynamicalab.plants_pollinators_Arroyo1992_I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_I</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation I.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_I.html#dynamicalab.plants_pollinators_Arroyo1992_I" title="dynamicalab.plants_pollinators_Arroyo1992_I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_I</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation I.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_II.html#dynamicalab.plants_pollinators_Arroyo1992_II" title="dynamicalab.plants_pollinators_Arroyo1992_II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_II</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation II.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_II.html#dynamicalab.plants_pollinators_Arroyo1992_II" title="dynamicalab.plants_pollinators_Arroyo1992_II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_II</span></code></a>([save_path])</p></td>
+<td><p><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation II.</p>
+</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_III.html#dynamicalab.plants_pollinators_Arroyo1992_III" title="dynamicalab.plants_pollinators_Arroyo1992_III"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_III</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation III.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Arroyo1992_III.html#dynamicalab.plants_pollinators_Arroyo1992_III" title="dynamicalab.plants_pollinators_Arroyo1992_III"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Arroyo1992_III</span></code></a>([save_path])</p></td>
+<td><p><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/arroyo_1982.html">Arroyo et al., 1982</a>  at elevation III.</p>
+</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Barrett1987.html#dynamicalab.plants_pollinators_Barrett1987" title="dynamicalab.plants_pollinators_Barrett1987"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Barrett1987</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/barrett_helenurm_1987.html">Barrett &amp; Helenurm, 1987</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Barrett1987.html#dynamicalab.plants_pollinators_Barrett1987" title="dynamicalab.plants_pollinators_Barrett1987"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Barrett1987</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/barrett_helenurm_1987.html">Barrett &amp; Helenurm, 1987</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Robsertson1992.html#dynamicalab.plants_pollinators_Robsertson1992" title="dynamicalab.plants_pollinators_Robsertson1992"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Robsertson1992</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/robertson_1929.html">Robertson 1992</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Robsertson1992.html#dynamicalab.plants_pollinators_Robsertson1992" title="dynamicalab.plants_pollinators_Robsertson1992"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Robsertson1992</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/robertson_1929.html">Robertson 1992</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kaiser2010.html#dynamicalab.plants_pollinators_Kaiser2010" title="dynamicalab.plants_pollinators_Kaiser2010"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kaiser2010</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2009.01437.x">Kaiser-Bunbury 2010</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kaiser2010.html#dynamicalab.plants_pollinators_Kaiser2010" title="dynamicalab.plants_pollinators_Kaiser2010"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kaiser2010</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2009.01437.x">Kaiser-Bunbury 2010</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Petanidou1991.html#dynamicalab.plants_pollinators_Petanidou1991" title="dynamicalab.plants_pollinators_Petanidou1991"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Petanidou1991</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="http://thesis.ekt.gr/thesisBookReader/id/10184#page/1/mode/2up">Petanidou 1991</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Petanidou1991.html#dynamicalab.plants_pollinators_Petanidou1991" title="dynamicalab.plants_pollinators_Petanidou1991"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Petanidou1991</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="http://thesis.ekt.gr/thesisBookReader/id/10184#page/1/mode/2up">Petanidou 1991</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Clements1923.html#dynamicalab.plants_pollinators_Clements1923" title="dynamicalab.plants_pollinators_Clements1923"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Clements1923</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="http://ia802604.us.archive.org/21/items/experimentalpoll00clem/experimentalpoll00clem.pdf">Clements 1923</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Clements1923.html#dynamicalab.plants_pollinators_Clements1923" title="dynamicalab.plants_pollinators_Clements1923"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Clements1923</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="http://ia802604.us.archive.org/21/items/experimentalpoll00clem/experimentalpoll00clem.pdf">Clements 1923</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dicks2002I.html#dynamicalab.plants_pollinators_Dicks2002I" title="dynamicalab.plants_pollinators_Dicks2002I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dicks2002I</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x">Dicks 2002</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dicks2002I.html#dynamicalab.plants_pollinators_Dicks2002I" title="dynamicalab.plants_pollinators_Dicks2002I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dicks2002I</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x">Dicks 2002</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dicks2002II.html#dynamicalab.plants_pollinators_Dicks2002II" title="dynamicalab.plants_pollinators_Dicks2002II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dicks2002II</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x">Dicks 2002</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dicks2002II.html#dynamicalab.plants_pollinators_Dicks2002II" title="dynamicalab.plants_pollinators_Dicks2002II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dicks2002II</span></code></a>([save_path])</p></td>
+<td><p><p>Plant pollinators dataset of <a class="reference external" href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1046/j.0021-8790.2001.00572.x">Dicks 2002</a> .</p>
+</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dupont2003.html#dynamicalab.plants_pollinators_Dupont2003" title="dynamicalab.plants_pollinators_Dupont2003"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dupont2003</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://www.jstor.org/stable/3683371">Dupont 2003</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Dupont2003.html#dynamicalab.plants_pollinators_Dupont2003" title="dynamicalab.plants_pollinators_Dupont2003"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Dupont2003</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://www.jstor.org/stable/3683371">Dupont 2003</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Elberling1999I.html#dynamicalab.plants_pollinators_Elberling1999I" title="dynamicalab.plants_pollinators_Elberling1999I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Elberling1999I</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x">Elberling 1999</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Elberling1999I.html#dynamicalab.plants_pollinators_Elberling1999I" title="dynamicalab.plants_pollinators_Elberling1999I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Elberling1999I</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x">Elberling 1999</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Elberling1999II.html#dynamicalab.plants_pollinators_Elberling1999II" title="dynamicalab.plants_pollinators_Elberling1999II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Elberling1999II</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x">Elberling 1999</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Elberling1999II.html#dynamicalab.plants_pollinators_Elberling1999II" title="dynamicalab.plants_pollinators_Elberling1999II"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Elberling1999II</span></code></a>([save_path])</p></td>
+<td><p><p>Plant pollinators dataset of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0587.1999.tb00507.x">Elberling 1999</a> .</p>
+</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Olesen2002I.html#dynamicalab.plants_pollinators_Olesen2002I" title="dynamicalab.plants_pollinators_Olesen2002I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Olesen2002I</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of <a class="reference external" href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1046/j.1472-4642.2002.00148.x">Olesen 2002</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Olesen2002I.html#dynamicalab.plants_pollinators_Olesen2002I" title="dynamicalab.plants_pollinators_Olesen2002I"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Olesen2002I</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of <a class="reference external" href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1046/j.1472-4642.2002.00148.x">Olesen 2002</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Olerton2003.html#dynamicalab.plants_pollinators_Olerton2003" title="dynamicalab.plants_pollinators_Olerton2003"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Olerton2003</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://academic.oup.com/aob/article-pdf/92/6/807/392524/mcg206.pdf">Ollerton 2003</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Olerton2003.html#dynamicalab.plants_pollinators_Olerton2003" title="dynamicalab.plants_pollinators_Olerton2003"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Olerton2003</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://academic.oup.com/aob/article-pdf/92/6/807/392524/mcg206.pdf">Ollerton 2003</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Hocking1968.html#dynamicalab.plants_pollinators_Hocking1968" title="dynamicalab.plants_pollinators_Hocking1968"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Hocking1968</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://www.jstor.org/stable/3565022">Hocking 1968</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Hocking1968.html#dynamicalab.plants_pollinators_Hocking1968" title="dynamicalab.plants_pollinators_Hocking1968"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Hocking1968</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://www.jstor.org/stable/3565022">Hocking 1968</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Herrera1988.html#dynamicalab.plants_pollinators_Herrera1988" title="dynamicalab.plants_pollinators_Herrera1988"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Herrera1988</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://www.jstor.org/stable/2260469">Herrara 1988</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Herrera1988.html#dynamicalab.plants_pollinators_Herrera1988" title="dynamicalab.plants_pollinators_Herrera1988"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Herrera1988</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://www.jstor.org/stable/2260469">Herrara 1988</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Memmott1999.html#dynamicalab.plants_pollinators_Memmott1999" title="dynamicalab.plants_pollinators_Memmott1999"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Memmott1999</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://onlinelibrary.wiley.com/doi/pdf/10.1046/j.1461-0248.1999.00087.x">Memmott 1999</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Memmott1999.html#dynamicalab.plants_pollinators_Memmott1999" title="dynamicalab.plants_pollinators_Memmott1999"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Memmott1999</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://onlinelibrary.wiley.com/doi/pdf/10.1046/j.1461-0248.1999.00087.x">Memmott 1999</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_OlesenUnpublished.html#dynamicalab.plants_pollinators_OlesenUnpublished" title="dynamicalab.plants_pollinators_OlesenUnpublished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_OlesenUnpublished</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of Olesen Unpublished.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_OlesenUnpublished.html#dynamicalab.plants_pollinators_OlesenUnpublished" title="dynamicalab.plants_pollinators_OlesenUnpublished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_OlesenUnpublished</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of Olesen Unpublished.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Inouye1988.html#dynamicalab.plants_pollinators_Inouye1988" title="dynamicalab.plants_pollinators_Inouye1988"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Inouye1988</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.1988.tb00968.x">Inouye 1988</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Inouye1988.html#dynamicalab.plants_pollinators_Inouye1988" title="dynamicalab.plants_pollinators_Inouye1988"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Inouye1988</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.1988.tb00968.x">Inouye 1988</a> .</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kevan1970.html#dynamicalab.plants_pollinators_Kevan1970" title="dynamicalab.plants_pollinators_Kevan1970"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kevan1970</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/kevan_1970.html">Kevan 1970</a> .</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kevan1970.html#dynamicalab.plants_pollinators_Kevan1970" title="dynamicalab.plants_pollinators_Kevan1970"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kevan1970</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://www.nceas.ucsb.edu/interactionweb/html/kevan_1970.html">Kevan 1970</a> .</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kato1990.html#dynamicalab.plants_pollinators_Kato1990" title="dynamicalab.plants_pollinators_Kato1990"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kato1990</span></code></a>([save_path])</td>
-<td>Plant pollinators dataset of  <a class="reference external" href="https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/156101/1/cbl02704_309.pdf">Kato 1990</a> .</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.plants_pollinators_Kato1990.html#dynamicalab.plants_pollinators_Kato1990" title="dynamicalab.plants_pollinators_Kato1990"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plants_pollinators_Kato1990</span></code></a>([save_path])</p></td>
+<td><p>Plant pollinators dataset of  <a class="reference external" href="https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/156101/1/cbl02704_309.pdf">Kato 1990</a> .</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="connectomes-1-dataset">
 <h2>Connectomes (1 dataset)<a class="headerlink" href="#connectomes-1-dataset" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.connectomes.html#dynamicalab.connectomes" title="dynamicalab.connectomes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connectomes</span></code></a>(save_path)</td>
-<td>Iterator through all connectomes datasets.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dynamicalab.connectomes.html#dynamicalab.connectomes" title="dynamicalab.connectomes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connectomes</span></code></a>(save_path)</p></td>
+<td><p>Iterator through all connectomes datasets.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.connectomes_CElegansSNAP.html#dynamicalab.connectomes_CElegansSNAP" title="dynamicalab.connectomes_CElegansSNAP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connectomes_CElegansSNAP</span></code></a>([save_path])</td>
-<td>This is a neural network of neurons and synapses in C.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dynamicalab.connectomes_CElegansSNAP.html#dynamicalab.connectomes_CElegansSNAP" title="dynamicalab.connectomes_CElegansSNAP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connectomes_CElegansSNAP</span></code></a>([save_path])</p></td>
+<td><p>This is a neural network of neurons and synapses in C.</p></td>
 </tr>
 </tbody>
 </table>
@@ -213,17 +216,23 @@ If the data have already been downloaded, the dataset are automatically loaded f
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>

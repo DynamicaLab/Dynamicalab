@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>dynamicalab.drawing.draw_curved_edges &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -13,8 +11,9 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="dynamicalab.drawing.draw_networks" href="dynamicalab.drawing.draw_networks.html" />
@@ -39,32 +38,32 @@
 <h1>dynamicalab.drawing.draw_curved_edges<a class="headerlink" href="#dynamicalab-drawing-draw-curved-edges" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.drawing.draw_curved_edges">
-<code class="descclassname">dynamicalab.drawing.</code><code class="descname">draw_curved_edges</code><span class="sig-paren">(</span><em>edges</em>, <em>pos</em>, <em>ax</em>, <em>mu=0.05</em>, <em>edge_color='black'</em>, <em>edge_width=1.0</em>, <em>alpha=1.0</em>, <em>arrow_scale=20.0</em>, <em>loopsize=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/draw.html#draw_curved_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.draw_curved_edges" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dynamicalab.drawing.</code><code class="sig-name descname">draw_curved_edges</code><span class="sig-paren">(</span><em class="sig-param">edges</em>, <em class="sig-param">pos</em>, <em class="sig-param">ax</em>, <em class="sig-param">mu=0.05</em>, <em class="sig-param">edge_color='black'</em>, <em class="sig-param">edge_width=1.0</em>, <em class="sig-param">alpha=1.0</em>, <em class="sig-param">arrow_scale=20.0</em>, <em class="sig-param">loopsize=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/draw.html#draw_curved_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.draw_curved_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function plots the edges of a graph with a certain curvature. It can also plot arrows for direction. For self-loop, it is possible
 to plot an edge that does a circle passing through the node. The size of the circle is controlled by the parameter <code class="docutils literal notranslate"><span class="pre">loopsize</span></code>.</p>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt>edges <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
-<dd>A list of edges in the tuple format of node ids, <code class="docutils literal notranslate"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</dd>
-<dt>pos <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
-<dd>A dictionary of nodes position.</dd>
-<dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">Matplotlib Axes object</span></dt>
-<dd>Draw the edges in the specified Matplotlib axes.</dd>
-<dt>mu <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0.05)</span></dt>
-<dd>Level of curvature. Should always be positive. If zero, then edges are straight.</dd>
-<dt>edge_color <span class="classifier-delimiter">:</span> <span class="classifier">str or list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”black”)</span></dt>
-<dd>If a list, then each entry is the color of the edge when iterated through edges. If a string, then each edge will have the same color.</dd>
-<dt>alpha <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1)</span></dt>
-<dd>Edges opacity.</dd>
-<dt>arrow_scale <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=20)</span></dt>
-<dd>Control the size of the arrows. If equal to zero, then the arrows are invisible.</dd>
-<dt>loopsize <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0)</span></dt>
-<dd>If <code class="docutils literal notranslate"><span class="pre">edges</span></code> contains self-loops, i.e. <code class="docutils literal notranslate"><span class="pre">edge==(nodeA,</span> <span class="pre">nodeA)</span></code>, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by <code class="docutils literal notranslate"><span class="pre">loopsize</span></code></dd>
+<dl class="simple">
+<dt>edges<span class="classifier">list</span></dt><dd><p>A list of edges in the tuple format of node ids, <code class="docutils literal notranslate"><span class="pre">(nodeA,</span> <span class="pre">nodeB)</span></code>.</p>
+</dd>
+<dt>pos<span class="classifier">dict</span></dt><dd><p>A dictionary of nodes position.</p>
+</dd>
+<dt>ax<span class="classifier">Matplotlib Axes object</span></dt><dd><p>Draw the edges in the specified Matplotlib axes.</p>
+</dd>
+<dt>mu<span class="classifier">float</span><span class="classifier">(default=0.05)</span></dt><dd><p>Level of curvature. Should always be positive. If zero, then edges are straight.</p>
+</dd>
+<dt>edge_color<span class="classifier">str or list</span><span class="classifier">(default=”black”)</span></dt><dd><p>If a list, then each entry is the color of the edge when iterated through edges. If a string, then each edge will have the same color.</p>
+</dd>
+<dt>alpha<span class="classifier">float</span><span class="classifier">(default=1)</span></dt><dd><p>Edges opacity.</p>
+</dd>
+<dt>arrow_scale<span class="classifier">float</span><span class="classifier">(default=20)</span></dt><dd><p>Control the size of the arrows. If equal to zero, then the arrows are invisible.</p>
+</dd>
+<dt>loopsize<span class="classifier">float</span><span class="classifier">(default=0)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">edges</span></code> contains self-loops, i.e. <code class="docutils literal notranslate"><span class="pre">edge==(nodeA,</span> <span class="pre">nodeA)</span></code>, then it draw a self-loop which is composed of a simple circle. The radius of the circle is controlled by <code class="docutils literal notranslate"><span class="pre">loopsize</span></code></p>
+</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="kn">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -79,8 +78,8 @@ to plot an edge that does a circle passing through the node. The size of the cir
 </pre></div>
 </div>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last">draw_networks</p>
+<p class="admonition-title">See also</p>
+<p>draw_networks</p>
 </div>
 </dd></dl>
 
@@ -144,17 +143,23 @@ to plot an edge that does a circle passing through the node. The size of the cir
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>

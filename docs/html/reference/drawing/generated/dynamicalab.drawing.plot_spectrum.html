@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>dynamicalab.drawing.plot_spectrum &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -13,8 +11,9 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../../_static/colorParser.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="dynamicalab.drawing.group_radial_layout" href="dynamicalab.drawing.group_radial_layout.html" />
@@ -39,39 +38,39 @@
 <h1>dynamicalab.drawing.plot_spectrum<a class="headerlink" href="#dynamicalab-drawing-plot-spectrum" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dynamicalab.drawing.plot_spectrum">
-<code class="descclassname">dynamicalab.drawing.</code><code class="descname">plot_spectrum</code><span class="sig-paren">(</span><em>ax</em>, <em>matrix_generator</em>, <em>n_networks=20</em>, <em>nbins=100</em>, <em>vals=[]</em>, <em>axvline_color='#ef8a62'</em>, <em>bar_color='#67a9cf'</em>, <em>normed=True</em>, <em>xlabel='$\\lambda$'</em>, <em>ylabel='$\\rho(\\lambda)$'</em>, <em>label_fontsize=13</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/plots.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dynamicalab.drawing.</code><code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param">ax</em>, <em class="sig-param">matrix_generator</em>, <em class="sig-param">n_networks=20</em>, <em class="sig-param">nbins=100</em>, <em class="sig-param">vals=[]</em>, <em class="sig-param">axvline_color='#ef8a62'</em>, <em class="sig-param">bar_color='#67a9cf'</em>, <em class="sig-param">normed=True</em>, <em class="sig-param">xlabel='$\\lambda$'</em>, <em class="sig-param">ylabel='$\\rho(\\lambda)$'</em>, <em class="sig-param">label_fontsize=13</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/drawing/plots.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.drawing.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot an histogram of the density spectrum of a family of matrices.</p>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">Matplotlib Axes object</span></dt>
-<dd>Draw the spectrum in the specified Matplotlib axes.</dd>
-<dt>matrix_generator <span class="classifier-delimiter">:</span> <span class="classifier">function</span></dt>
-<dd>Random generator of the random matrices. Check the example to convert networks to matrices.</dd>
-<dt>n_networks <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=20)</span></dt>
-<dd>Number of networks to sample the statistics</dd>
-<dt>n_bins <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(defualt=100)</span></dt>
-<dd>Number of bins of the histogram.</dd>
-<dt>vals <span class="classifier-delimiter">:</span> <span class="classifier">list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=[])</span></dt>
-<dd>Draw a vertical line for each value in the list</dd>
-<dt>axvline_color <span class="classifier-delimiter">:</span> <span class="classifier">str or list</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#ef8a62”)</span></dt>
-<dd>If a string, each vertical lines will be this color. If a list, it gives the color of each vertical line for elements of <code class="docutils literal notranslate"><span class="pre">vals</span></code>, and must be the same length as <code class="docutils literal notranslate"><span class="pre">vals</span></code>.</dd>
-<dt>bar_color <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=”#67a9cf”)</span></dt>
-<dd>Fill color of the bars of the histogram.</dd>
-<dt>normed <span class="classifier-delimiter">:</span> <span class="classifier">Bool</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=True)</span></dt>
-<dd>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the integral of the histogram is equal to one.</dd>
-<dt>xlabel <span class="classifier-delimiter">:</span> <span class="classifier">str</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default= <span class="math notranslate nohighlight">\(\lambda\)</span> )</span></dt>
-<dd>Label of the X axis.</dd>
-<dt>ylabel <span class="classifier-delimiter">:</span> <span class="classifier">str :</span></dt>
-<dd>Label of the Y axis.</dd>
-<dt>label_fontsize <span class="classifier-delimiter">:</span> <span class="classifier">int</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=13)</span></dt>
-<dd>Fontsize of the labels</dd>
+<dl>
+<dt>ax<span class="classifier">Matplotlib Axes object</span></dt><dd><p>Draw the spectrum in the specified Matplotlib axes.</p>
+</dd>
+<dt>matrix_generator<span class="classifier">function</span></dt><dd><p>Random generator of the random matrices. Check the example to convert networks to matrices.</p>
+</dd>
+<dt>n_networks<span class="classifier">int</span><span class="classifier">(default=20)</span></dt><dd><p>Number of networks to sample the statistics</p>
+</dd>
+<dt>n_bins<span class="classifier">int</span><span class="classifier">(defualt=100)</span></dt><dd><p>Number of bins of the histogram.</p>
+</dd>
+<dt>vals<span class="classifier">list</span><span class="classifier">(default=[])</span></dt><dd><p>Draw a vertical line for each value in the list</p>
+</dd>
+<dt>axvline_color<span class="classifier">str or list</span><span class="classifier">(default=”#ef8a62”)</span></dt><dd><p>If a string, each vertical lines will be this color. If a list, it gives the color of each vertical line for elements of <code class="docutils literal notranslate"><span class="pre">vals</span></code>, and must be the same length as <code class="docutils literal notranslate"><span class="pre">vals</span></code>.</p>
+</dd>
+<dt>bar_color<span class="classifier">str</span><span class="classifier">(default=”#67a9cf”)</span></dt><dd><p>Fill color of the bars of the histogram.</p>
+</dd>
+<dt>normed<span class="classifier">Bool</span><span class="classifier">(default=True)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the integral of the histogram is equal to one.</p>
+</dd>
+<dt>xlabel<span class="classifier">str</span><span class="classifier">(default= <span class="math notranslate nohighlight">\(\lambda\)</span> )</span></dt><dd><p>Label of the X axis.</p>
+</dd>
+<dt>ylabel<span class="classifier">str :</span></dt><dd><p>Label of the Y axis.</p>
+</dd>
+<dt>label_fontsize<span class="classifier">int</span><span class="classifier">(default=13)</span></dt><dd><p>Fontsize of the labels</p>
+</dd>
 </dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="kn">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 
 <span class="k">def</span> <span class="nf">matrix_generator</span><span class="p">():</span>
@@ -87,7 +86,7 @@
                         <span class="n">n_networks</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
                         <span class="n">nbins</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
                         <span class="n">vals</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="o">*</span><span class="mf">0.5</span><span class="p">],</span> 
-                        <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
                         <span class="n">label_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -154,17 +153,23 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>

@@ -93,7 +93,7 @@ def clustered_layout(G, groups, centroids, radius_scale=None):
         radius_scale = [0.02,0.03]
 
         # Get layout
-        pos, edge_bunchs = draw.clustered_layout(node_subsets, centroids, radius_scale)
+        pos, edge_bunchs = draw.clustered_layout(G, node_subsets, centroids, radius_scale)
 
         # Draw
         plt.figure(figsize=(10,10))
