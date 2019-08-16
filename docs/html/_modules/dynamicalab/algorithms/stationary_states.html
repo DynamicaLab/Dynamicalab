@@ -38,7 +38,7 @@
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="k">def</span> <span class="nf">__well_mixed_2SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">coupled_rec_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">__well_mixed_2SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span><span class="p">,</span> <span class="n">coupled_rec_rate</span><span class="p">):</span>
     <span class="n">S</span><span class="p">,</span> <span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">I12</span> <span class="o">=</span> <span class="n">r</span>
     <span class="n">Sdt</span> <span class="o">=</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I2</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">S</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">I2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I12</span> <span class="p">)</span>
     <span class="n">I1dt</span> <span class="o">=</span> <span class="n">coupled_rec_rate</span><span class="o">*</span><span class="n">rec_rate</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">S</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I2</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I12</span><span class="p">)</span>
@@ -47,14 +47,14 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">I1dt</span><span class="p">,</span> <span class="n">I2dt</span><span class="p">,</span> <span class="n">I12dt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">__well_mixed_SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">__well_mixed_SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span><span class="p">):</span>
     <span class="n">S</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">r</span>
     <span class="n">Sdt</span> <span class="o">=</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I</span>
     <span class="n">Idt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">Idt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">__well_mixed_SIR_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">__well_mixed_SIR_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span><span class="p">):</span>
     <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">r</span>
     <span class="n">Sdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span>
     <span class="n">Idt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span>
@@ -96,36 +96,27 @@
 
 <div class="viewcode-block" id="stationary_states_SIS"><a class="viewcode-back" href="../../../reference/algorithms/generated/dynamicalab.algorithms.stationary_states_SIS.html#dynamicalab.algorithms.stationary_states_SIS">[docs]</a><span class="k">def</span> <span class="nf">stationary_states_SIS</span><span class="p">(</span><span class="n">mean_field_type</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sensibility</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tcount</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This function calculates the stationary states of a SIS dynamics. it integrates the dynamical system with sp.odeint, then returns the last value calculated at a certain threshold given by the sensibility parameter.</span>
-<span class="sd">      </span>
+<span class="sd">    </span>
 <span class="sd">    **Parameters**</span>
 <span class="sd">    </span>
 <span class="sd">    mean_field_type : string</span>
 <span class="sd">        A string of the mean field type. It can be either &#39;well_mixed_2SIS&#39;, &#39;well_mixed_SIS&#39;, &#39;quenched_SIS&#39; or &#39;quenched_2SIS&#39;.</span>
 
-<span class="sd">    </span>
 <span class="sd">    init_cond : np.array</span>
 <span class="sd">        An array containing the initial value of each variable.</span>
-
 
 <span class="sd">    sensibility : float : (default=1e-5)</span>
 <span class="sd">        The stationary state is considered attained when the derivatives are at this value.</span>
 
-
 <span class="sd">    tmax : integer : (default=100)</span>
 <span class="sd">        Integer that gives the maximum value of the sp.linspace made to integrate the dynamics.</span>
-
 
 <span class="sd">    tcount : integer : (default=100)</span>
 <span class="sd">        Integer that gives the number of iterations made in every tmax.</span>
 
-
 <span class="sd">    *args : various type</span>
 <span class="sd">        Any additional arguments to call the dynamics.</span>
-<span class="sd">    </span>
-<span class="sd">    </span>
 
-
-<span class="sd">    </span>
 
 <span class="sd">    **Returns**</span>
 
@@ -133,37 +124,30 @@
 <span class="sd">        Array containing the value of every variable at the stationary state.</span>
 
 
-
-
-
-
 <span class="sd">    **Dynamics**</span>
 
 <span class="sd">    *well_mixed_SIS* : Well mixed mean field of a classical SIS dynamic.</span>
 <span class="sd">        The extra aguments are: </span>
 <span class="sd">            - infc_rate : float that gives the rate of infection.</span>
-<span class="sd">            - rec_rate : (default = 1) : float that gives the recovery rate.</span>
+<span class="sd">            - rec_rate : float that gives the recovery rate.</span>
 <span class="sd">        The variables in the output are : [S, I]</span>
-
 
 <span class="sd">    *well_mixed_2SIS* : Well mixed mean field of a SIS dynamics with two interacting diseases.</span>
 <span class="sd">        The extra arguments are:</span>
 <span class="sd">            - infc_rate : float that gives the rate of infection.</span>
 <span class="sd">            - coupled_infc_rate : float that gives the modification to the infection rate induced by the interaction between the two diseases.</span>
-<span class="sd">            - rec_rate : (default = 1) : float that gives the recovery rate.</span>
-<span class="sd">            - coupled_rec_rate : (default=1) : float that gives the modification to the recovery rate induced by the interaction between the two diseases.</span>
+<span class="sd">            - rec_rate : float that gives the recovery rate.</span>
+<span class="sd">            - coupled_rec_rate : float that gives the modification to the recovery rate induced by the interaction between the two diseases.</span>
 <span class="sd">        The variables in the output are : [S, I1, I2, I12]</span>
 <span class="sd">            S means that the node is susceptible to both diseases.</span>
 <span class="sd">            I1,I2 means that the node is infected by disease 1,2.</span>
 <span class="sd">            I12 means that the node is infected by both diseases.</span>
-
 
 <span class="sd">    *quenched_SIS* : Quenched mean field of a classical SIS dynamic.</span>
 <span class="sd">        The extra arguments are:</span>
 <span class="sd">            - infc_rate : float that gives the rate of infection.</span>
 <span class="sd">            - adjacency_matrix : np.array that gives the adjacency matrix of the system.</span>
 <span class="sd">        Each variable in the output is the probability to be infected of a single node.</span>
-
 
 <span class="sd">    *quenched_2SIS* : Quenched mean field of a SIS dynamics with two interacting diseases.</span>
 <span class="sd">        The extra arguments are:</span>
@@ -172,7 +156,9 @@
 <span class="sd">            - adjacency_matrix : np.array that gives the adjacency matrix of the system.</span>
 <span class="sd">        The output is a 4xN matrix. The rows give the probability of being [S, I1, I2, I12] of a single node.</span>
 
+<span class="sd">    .. warning::</span>
 
+<span class="sd">      For quenched_2SIS, init_cond must be one-dimensional, so it might need to be reshaped before calling the function. The output must also be reshaped (see example).</span>
 
 
 <span class="sd">    **Example**</span>
@@ -180,30 +166,49 @@
 
 <span class="sd">    .. code:: python</span>
 
-<span class="sd">      import dynamicalab.algorithms as algo</span>
-<span class="sd">      import numpy as np</span>
+<span class="sd">        import dynamicalab.algorithms as algo</span>
+<span class="sd">        import numpy as np</span>
 
-<span class="sd">      # Value of the extra parameters of the dynamics</span>
-<span class="sd">      infc_rate = 2</span>
-<span class="sd">      coupled_infc_rate</span>
-<span class="sd">      adjacency_matrix = np.array([[0,1,1,1,0,0],[1,0,1,0,1,0],[1,1,0,0,0,1],[1,0,0,0,1,1],[0,1,0,1,0,1],[0,0,1,1,1,0]], float)</span>
+<span class="sd">        # Value of the extra parameters of the dynamics</span>
+<span class="sd">        infc_rate = 0.5</span>
+<span class="sd">        coupled_infc_rate = 2</span>
+<span class="sd">        rec_rate = 1</span>
+<span class="sd">        coupled_rec_rate = 1</span>
+<span class="sd">        adjacency_matrix = np.array([[0,1,1,1,1,1],[1,0,1,1,1,1],[1,1,0,1,1,1],[1,1,1,0,1,1],[1,1,1,1,0,1],[1,1,1,1,1,0]], float)</span>
 
-<span class="sd">      # Value of the initial conditions</span>
-<span class="sd">      well_mixed_init_cond = [0.98, 0.01, 0.01, 0]</span>
-<span class="sd">      quenched_init_cond = np.array([[1,0,0,0,0,0],[0,1,0,0,0,0],[0,0,0,0,0,0],[0,0,1,1,1,1]], float)</span>
+<span class="sd">        # Value of the initial conditions</span>
+<span class="sd">        well_mixed_init_cond = [0.98, 0.01, 0.01, 0]</span>
+<span class="sd">        quenched_init_cond = np.array([[0,0,1,1,1,1],[1,0,0,0,0,0],[0,1,0,0,0,0],[0,0,0,0,0,0]], float)</span>
 
-<span class="sd">      well_mixed_stat_state = algo.stationary_states_SIS</span>
+<span class="sd">        # Initial conditions must be one dimensional</span>
+<span class="sd">        quenched_init_cond =  quenched_init_cond.reshape(np.prod(np.shape(quenched_init_cond)))</span>
+
+<span class="sd">        # Calculating the stationary states</span>
+<span class="sd">        well_mixed_stat_state = algo.stationary_states_SIS(&#39;well_mixed_2&#39;, well_mixed_init_cond, 5*infc_rate, coupled_infc_rate, rec_rate, coupled_rec_rate)</span>
+<span class="sd">        quenched_stat_state = algo.stationary_states_SIS(&#39;quenched_2&#39;, quenched_init_cond, infc_rate, coupled_infc_rate, adjacency_matrix)</span>
+
+<span class="sd">        # Reshaping the output for quenched_2SIS</span>
+<span class="sd">        quenched_stat_state = quenched_stat_state.reshape(4, int(len(quenched_stat_state)/4))</span>
+
+<span class="sd">        # Printing the result</span>
+<span class="sd">        print(&#39;Well-mixed:[S, I1, I2, I12]* =&#39;, well_mixed_stat_state)</span>
+<span class="sd">        print(&#39;Quenched:[S_1, S_2, ..., S_6]* =&#39;, quenched_stat_state[0]</span>
+<span class="sd">        print(&#39;[I1]* =&#39;, quenched_stat_state[1])</span>
+<span class="sd">        print(&#39;[I2]* =&#39;, quenched_stat_state[2])</span>
+<span class="sd">        print(&#39;[I12]* =&#39;, quenched_stat_state[3])</span>
+
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">dynamics</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed_2&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
-    <span class="k">if</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2SIS&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_2SIS_dynamics</span>
-    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_SIS&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_SIS_dynamics</span>
-    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;quenched_SIS&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">quenched_SIS_dynamics</span>
-    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;quenched_2SIS&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">quenched_2SIS_dynamics</span>
+    <span class="k">assert</span> <span class="n">mean_field_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed_2&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
+
+    <span class="k">if</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__well_mixed_2SIS_dynamics__</span>
+    <span class="k">elif</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;well_mixed&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__well_mixed_SIS_dynamics__</span>
+    <span class="k">elif</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;quenched&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__quenched_SIS_dynamics__</span>
+    <span class="k">elif</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;quenched_2&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__quenched_2SIS_dynamics__</span>
     
     <span class="n">report_times</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">tcount</span><span class="p">)</span>
     <span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
@@ -221,10 +226,10 @@
     <span class="sd">&quot;&quot;&quot;This function calculates the stationary states of a SIR dynamics. it integrates the dynamical system with sp.odeint, then returns the last value calculated at a certain threshold given by the sensibility parameter.</span>
 <span class="sd">          </span>
 <span class="sd">    **Parameters**</span>
-<span class="sd">        </span>
+<span class="sd">    </span>
 <span class="sd">    mean_field_type : string</span>
 <span class="sd">        A string of the mean field type. It can be either &#39;well_mixed&#39; or &#39;well_mixed_2&#39;.</span>
-<span class="sd">        </span>
+<span class="sd">    </span>
 <span class="sd">    init_cond : np.array</span>
 <span class="sd">        An array containing the initial value of each variable.</span>
 
@@ -239,11 +244,7 @@
 
 <span class="sd">    *args : various type</span>
 <span class="sd">        Any additional arguments to call the dynamics</span>
-<span class="sd">        </span>
-<span class="sd">        </span>
-
-
-<span class="sd">        </span>
+<span class="sd">    </span>
 
 <span class="sd">    **Returns**</span>
 
@@ -251,41 +252,55 @@
 <span class="sd">        Array containing the value of every variable at the stationary state.</span>
 
 
+<span class="sd">    **Dynamics**</span>
+
+<span class="sd">    *well_mixed_SIR* : Well mixed mean field of a classical SIR dynamic.</span>
+<span class="sd">        The extra aguments are: </span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - rec_rate : float that gives the recovery rate.</span>
+<span class="sd">        The variables in the output are : [S, I, R]</span>
+<span class="sd">    </span>
+
+<span class="sd">    *well_mixed_2SIR* : Well mixed mean field of a SIR dynamics with two interacting diseases.</span>
+<span class="sd">        The extra arguments are:</span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - coupled_infc_rate : float that gives the modification to the infection rate induced by the interaction between the two diseases.</span>
+<span class="sd">        The variables in the output are : [S, A, B, AB, a, b, Ab, aB, ab].</span>
+<span class="sd">            S means that the node is susceptible to both diseases.</span>
+<span class="sd">            A,B means that the node is infected by disease A,B.</span>
+<span class="sd">            AB means that the node is infected by both diseases.</span>
+<span class="sd">            a,b means the node recovered from disease A,B and is susceptible to the other disease.</span>
+<span class="sd">            Ab,aB means the node is infected by disease A,B and is recovered from disease B,A.</span>
+<span class="sd">            ab means the node has recovered from both diseases.</span>
+
+
 <span class="sd">    **Example**</span>
-<span class="sd">        </span>
 
 <span class="sd">    .. code:: python</span>
 
-<span class="sd">        import numpy as np</span>
-<span class="sd">        import networkx as nx</span>
-<span class="sd">        import matplotlib.pyplot as plt</span>
 <span class="sd">        import dynamicalab.algorithms as algo</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        np.set_printoptions(suppress=True)  # To remove scientific notation from the arrays</span>
 
-<span class="sd">        # Gets a network and extracts its clustering spectrum.</span>
-<span class="sd">        G = nx.karate_club_graph()</span>
-<span class="sd">        clust_spect = algo.clustering_spectrum(G)</span>
+<span class="sd">        # Value of the extra parameters of the dynamics</span>
+<span class="sd">        infc_rate = 2</span>
+<span class="sd">        coupled_infc_rate = 2</span>
 
-<span class="sd">        # Plots the clustering spectrum.</span>
-<span class="sd">        fig, ax = plt.subplots()</span>
-<span class="sd">        plt.bar(clust_spect.keys(), clust_spect.values(), width=0.50, color=&#39;g&#39;)</span>
+<span class="sd">        # Value of the initial conditions</span>
+<span class="sd">        init_cond = [0.98, 0.01, 0.01, 0, 0, 0, 0, 0, 0]</span>
 
-<span class="sd">        plt.title(&quot;Clustering spectrum&quot;)</span>
-<span class="sd">        ax.set_ylabel(&quot;Average local clustering&quot;)</span>
-<span class="sd">        ax.set_xlabel(&quot;Degree&quot;)</span>
-<span class="sd">        ax.set_ylim(bottom=0, top=1)</span>
-<span class="sd">        ax.set_xticks(np.arange(max(clust_spect.keys()) + 1))</span>
+<span class="sd">        # Calculating the stationary states</span>
+<span class="sd">        well_mixed_stat_state = algo.stationary_states_SIR(&#39;well_mixed_2&#39;, init_cond, infc_rate, coupled_infc_rate)</span>
 
-<span class="sd">        plt.show()</span>
-<span class="sd">        </span>
-<span class="sd">    .. image:: /_static/assets/clustering_spectrum_example.png</span>
-<span class="sd">        :align: center</span>
+<span class="sd">        # Printing the result</span>
+<span class="sd">        print(&#39;2SIR:[S, A, B, AB, a, b, Ab, aB, ab]* =&#39;, well_mixed_stat_state)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">dynamics</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
-    <span class="k">if</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_SIR&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_SIR_dynamics</span>
-    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2SIR&#39;</span><span class="p">:</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_2SIR_dynamics</span>
+    <span class="k">assert</span> <span class="n">mean_field_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
+    <span class="k">if</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;well_mixed&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__well_mixed_SIR_dynamics__</span>
+    <span class="k">elif</span> <span class="n">mean_field_type</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">__well_mixed_2SIR_dynamics__</span>
     
     <span class="n">report_times</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">tcount</span><span class="p">)</span>
     <span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>

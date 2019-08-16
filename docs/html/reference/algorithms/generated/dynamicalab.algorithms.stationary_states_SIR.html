@@ -61,30 +61,56 @@
 <dt>stat_states <span class="classifier-delimiter">:</span> <span class="classifier">np.array</span></dt>
 <dd>Array containing the value of every variable at the stationary state.</dd>
 </dl>
+<p><strong>Dynamics</strong></p>
+<dl class="docutils">
+<dt><em>well_mixed_SIR</em> <span class="classifier-delimiter">:</span> <span class="classifier">Well mixed mean field of a classical SIR dynamic.</span></dt>
+<dd><dl class="first docutils">
+<dt>The extra aguments are: </dt>
+<dd><ul class="first last simple">
+<li>infc_rate : float that gives the rate of infection.</li>
+<li>rec_rate : float that gives the recovery rate.</li>
+</ul>
+</dd>
+</dl>
+<p class="last">The variables in the output are : [S, I, R]</p>
+</dd>
+<dt><em>well_mixed_2SIR</em> <span class="classifier-delimiter">:</span> <span class="classifier">Well mixed mean field of a SIR dynamics with two interacting diseases.</span></dt>
+<dd><dl class="first last docutils">
+<dt>The extra arguments are:</dt>
+<dd><ul class="first last simple">
+<li>infc_rate : float that gives the rate of infection.</li>
+<li>coupled_infc_rate : float that gives the modification to the infection rate induced by the interaction between the two diseases.</li>
+</ul>
+</dd>
+<dt>The variables in the output are <span class="classifier-delimiter">:</span> <span class="classifier">[S, A, B, AB, a, b, Ab, aB, ab].</span></dt>
+<dd>S means that the node is susceptible to both diseases.
+A,B means that the node is infected by disease A,B.
+AB means that the node is infected by both diseases.
+a,b means the node recovered from disease A,B and is susceptible to the other disease.
+Ab,aB means the node is infected by disease A,B and is recovered from disease B,A.
+ab means the node has recovered from both diseases.</dd>
+</dl>
+</dd>
+</dl>
 <p><strong>Example</strong></p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">dynamicalab.algorithms</span> <span class="k">as</span> <span class="nn">algo</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dynamicalab.algorithms</span> <span class="k">as</span> <span class="nn">algo</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># To remove scientific notation from the arrays</span>
 
-<span class="c1"># Gets a network and extracts its clustering spectrum.</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
-<span class="n">clust_spect</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">clustering_spectrum</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="c1"># Value of the extra parameters of the dynamics</span>
+<span class="n">infc_rate</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">coupled_infc_rate</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="c1"># Plots the clustering spectrum.</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">clust_spect</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">clust_spect</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="c1"># Value of the initial conditions</span>
+<span class="n">init_cond</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clustering spectrum&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Average local clustering&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Degree&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">clust_spect</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># Calculating the stationary states</span>
+<span class="n">well_mixed_stat_state</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">stationary_states_SIR</span><span class="p">(</span><span class="s1">&#39;well_mixed_2&#39;</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Printing the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2SIR:[S, A, B, AB, a, b, Ab, aB, ab]* =&#39;</span><span class="p">,</span> <span class="n">well_mixed_stat_state</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/clustering_spectrum_example.png" class="align-center" src="../../../_images/clustering_spectrum_example.png" />
 </dd></dl>
 
 </div>
