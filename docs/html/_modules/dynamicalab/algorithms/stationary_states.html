@@ -1,0 +1,387 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.algorithms.stationary_states &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for dynamicalab.algorithms.stationary_states</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">__well_mixed_2SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">coupled_rec_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">I12</span> <span class="o">=</span> <span class="n">r</span>
+    <span class="n">Sdt</span> <span class="o">=</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I2</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">S</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">I2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I12</span> <span class="p">)</span>
+    <span class="n">I1dt</span> <span class="o">=</span> <span class="n">coupled_rec_rate</span><span class="o">*</span><span class="n">rec_rate</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">S</span><span class="o">*</span><span class="n">I1</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I2</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I12</span><span class="p">)</span>
+    <span class="n">I2dt</span> <span class="o">=</span> <span class="n">coupled_rec_rate</span><span class="o">*</span><span class="n">rec_rate</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I2</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">S</span><span class="o">*</span><span class="n">I2</span> <span class="o">+</span> <span class="n">S</span><span class="o">*</span><span class="n">I12</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I2</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">I2</span><span class="o">*</span><span class="n">I12</span><span class="p">)</span>
+    <span class="n">I12dt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span> <span class="n">I1</span><span class="o">*</span><span class="n">I12</span> <span class="o">+</span> <span class="n">I2</span><span class="o">*</span><span class="n">I12</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">I1</span><span class="o">*</span><span class="n">I2</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">coupled_rec_rate</span><span class="o">*</span><span class="n">rec_rate</span><span class="o">*</span><span class="n">I12</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">I1dt</span><span class="p">,</span> <span class="n">I2dt</span><span class="p">,</span> <span class="n">I12dt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">__well_mixed_SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">r</span>
+    <span class="n">Sdt</span> <span class="o">=</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I</span>
+    <span class="n">Idt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">Idt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">__well_mixed_SIR_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">rec_rate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">r</span>
+    <span class="n">Sdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span>
+    <span class="n">Idt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span> <span class="o">-</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span>
+    <span class="n">Rdt</span> <span class="o">=</span> <span class="n">rec_rate</span><span class="o">*</span><span class="n">I</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">Idt</span><span class="p">,</span> <span class="n">Rdt</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">__well_mixed_2SIR_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">AB</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">Ab</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">ab</span> <span class="o">=</span> <span class="n">r</span>
+    <span class="n">Sdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">Ab</span> <span class="o">+</span> <span class="n">B</span> <span class="o">+</span> <span class="n">aB</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">S</span>
+    <span class="n">Adt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">Ab</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">S</span> <span class="o">-</span> <span class="n">A</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">aB</span><span class="p">)</span><span class="o">*</span><span class="n">A</span>
+    <span class="n">Bdt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">aB</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">S</span> <span class="o">-</span> <span class="n">B</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">Ab</span><span class="p">)</span><span class="o">*</span><span class="n">B</span>
+    <span class="n">ABdt</span> <span class="o">=</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">aB</span><span class="p">)</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">Ab</span><span class="p">)</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">AB</span>
+    <span class="n">adt</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">aB</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">bdt</span> <span class="o">=</span> <span class="n">B</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">Ab</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">Abdt</span> <span class="o">=</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">Ab</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">Ab</span>
+    <span class="n">aBdt</span> <span class="o">=</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">coupled_infc_rate</span><span class="o">*</span><span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">aB</span> <span class="o">+</span> <span class="n">AB</span><span class="p">)</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="n">aB</span>
+    <span class="n">abdt</span> <span class="o">=</span> <span class="n">aB</span> <span class="o">+</span> <span class="n">Ab</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Sdt</span><span class="p">,</span> <span class="n">Adt</span><span class="p">,</span> <span class="n">Bdt</span><span class="p">,</span> <span class="n">ABdt</span><span class="p">,</span> <span class="n">adt</span><span class="p">,</span> <span class="n">bdt</span><span class="p">,</span> <span class="n">Abdt</span><span class="p">,</span> <span class="n">aBdt</span><span class="p">,</span> <span class="n">abdt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">__quenched_SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">adjacency_matrix</span><span class="p">):</span>
+    <span class="n">rdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">adjacency_matrix</span> <span class="o">@</span> <span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rdt</span>
+
+
+<span class="k">def</span> <span class="nf">__quenched_2SIS_dynamics__</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">infc_rate</span><span class="p">,</span> <span class="n">coupled_infc_rate</span><span class="p">,</span> <span class="n">adjacency_matrix</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">adjacency_matrix</span>
+    <span class="n">sdt</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="n">r1dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="n">r2dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="n">r12dt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">+</span> <span class="n">coupled_infc_rate</span><span class="o">*</span><span class="n">infc_rate</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    
+    <span class="n">rdt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sdt</span><span class="p">,</span><span class="n">r1dt</span><span class="p">,</span><span class="n">r2dt</span><span class="p">,</span><span class="n">r12dt</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">rdt</span> <span class="o">=</span> <span class="n">rdt</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">rdt</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">rdt</span>
+
+
+<div class="viewcode-block" id="stationary_states_SIS"><a class="viewcode-back" href="../../../reference/algorithms/generated/dynamicalab.algorithms.stationary_states_SIS.html#dynamicalab.algorithms.stationary_states_SIS">[docs]</a><span class="k">def</span> <span class="nf">stationary_states_SIS</span><span class="p">(</span><span class="n">mean_field_type</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sensibility</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tcount</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function calculates the stationary states of a SIS dynamics. it integrates the dynamical system with sp.odeint, then returns the last value calculated at a certain threshold given by the sensibility parameter.</span>
+<span class="sd">      </span>
+<span class="sd">    **Parameters**</span>
+<span class="sd">    </span>
+<span class="sd">    mean_field_type : string</span>
+<span class="sd">        A string of the mean field type. It can be either &#39;well_mixed_2SIS&#39;, &#39;well_mixed_SIS&#39;, &#39;quenched_SIS&#39; or &#39;quenched_2SIS&#39;.</span>
+
+<span class="sd">    </span>
+<span class="sd">    init_cond : np.array</span>
+<span class="sd">        An array containing the initial value of each variable.</span>
+
+
+<span class="sd">    sensibility : float : (default=1e-5)</span>
+<span class="sd">        The stationary state is considered attained when the derivatives are at this value.</span>
+
+
+<span class="sd">    tmax : integer : (default=100)</span>
+<span class="sd">        Integer that gives the maximum value of the sp.linspace made to integrate the dynamics.</span>
+
+
+<span class="sd">    tcount : integer : (default=100)</span>
+<span class="sd">        Integer that gives the number of iterations made in every tmax.</span>
+
+
+<span class="sd">    *args : various type</span>
+<span class="sd">        Any additional arguments to call the dynamics.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+
+
+<span class="sd">    </span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    stat_states : np.array</span>
+<span class="sd">        Array containing the value of every variable at the stationary state.</span>
+
+
+
+
+
+
+<span class="sd">    **Dynamics**</span>
+
+<span class="sd">    *well_mixed_SIS* : Well mixed mean field of a classical SIS dynamic.</span>
+<span class="sd">        The extra aguments are: </span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - rec_rate : (default = 1) : float that gives the recovery rate.</span>
+<span class="sd">        The variables in the output are : [S, I]</span>
+
+
+<span class="sd">    *well_mixed_2SIS* : Well mixed mean field of a SIS dynamics with two interacting diseases.</span>
+<span class="sd">        The extra arguments are:</span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - coupled_infc_rate : float that gives the modification to the infection rate induced by the interaction between the two diseases.</span>
+<span class="sd">            - rec_rate : (default = 1) : float that gives the recovery rate.</span>
+<span class="sd">            - coupled_rec_rate : (default=1) : float that gives the modification to the recovery rate induced by the interaction between the two diseases.</span>
+<span class="sd">        The variables in the output are : [S, I1, I2, I12]</span>
+<span class="sd">            S means that the node is susceptible to both diseases.</span>
+<span class="sd">            I1,I2 means that the node is infected by disease 1,2.</span>
+<span class="sd">            I12 means that the node is infected by both diseases.</span>
+
+
+<span class="sd">    *quenched_SIS* : Quenched mean field of a classical SIS dynamic.</span>
+<span class="sd">        The extra arguments are:</span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - adjacency_matrix : np.array that gives the adjacency matrix of the system.</span>
+<span class="sd">        Each variable in the output is the probability to be infected of a single node.</span>
+
+
+<span class="sd">    *quenched_2SIS* : Quenched mean field of a SIS dynamics with two interacting diseases.</span>
+<span class="sd">        The extra arguments are:</span>
+<span class="sd">            - infc_rate : float that gives the rate of infection.</span>
+<span class="sd">            - coupled_infc_rate : float that gives the modification to the infection rate induced by the interaction between the two diseases.</span>
+<span class="sd">            - adjacency_matrix : np.array that gives the adjacency matrix of the system.</span>
+<span class="sd">        The output is a 4xN matrix. The rows give the probability of being [S, I1, I2, I12] of a single node.</span>
+
+
+
+
+<span class="sd">    **Example**</span>
+<span class="sd">    </span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">      import dynamicalab.algorithms as algo</span>
+<span class="sd">      import numpy as np</span>
+
+<span class="sd">      # Value of the extra parameters of the dynamics</span>
+<span class="sd">      infc_rate = 2</span>
+<span class="sd">      coupled_infc_rate</span>
+<span class="sd">      adjacency_matrix = np.array([[0,1,1,1,0,0],[1,0,1,0,1,0],[1,1,0,0,0,1],[1,0,0,0,1,1],[0,1,0,1,0,1],[0,0,1,1,1,0]], float)</span>
+
+<span class="sd">      # Value of the initial conditions</span>
+<span class="sd">      well_mixed_init_cond = [0.98, 0.01, 0.01, 0]</span>
+<span class="sd">      quenched_init_cond = np.array([[1,0,0,0,0,0],[0,1,0,0,0,0],[0,0,0,0,0,0],[0,0,1,1,1,1]], float)</span>
+
+<span class="sd">      well_mixed_stat_state = algo.stationary_states_SIS</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">dynamics</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed_2&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched&#39;</span><span class="p">,</span> <span class="s1">&#39;quenched_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
+    <span class="k">if</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2SIS&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_2SIS_dynamics</span>
+    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_SIS&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_SIS_dynamics</span>
+    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;quenched_SIS&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">quenched_SIS_dynamics</span>
+    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;quenched_2SIS&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">quenched_2SIS_dynamics</span>
+    
+    <span class="n">report_times</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">tcount</span><span class="p">)</span>
+    <span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="n">condition</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="n">report_times</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">sensibility</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">sensibility</span><span class="p">):</span>
+            <span class="n">stat_states</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">condition</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">init_cond</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stat_states</span></div>
+
+
+<div class="viewcode-block" id="stationary_states_SIR"><a class="viewcode-back" href="../../../reference/algorithms/generated/dynamicalab.algorithms.stationary_states_SIR.html#dynamicalab.algorithms.stationary_states_SIR">[docs]</a><span class="k">def</span> <span class="nf">stationary_states_SIR</span><span class="p">(</span><span class="n">mean_field_type</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">sensibility</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">tcount</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function calculates the stationary states of a SIR dynamics. it integrates the dynamical system with sp.odeint, then returns the last value calculated at a certain threshold given by the sensibility parameter.</span>
+<span class="sd">          </span>
+<span class="sd">    **Parameters**</span>
+<span class="sd">        </span>
+<span class="sd">    mean_field_type : string</span>
+<span class="sd">        A string of the mean field type. It can be either &#39;well_mixed&#39; or &#39;well_mixed_2&#39;.</span>
+<span class="sd">        </span>
+<span class="sd">    init_cond : np.array</span>
+<span class="sd">        An array containing the initial value of each variable.</span>
+
+<span class="sd">    sensibility : float : (default=1e-5)</span>
+<span class="sd">        The stationary state is considered attained when the derivatives are at this value.</span>
+
+<span class="sd">    tmax : integer : (default=100)</span>
+<span class="sd">        Integer that gives the maximum value of the sp.linspace made to integrate the dynamics.</span>
+
+<span class="sd">    tcount : integer : (default=100)</span>
+<span class="sd">        Integer that gives the number of iterations made in every tmax.</span>
+
+<span class="sd">    *args : various type</span>
+<span class="sd">        Any additional arguments to call the dynamics</span>
+<span class="sd">        </span>
+<span class="sd">        </span>
+
+
+<span class="sd">        </span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    stat_states : np.array</span>
+<span class="sd">        Array containing the value of every variable at the stationary state.</span>
+
+
+<span class="sd">    **Example**</span>
+<span class="sd">        </span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import numpy as np</span>
+<span class="sd">        import networkx as nx</span>
+<span class="sd">        import matplotlib.pyplot as plt</span>
+<span class="sd">        import dynamicalab.algorithms as algo</span>
+
+<span class="sd">        # Gets a network and extracts its clustering spectrum.</span>
+<span class="sd">        G = nx.karate_club_graph()</span>
+<span class="sd">        clust_spect = algo.clustering_spectrum(G)</span>
+
+<span class="sd">        # Plots the clustering spectrum.</span>
+<span class="sd">        fig, ax = plt.subplots()</span>
+<span class="sd">        plt.bar(clust_spect.keys(), clust_spect.values(), width=0.50, color=&#39;g&#39;)</span>
+
+<span class="sd">        plt.title(&quot;Clustering spectrum&quot;)</span>
+<span class="sd">        ax.set_ylabel(&quot;Average local clustering&quot;)</span>
+<span class="sd">        ax.set_xlabel(&quot;Degree&quot;)</span>
+<span class="sd">        ax.set_ylim(bottom=0, top=1)</span>
+<span class="sd">        ax.set_xticks(np.arange(max(clust_spect.keys()) + 1))</span>
+
+<span class="sd">        plt.show()</span>
+<span class="sd">        </span>
+<span class="sd">    .. image:: /_static/assets/clustering_spectrum_example.png</span>
+<span class="sd">        :align: center</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">dynamics</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;well_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;well_mixed_2&#39;</span><span class="p">},</span> <span class="s1">&#39;This dynamic is not implemented.&#39;</span>
+    <span class="k">if</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_SIR&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_SIR_dynamics</span>
+    <span class="k">elif</span> <span class="n">dynamics</span> <span class="o">==</span> <span class="s1">&#39;well_mixed_2SIR&#39;</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">well_mixed_2SIR_dynamics</span>
+    
+    <span class="n">report_times</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">tcount</span><span class="p">)</span>
+    <span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="n">condition</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">init_cond</span><span class="p">,</span> <span class="n">report_times</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">sensibility</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">sensibility</span><span class="p">):</span>
+            <span class="n">stat_states</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">condition</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">init_cond</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="n">tcount</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stat_states</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes/index.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/datasets/index.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/DynamicaLab/Dynamicalab">Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

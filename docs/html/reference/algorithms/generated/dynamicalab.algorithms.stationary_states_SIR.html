@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dynamicalab.algorithms.clustering_spectrum &#8212; DynamicaLab 0.0.1 documentation</title>
+    <title>dynamicalab.algorithms.stationary_states_SIR &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="dynamicalab.algorithms.onion_decomposition" href="dynamicalab.algorithms.onion_decomposition.html" />
-    <link rel="prev" title="Algorithms" href="../index.html" />
+    <link rel="next" title="Drawing" href="../../drawing/index.html" />
+    <link rel="prev" title="dynamicalab.algorithms.stationary_states_SIS" href="dynamicalab.algorithms.stationary_states_SIS.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -35,25 +35,31 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="dynamicalab-algorithms-clustering-spectrum">
-<h1>dynamicalab.algorithms.clustering_spectrum<a class="headerlink" href="#dynamicalab-algorithms-clustering-spectrum" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dynamicalab-algorithms-stationary-states-sir">
+<h1>dynamicalab.algorithms.stationary_states_SIR<a class="headerlink" href="#dynamicalab-algorithms-stationary-states-sir" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dynamicalab.algorithms.clustering_spectrum">
-<code class="descclassname">dynamicalab.algorithms.</code><code class="descname">clustering_spectrum</code><span class="sig-paren">(</span><em>g</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/algorithms/clustering_spectrum.html#clustering_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.algorithms.clustering_spectrum" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function extracts the clustering spectrum of a simple undirected graph.</p>
+<dt id="dynamicalab.algorithms.stationary_states_SIR">
+<code class="descclassname">dynamicalab.algorithms.</code><code class="descname">stationary_states_SIR</code><span class="sig-paren">(</span><em>mean_field_type</em>, <em>init_cond</em>, <em>*args</em>, <em>sensibility=1e-05</em>, <em>tmax=100</em>, <em>tcount=100</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/algorithms/stationary_states.html#stationary_states_SIR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.algorithms.stationary_states_SIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the stationary states of a SIR dynamics. it integrates the dynamical system with sp.odeint, then returns the last value calculated at a certain threshold given by the sensibility parameter.</p>
 <p><strong>Parameters</strong></p>
 <dl class="docutils">
-<dt>g <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
-<dd>A simple undirected graph without self-loops.</dd>
+<dt>mean_field_type <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd>A string of the mean field type. It can be either ‘well_mixed’ or ‘well_mixed_2’.</dd>
+<dt>init_cond <span class="classifier-delimiter">:</span> <span class="classifier">np.array</span></dt>
+<dd>An array containing the initial value of each variable.</dd>
+<dt>sensibility <span class="classifier-delimiter">:</span> <span class="classifier">float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=1e-5)</span></dt>
+<dd>The stationary state is considered attained when the derivatives are at this value.</dd>
+<dt>tmax <span class="classifier-delimiter">:</span> <span class="classifier">integer</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=100)</span></dt>
+<dd>Integer that gives the maximum value of the sp.linspace made to integrate the dynamics.</dd>
+<dt>tcount <span class="classifier-delimiter">:</span> <span class="classifier">integer</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=100)</span></dt>
+<dd>Integer that gives the number of iterations made in every tmax.</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>args <span class="classifier-delimiter">:</span> <span class="classifier">various type</span></dt>
+<dd>Any additional arguments to call the dynamics</dd>
 </dl>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">The graph must be <strong>simple</strong> (no multiedges), <strong>undirected</strong> and <strong>without self-loops</strong>.</p>
-</div>
 <p><strong>Returns</strong></p>
 <dl class="docutils">
-<dt>clust_spect <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
-<dd>Dictionary mapping each degree class (integers) to the corresponding average local clustering coefficient (float).</dd>
+<dt>stat_states <span class="classifier-delimiter">:</span> <span class="classifier">np.array</span></dt>
+<dd>Array containing the value of every variable at the stationary state.</dd>
 </dl>
 <p><strong>Example</strong></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -133,8 +139,8 @@
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">Reference</a><ul>
   <li><a href="../index.html">Algorithms</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Algorithms</a></li>
-      <li>Next: <a href="dynamicalab.algorithms.onion_decomposition.html" title="next chapter">dynamicalab.algorithms.onion_decomposition</a></li>
+      <li>Previous: <a href="dynamicalab.algorithms.stationary_states_SIS.html" title="previous chapter">dynamicalab.algorithms.stationary_states_SIS</a></li>
+      <li>Next: <a href="../../drawing/index.html" title="next chapter">Drawing</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -168,7 +174,7 @@
       &copy;2018, Dynamica Research Group.
       
       |
-      <a href="../../../_sources/reference/algorithms/generated/dynamicalab.algorithms.clustering_spectrum.rst.txt"
+      <a href="../../../_sources/reference/algorithms/generated/dynamicalab.algorithms.stationary_states_SIR.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
