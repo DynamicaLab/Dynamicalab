@@ -72,3 +72,17 @@ Connectomes (1 dataset)
 	connectomes
 	connectomes_CElegansSNAP
 
+Food webs (7 datasets)
+=========================
+
+.. autosummary::
+   :toctree: generated/
+        
+   food_webs
+   food_webs_Angelini2005
+   food_webs_Angelini2011
+   food_webs_Angelini2011b
+   food_webs_Angelini2006
+   food_webs_Torres2013
+   food_webs_Cruz2007
+   food_webs_Christian1999

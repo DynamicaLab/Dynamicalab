@@ -159,6 +159,21 @@ class Dataset(object):
 
 			return G
 
+		elif self.data_type == "weboflife_foodwebs_json":
+			import json
+			with open(path) as f:
+				json_data = json.load(f)
+				G = nx.DiGraph()
+				for node in json_data["nodes"]:
+					G.add_node(int(node["nodeid"]), attr_dict=node)
+				for edge in json_data["links"]:
+					source = int(edge["source"])
+					target = int(edge["target"])
+					G.add_edge(source, target)
+
+			G = dlb.utils.merge_duplicated_nodes(G)
+			return G
+
 		elif self.data_type == "edgelist":
 			return nx.read_edgelist(path, comments="#")
 			

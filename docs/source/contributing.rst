@@ -44,7 +44,7 @@ After documenting your code, you need to link the methods or modules into Sphinx
 
 
 
-Compile the documentation by doing:
+Install Sphinx version 1.7.9. Compile the documentation by doing:
 
 
 .. code-block:: bash
