@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dynamicalab.largest_connected_component &#8212; DynamicaLab 0.0.1 documentation</title>
+    <title>dynamicalab.merge_duplicated_nodes &#8212; DynamicaLab 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="dynamicalab.merge_duplicated_nodes" href="dynamicalab.merge_duplicated_nodes.html" />
-    <link rel="prev" title="Utils" href="../index.html" />
+    <link rel="next" title="How to contribute" href="../../../contributing.html" />
+    <link rel="prev" title="dynamicalab.largest_connected_component" href="dynamicalab.largest_connected_component.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -35,21 +35,28 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="dynamicalab-largest-connected-component">
-<h1>dynamicalab.largest_connected_component<a class="headerlink" href="#dynamicalab-largest-connected-component" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dynamicalab-merge-duplicated-nodes">
+<h1>dynamicalab.merge_duplicated_nodes<a class="headerlink" href="#dynamicalab-merge-duplicated-nodes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dynamicalab.largest_connected_component">
-<code class="descclassname">dynamicalab.</code><code class="descname">largest_connected_component</code><span class="sig-paren">(</span><em>G</em>, <em>relabel=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/utils/preprocessing.html#largest_connected_component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.largest_connected_component" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract the largest connected component of the graph.</p>
+<dt id="dynamicalab.merge_duplicated_nodes">
+<code class="descclassname">dynamicalab.</code><code class="descname">merge_duplicated_nodes</code><span class="sig-paren">(</span><em>G</em>, <em>based_on='name'</em>, <em>get_node_attr_fct=None</em>, <em>relabel=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/utils/preprocessing.html#merge_duplicated_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.merge_duplicated_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge duplicated nodes based on either a key attribute (<cite>based_on</cite>)
+or using a certain function to extract the node key.</p>
 <p><strong>Parameters</strong></p>
 <dl class="docutils">
 <dt>G <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
 <dd>Networkx graph</dd>
+<dt>based_on <span class="classifier-delimiter">:</span> <span class="classifier">String</span></dt>
+<dd>If not None, will be used to extract node identity as <code class="docutils literal notranslate"><span class="pre">node[&quot;attr_dict&quot;][based_on]</span></code>.
+If None, the <code class="docutils literal notranslate"><span class="pre">get_node_attr_fct</span></code> will be used.</dd>
+<dt>get_node_attr_fct <span class="classifier-delimiter">:</span> <span class="classifier">method</span></dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">based_on</span></code> is None, <code class="docutils literal notranslate"><span class="pre">get_node_attr_fct</span></code> is used to extract node identity as <code class="docutils literal notranslate"><span class="pre">get_node_attr_fct(node)</span></code>.</dd>
 <dt>relabel <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
 <dd>If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.</dd>
 </dl>
 <p><strong>Returns</strong></p>
-<p>nx.Graph</p>
+<p>Network graph</p>
+<p>if <code class="docutils literal notranslate"><span class="pre">relabel==True</span></code>, the mapping will be returned : <code class="docutils literal notranslate"><span class="pre">G,</span> <span class="pre">mapping</span></code></p>
 </dd></dl>
 
 </div>
@@ -104,8 +111,8 @@
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">Reference</a><ul>
   <li><a href="../index.html">Utils</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Utils</a></li>
-      <li>Next: <a href="dynamicalab.merge_duplicated_nodes.html" title="next chapter">dynamicalab.merge_duplicated_nodes</a></li>
+      <li>Previous: <a href="dynamicalab.largest_connected_component.html" title="previous chapter">dynamicalab.largest_connected_component</a></li>
+      <li>Next: <a href="../../../contributing.html" title="next chapter">How to contribute</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -131,7 +138,7 @@
       &copy;2018, Dynamica Research Group.
       
       |
-      <a href="../../../_sources/reference/utils/generated/dynamicalab.largest_connected_component.rst.txt"
+      <a href="../../../_sources/reference/utils/generated/dynamicalab.merge_duplicated_nodes.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
