@@ -32,7 +32,7 @@ def largest_connected_component(G, relabel=False):
 
 def merge_duplicated_nodes(G, based_on="name", get_node_attr_fct=None, relabel=False):
 	"""Merge duplicated nodes based on either a key attribute (`based_on`)
-	on using a certain function to extract the node key.
+	or using a certain function to extract the node key.
 
 	**Parameters**
 
@@ -40,11 +40,11 @@ def merge_duplicated_nodes(G, based_on="name", get_node_attr_fct=None, relabel=F
 		Networkx graph
 
 	based_on : String
-		If not None, will be used to extract node identity as `node["attr_dict"][based_on]`.
-		If None, the `get_node_attr_fct` will be used.
+		If not None, will be used to extract node identity as ``node["attr_dict"][based_on]``.
+		If None, the ``get_node_attr_fct`` will be used.
 	
 	get_node_attr_fct : method
-		If `based_on` is None, `get_node_attr_fct` is used to extract node identity as `get_node_attr_fct(node)`.
+		If ``based_on`` is None, ``get_node_attr_fct`` is used to extract node identity as ``get_node_attr_fct(node)``.
 
 	relabel : bool
 		If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.
@@ -53,7 +53,7 @@ def merge_duplicated_nodes(G, based_on="name", get_node_attr_fct=None, relabel=F
 
 	Network graph 
 
-	if `relabel==True`, the mapping will be returned : `G, mapping`
+	if ``relabel==True``, the mapping will be returned : ``G, mapping``
 
 	"""
 	if based_on is None:

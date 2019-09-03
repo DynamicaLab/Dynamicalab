@@ -14,5 +14,6 @@ Basic manipulation
    :toctree: generated/
 
    largest_connected_component
+   merge_duplicated_nodes
 
 
