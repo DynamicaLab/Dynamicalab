@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <h1>Source code for dynamicalab.utils.preprocessing</h1><div class="highlight"><pre>
-<span></span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
 <div class="viewcode-block" id="largest_connected_component"><a class="viewcode-back" href="../../../reference/utils/generated/dynamicalab.largest_connected_component.html#dynamicalab.largest_connected_component">[docs]</a><span class="k">def</span> <span class="nf">largest_connected_component</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">relabel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -64,6 +64,55 @@
 		<span class="n">Gc</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">relabel_nodes</span><span class="p">(</span><span class="n">Gc</span><span class="p">,</span><span class="n">mapping</span><span class="p">)</span>
 	
 	<span class="k">return</span> <span class="n">Gc</span></div>
+
+
+<span class="k">def</span> <span class="nf">merge_duplicated_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">based_on</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">get_node_attr_fct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">relabel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Merge duplicated nodes based on either a key attribute (`based_on`)</span>
+<span class="sd">	on using a certain function to extract the node key.</span>
+
+<span class="sd">	**Parameters**</span>
+
+<span class="sd">	G : nx.Graph</span>
+<span class="sd">		Networkx graph</span>
+
+<span class="sd">	based_on : String</span>
+<span class="sd">		If not None, will be used to extract node identity as `node[&quot;attr_dict&quot;][based_on]`.</span>
+<span class="sd">		If None, the `get_node_attr_fct` will be used.</span>
+<span class="sd">	</span>
+<span class="sd">	get_node_attr_fct : method</span>
+<span class="sd">		If `based_on` is None, `get_node_attr_fct` is used to extract node identity as `get_node_attr_fct(node)`.</span>
+
+<span class="sd">	relabel : bool</span>
+<span class="sd">		If True, relabel the nodes to be between 0 and the new number of nodes. Else, keep the original relabeling.</span>
+<span class="sd">	</span>
+<span class="sd">	**Returns**</span>
+
+<span class="sd">	Network graph </span>
+
+<span class="sd">	if `relabel==True`, the mapping will be returned : `G, mapping`</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">if</span> <span class="n">based_on</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">get_node_attr_fct</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Parameter get_node_attr_fct must be defined.&quot;</span><span class="p">)</span>
+
+		<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">get_node_attr_fct</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)])</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;attr_dict&quot;</span><span class="p">][</span><span class="n">based_on</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)])</span>
+
+	<span class="k">for</span> <span class="n">unique_node</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+		<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">==</span><span class="n">unique_node</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+			<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+				<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">contracted_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+	<span class="k">if</span> <span class="n">relabel</span><span class="p">:</span>
+		<span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+		<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()):</span>
+			<span class="n">mapping</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+		<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">relabel_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">G</span><span class="p">,</span> <span class="n">mapping</span>
+
+	<span class="k">return</span> <span class="n">G</span>
 </pre></div>
 
           </div>

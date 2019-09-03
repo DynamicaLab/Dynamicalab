@@ -6,3 +6,4 @@ Contributors
  
  - `Antoine Allard <http://antoineallard.github.io>`_
 
+ - `Francois Thibault <https://github.com/francoisthibault1>`_
