@@ -1,6 +1,7 @@
 
 from dynamicalab.exceptions import *
 
+from . import dynamics
 from . import drawing
 from . import algorithms
 
@@ -12,3 +13,5 @@ import dynamicalab.generators
 
 from dynamicalab.utils import *
 import dynamicalab.utils
+
+

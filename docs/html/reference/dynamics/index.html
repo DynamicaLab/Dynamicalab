@@ -1,0 +1,188 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dynamics &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="dynamicalab.dynamics.SISDynamics" href="generated/dynamicalab.dynamics.SISDynamics.html" />
+    <link rel="prev" title="dynamicalab.algorithms.onion_decomposition" href="../algorithms/generated/dynamicalab.algorithms.onion_decomposition.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dynamicalab.dynamics">
+<span id="dynamics"></span><span id="classes"></span><h1>Dynamics<a class="headerlink" href="#module-dynamicalab.dynamics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="base-class">
+<h2>Base class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dynamicalab.dynamics.BaseDynamics">
+<em class="property">class </em><code class="descclassname">dynamicalab.dynamics.</code><code class="descname">BaseDynamics</code><a class="reference internal" href="../../_modules/dynamicalab/dynamics/base.html#BaseDynamics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.dynamics.BaseDynamics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all dynamics processes. All dynamics have
+the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method implemented.</p>
+<p><strong>Example</strong></p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">dynamicalab.drawing</span> <span class="k">as</span> <span class="nn">draw</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">dynamics</span> <span class="o">=</span> <span class="n">Dynamics</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dynamics</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">X</span></code> is a numpy array of shape <code class="docutils literal notranslate"><span class="pre">(len(T),</span> <span class="pre">N)</span></code>.</p>
+<dl class="method">
+<dt id="dynamicalab.dynamics.BaseDynamics.__call__">
+<code class="descname">__call__</code><span class="sig-paren">(</span><em>G</em>, <em>T</em>, <em>x0=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/dynamicalab/dynamics/base.html#BaseDynamics.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.dynamics.BaseDynamics.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a sequence of states for each time</p>
+<p><strong>Params</strong></p>
+<dl class="docutils">
+<dt>G <span class="classifier-delimiter">:</span> <span class="classifier">nx.Graph</span></dt>
+<dd>Graph structure</dd>
+<dt>T <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>List of times.</dd>
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier">np.array(N)</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=None)</span></dt>
+<dd>Initial state of each node. The node index should match the 
+node index in <cite>x0</cite>. If <cite>x0==None</cite>, the initial state is build
+using <cite>self.best_x0</cite> method.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">np.array(len(T),</span> <span class="pre">N)</span></code> : Numpy array of activities</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="available-dynamics">
+<h2>Available dynamics<a class="headerlink" href="#available-dynamics" title="Permalink to this headline">¶</a></h2>
+<p>All of the following dynamics inherit from <code class="docutils literal notranslate"><span class="pre">BaseDynamics</span></code> and have the
+same general usage as above.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.dynamics.SISDynamics.html#dynamicalab.dynamics.SISDynamics" title="dynamicalab.dynamics.SISDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SISDynamics</span></code></a></td>
+<td>Markovian discrete time Suceptible-infected-suceptible process on networks.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dynamicalab.dynamics.ThetaModelDynamics.html#dynamicalab.dynamics.ThetaModelDynamics" title="dynamicalab.dynamics.ThetaModelDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ThetaModelDynamics</span></code></a></td>
+<td>Theta model, or Ermentrout–Kopell canonical model, is a biological neuron model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/dynamicalab.dynamics.BernoulliDynamics.html#dynamicalab.dynamics.BernoulliDynamics" title="dynamicalab.dynamics.BernoulliDynamics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BernoulliDynamics</span></code></a></td>
+<td>Random binary dynamics with probability <code class="docutils literal notranslate"><span class="pre">p</span></code> of being active.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets/index.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/DynamicaLab/Dynamicalab">Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Reference</a><ul>
+      <li>Previous: <a href="../algorithms/generated/dynamicalab.algorithms.onion_decomposition.html" title="previous chapter">dynamicalab.algorithms.onion_decomposition</a></li>
+      <li>Next: <a href="generated/dynamicalab.dynamics.SISDynamics.html" title="next chapter">dynamicalab.dynamics.SISDynamics</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      <a href="../../_sources/reference/dynamics/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

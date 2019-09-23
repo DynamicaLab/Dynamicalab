@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dynamicalab.dynamics.SISDynamics &#8212; DynamicaLab 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/colorParser.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="dynamicalab.dynamics.ThetaModelDynamics" href="dynamicalab.dynamics.ThetaModelDynamics.html" />
+    <link rel="prev" title="Dynamics" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dynamicalab-dynamics-sisdynamics">
+<h1>dynamicalab.dynamics.SISDynamics<a class="headerlink" href="#dynamicalab-dynamics-sisdynamics" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dynamicalab.dynamics.SISDynamics">
+<em class="property">class </em><code class="descclassname">dynamicalab.dynamics.</code><code class="descname">SISDynamics</code><span class="sig-paren">(</span><em>p</em>, <em>q</em>, <em>self_activation=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/dynamics/sis.html#SISDynamics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.dynamics.SISDynamics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Markovian discrete time Suceptible-infected-suceptible process on networks.</p>
+<dl class="method">
+<dt id="dynamicalab.dynamics.SISDynamics.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>p</em>, <em>q</em>, <em>self_activation=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/dynamicalab/dynamics/sis.html#SISDynamics.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dynamicalab.dynamics.SISDynamics.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt>p <span class="classifier-delimiter">:</span> <span class="classifier">Float</span></dt>
+<dd>Probability of infection</dd>
+<dt>q <span class="classifier-delimiter">:</span> <span class="classifier">Float</span></dt>
+<dd>Probability of recovery</dd>
+<dt>self_activation <span class="classifier-delimiter">:</span> <span class="classifier">Float</span> <span class="classifier-delimiter">:</span> <span class="classifier">(default=0)</span></dt>
+<dd>Probability of spontaneous activation</dd>
+</dl>
+<p>Note that the <cite>__call__(G, T)</cite> method is independent of <code class="docutils literal notranslate"><span class="pre">T[i]-T[i+1]</span></code>. Only <code class="docutils literal notranslate"><span class="pre">len(T)</span></code> is 
+taken into account for the number of steps.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#dynamicalab.dynamics.SISDynamics.__init__" title="dynamicalab.dynamics.SISDynamics.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(p,&nbsp;q[,&nbsp;self_activation])</td>
+<td><strong>Parameters</strong></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">best_x0</span></code>(G)</td>
+<td>Convenient method to get a good initial state given as a random infection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">DynamicaLab</a></h1>
+
+
+
+<p class="blurb">A Python module dedicated to network science.</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../drawing/index.html">Drawing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generators/index.html">Network generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../datasets/index.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="https://github.com/DynamicaLab/Dynamicalab">Github</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Reference</a><ul>
+  <li><a href="../index.html">Dynamics</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Dynamics</a></li>
+      <li>Next: <a href="dynamicalab.dynamics.ThetaModelDynamics.html" title="next chapter">dynamicalab.dynamics.ThetaModelDynamics</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dynamica Research Group.
+      
+      |
+      <a href="../../../_sources/reference/dynamics/generated/dynamicalab.dynamics.SISDynamics.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

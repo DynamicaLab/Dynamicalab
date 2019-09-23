@@ -8,8 +8,8 @@ Reference
    :maxdepth: 1
 
    introduction
-   classes/index
    algorithms/index
+   dynamics/index
    drawing/index
    generators/index       
    datasets/index
