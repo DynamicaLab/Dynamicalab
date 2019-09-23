@@ -321,3 +321,164 @@ def food_webs_Christian1999(save_path="./data"):
 
 	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
 	return data
+
+def food_webs_Bascompte2005(save_path="./data"):    
+	"""Food webs of `Bascompte 2005 <http://www.pnas.org/content/102/15/5443>`_ .
+
+	- Nodes: **249** 
+	- Edges: **3313**
+	- Directed: **True**
+	- Components: **1**
+	- Note: **Canibalism has been found in 11 species or groups. Crabs, Shrimps, Polychaetes, Gastropods, Squids, Octopuses, Asteroids, Echinoids, Mycteroperca venenosa, Scomberomorus cavalla, Tylosurus acus**
+	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**
+
+	**Reference**
+	
+	J. Bascompte, C. J. Melián and E. Sala (2005). Interaction strength combinations and the overfishing of a marine food web. Proceedings of the National Academy of Sciences USA, 102: 5443-5447.
+	
+	**Parameters**
+
+	save_path : String : (default="./data")
+		Directory to which the data will be saved.
+
+	**Returns**
+
+	Dataset 
+		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+	"""
+	url = "http://www.web-of-life.es/networkjson.php?id=FW_008"
+	data_type = "weboflife_foodwebs_json"
+	data_name = "networkjson.php?id=FW_008"
+	compress_type = None
+	infos = {
+		"type" : data_type,
+		"download_url" : url,
+		"info_url": "http://www.web-of-life.es/map.php?type=7",
+		"source" : 'J. Bascompte, C. J. Melián and E. Sala (2005). Interaction strength combinations and the overfishing of a marine food web. Proceedings of the National Academy of Sciences USA, 102: 5443-5447.'
+	}
+
+	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
+	return data
+
+def food_webs_Angelini2013(save_path="./data"):    
+	"""Food webs of `Angelini 2013 <https://www.sciencedirect.com/science/article/pii/S030438001300015X>`_ .
+
+	- Nodes: **40** 
+	- Edges: **241**
+	- Directed: **True**
+	- Components: **1**
+	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**
+
+	**Reference**
+	
+	Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)
+
+	**Parameters**
+
+	save_path : String : (default="./data")
+		Directory to which the data will be saved.
+
+	**Returns**
+
+	Dataset 
+		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+	"""
+	url = "http://www.web-of-life.es/networkjson.php?id=FW_009"
+	data_type = "weboflife_foodwebs_json"
+	data_name = "networkjson.php?id=FW_009"
+	compress_type = None
+	infos = {
+		"type" : data_type,
+		"download_url" : url,
+		"info_url": "http://www.web-of-life.es/map.php?type=7",
+		"source" : 'Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)'
+	}
+
+	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
+	return data
+
+def food_webs_Angelini2013B(save_path="./data"):    
+	"""Food webs of `Angelini 2013B <https://www.sciencedirect.com/science/article/pii/S030438001300015X>`_ .
+
+	- Nodes: **39** 
+	- Edges: **248**
+	- Directed: **True**
+	- Components: **1**
+	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**
+
+	**Reference**
+	
+	Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)
+
+	**Parameters**
+
+	save_path : String : (default="./data")
+		Directory to which the data will be saved.
+
+	**Returns**
+
+	Dataset 
+		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+	"""
+	url = "http://www.web-of-life.es/networkjson.php?id=FW_010"
+	data_type = "weboflife_foodwebs_json"
+	data_name = "networkjson.php?id=FW_010"
+	compress_type = None
+	infos = {
+		"type" : data_type,
+		"download_url" : url,
+		"info_url": "http://www.web-of-life.es/map.php?type=7",
+		"source" : 'Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)'
+	}
+
+	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
+	return data
+
+def food_webs_Thompson2003(save_path="./data"):    
+
+	
+	"""Food webs of `Thompson 2003 <https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658(2003)084%5B0145:IOSFWO%5D2.0.CO;2>`_ .
+
+	- Nodes: **105** 
+	- Edges: **343**
+	- Directed: **True**
+	- Components: **1**
+	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**
+
+	**Reference**
+	
+	Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161
+
+	**Parameters**
+
+	save_path : String : (default="./data")
+		Directory to which the data will be saved.
+
+	**Returns**
+
+	Dataset 
+		Object dataset. Use ``dataset.graph()`` to download the graph.
+	
+
+	"""
+	url = "http://www.web-of-life.es/networkjson.php?id=FW_011"
+	data_type = "weboflife_foodwebs_json"
+	data_name = "networkjson.php?id=FW_011"
+	compress_type = None
+	infos = {
+		"type" : data_type,
+		"download_url" : url,
+		"info_url": "http://www.web-of-life.es/map.php?type=7",
+		"source" : 'Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161'
+	}
+
+	data = Dataset(url, save_path, data_type, data_name, compress_type, infos)
+	return data
+
+	
