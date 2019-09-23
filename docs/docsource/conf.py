@@ -195,7 +195,6 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
 # At top on conf.py (with other import statements)
 import recommonmark
 from recommonmark.transform import AutoStructify

@@ -22,7 +22,7 @@ class ThetaModelDynamics(BaseDynamics):
 
 	"""
 	def __init__(self, sigma=0.1, input_intensity=0.5, cos_transform=True):
-		"""
+		"""Initialization.
 
 		**Parameters**
 
