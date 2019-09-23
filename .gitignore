@@ -1,6 +1,7 @@
 docs/build/
 
 docs/doctrees/
+docs/.doctrees/
 
 # Created by https://www.gitignore.io/api/python
 
@@ -9,6 +10,9 @@ docs/doctrees/
 __pycache__/
 *.py[cod]
 *$py.class
+
+
+
 
 # C extensions
 *.so

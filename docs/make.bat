@@ -7,7 +7,7 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=python -msphinx
 )
-set SOURCEDIR=source
+set SOURCEDIR=docsource
 set BUILDDIR=.
 set SPHINXPROJ=DynamicaLab
 

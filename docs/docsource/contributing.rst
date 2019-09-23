@@ -52,7 +52,13 @@ Install Sphinx version 1.7.9. Compile the documentation by doing:
 	make html
 
 
-You can verify the documentation by opening ``/docs/index.html``.
+You can verify the documentation by opening ``/docs/index.html`` in your web browser.
+
+
+.. warning:: If the build does not work, do not try to do a pull request. Invalid documentation will be rejected. Fix it beforehand. 
+
+
+.. warning:: It is critical that you use Sphinx 1.7.9. The painless way to do it is by using conda: `conda install sphinx=1.7.9`.
 
 4. Create a new pull request
 ============================
