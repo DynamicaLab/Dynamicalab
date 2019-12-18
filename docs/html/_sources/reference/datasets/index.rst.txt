@@ -92,10 +92,10 @@ Food webs (7 datasets)
    food_webs_Thompson_and_Townsend_2003
    food_webs_Thompson_and_Townsend_2003_01
    food_webs_Thompson_and_Townsend_2003_02
-   food_webs_Thompson_and_Townsend_2003_03
    food_webs_Thompson_and_Townsend_2003_04
    food_webs_Thompson_and_Townsend_2003_05
    food_webs_Thompson_and_Townsend_2003_06
+   food_webs_Thompson_and_Townsend_2003_07
    food_webs_Townsend_et_all_1998_01
    food_webs_Townsend_et_all_1998_02
    food_webs_Townsend_et_all_1998_03
