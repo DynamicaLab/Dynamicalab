@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators\_McCullen1993
-==============================================
+dynamicalab.plants\_pollinators\_McCullen1993
+=============================================
 
 .. currentmodule:: dynamicalab
 

@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators\_Ramirez1992
-=============================================
+dynamicalab.plants\_pollinators\_Ramirez1992
+============================================
 
 .. currentmodule:: dynamicalab
 

@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators\_Robsertson1992
-================================================
+dynamicalab.plants\_pollinators\_Robsertson1992
+===============================================
 
 .. currentmodule:: dynamicalab
 

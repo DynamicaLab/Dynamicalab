@@ -1,5 +1,5 @@
-dynamicalab\.connectomes
-========================
+dynamicalab.connectomes
+=======================
 
 .. currentmodule:: dynamicalab
 

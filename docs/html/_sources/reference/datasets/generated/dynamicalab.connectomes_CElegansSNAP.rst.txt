@@ -1,5 +1,5 @@
-dynamicalab\.connectomes\_CElegansSNAP
-======================================
+dynamicalab.connectomes\_CElegansSNAP
+=====================================
 
 .. currentmodule:: dynamicalab
 

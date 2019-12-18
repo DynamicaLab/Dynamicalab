@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators\_Barrett1987
-=============================================
+dynamicalab.plants\_pollinators\_Barrett1987
+============================================
 
 .. currentmodule:: dynamicalab
 

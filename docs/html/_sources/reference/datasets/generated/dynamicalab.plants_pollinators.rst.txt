@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators
-================================
+dynamicalab.plants\_pollinators
+===============================
 
 .. currentmodule:: dynamicalab
 

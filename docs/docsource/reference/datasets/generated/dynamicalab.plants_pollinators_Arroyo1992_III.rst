@@ -1,5 +1,5 @@
-dynamicalab\.plants\_pollinators\_Arroyo1992\_III
-=================================================
+dynamicalab.plants\_pollinators\_Arroyo1992\_III
+================================================
 
 .. currentmodule:: dynamicalab
 

@@ -79,10 +79,30 @@ Food webs (7 datasets)
    :toctree: generated/
         
    food_webs
-   food_webs_Angelini2005
-   food_webs_Angelini2011
-   food_webs_Angelini2011b
-   food_webs_Angelini2006
-   food_webs_Torres2013
-   food_webs_Cruz2007
-   food_webs_Christian1999
+   food_webs_Angelini_Agostinho_2005
+   food_webs_Angelini_et_all_1011
+   food_webs_Angelini_Velho_2011
+   food_webs_Angelini_et_all_2006
+   food_webs_Torres_et_all_2013
+   food_webs_Escalona_et_all_2007
+   food_webs_Christian_Luczkovich_1999
+   food_webs_Bascompte_et_all_2005
+   food_webs_Angelini_et_all_2013
+   food_webs_Angelini_et_all_2013
+   food_webs_Thompson_and_Townsend_2003
+   food_webs_Thompson_and_Townsend_2003_01
+   food_webs_Thompson_and_Townsend_2003_02
+   food_webs_Thompson_and_Townsend_2003_03
+   food_webs_Thompson_and_Townsend_2003_04
+   food_webs_Thompson_and_Townsend_2003_05
+   food_webs_Thompson_and_Townsend_2003_06
+   food_webs_Townsend_et_all_1998_01
+   food_webs_Townsend_et_all_1998_02
+   food_webs_Townsend_et_all_1998_03
+   food_webs_Townsend_et_all_1998_04
+   food_webs_Thompson_and_Townsend_2000_01
+   food_webs_Thompson_and_Townsend_2000_02
+   food_webs_Thompson_and_Townsend_2000_03
+   food_webs_Thompson_and_Townsend_2000_04
+   food_webs_Baeta_et_all_2011_01
+

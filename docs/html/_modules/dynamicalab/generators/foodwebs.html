@@ -49,7 +49,7 @@
 
 <span class="sd">	.. code:: python</span>
 
-<span class="sd">		for data in dlb.foodwebs(&quot;./data&quot;):</span>
+<span class="sd">		for data in dlb.food_webs(&quot;./data&quot;):</span>
 <span class="sd">			G = data.graph()</span>
 
 <span class="sd">	.. note:: </span>
@@ -70,293 +70,1074 @@
 
 
 
-<div class="viewcode-block" id="food_webs_Angelini2005"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini2005.html#dynamicalab.food_webs_Angelini2005">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini2005</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Angelini 2005 &lt;https://www.sciencedirect.com/science/article/pii/S0304380004003606&gt;`_ .</span>
+<div class="viewcode-block" id="food_webs_Angelini_Agostinho_2005"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini_Agostinho_2005.html#dynamicalab.food_webs_Angelini_Agostinho_2005">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini_Agostinho_2005</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R., Agostinho A. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **40** </span>
+<span class="sd">    - Edges: **185**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 4 species or groups. Hoplias malabaricus, Rhaphiodon vulpinus, Serrasalmus marginatus, Other piscivores*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species in the diet of each predator species.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R., Agostinho A. (2005) Food web model of the Upper Paran ́a River Floodplain: description and aggregation effects. Ecological Modelling 181: 109–121</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_001&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_001&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R., Agostinho A. (2005) Food web model of the Upper Paran ́a River Floodplain: description and aggregation effects. Ecological Modelling 181: 109–121&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Angelini_et_all_1011"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini_et_all_1011.html#dynamicalab.food_webs_Angelini_et_all_1011">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini_et_all_1011</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R., Aloisio, GR., Carvalho, AR. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **14** </span>
+<span class="sd">    - Edges: **38**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 1 species or groups. Hoplias malabaricus*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species in the diet of each predator species..*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R., Aloisio, GR., Carvalho, AR. (2011) Mixed food web control and stability in a Cerrado river (Brazil). Pan-American Journal of Aquatic Sciences 5(3):421-431</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_002&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_002&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R., Aloisio, GR., Carvalho, AR. (2011) Mixed food web control and stability in a Cerrado river (Brazil). Pan-American Journal of Aquatic Sciences 5(3):421-431&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Angelini_Velho_2011"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini_Velho_2011.html#dynamicalab.food_webs_Angelini_Velho_2011">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini_Velho_2011</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R., Velho, VF. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **28** </span>
+<span class="sd">    - Edges: **127**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 3 species or groups. Merluccius, Condrichtis, Macrobenthos*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species in the diet of each predator species. .*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R., Velho, VF. (2011) Ecosystem structure and trophic analysis of Angolan fishery landings. Scientia Marina 75(2)</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_003&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_003&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R., Velho, VF. (2011) Ecosystem structure and trophic analysis of Angolan fishery landings. Scientia Marina 75(2)&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Angelini_et_all_2006"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini_et_all_2006.html#dynamicalab.food_webs_Angelini_et_all_2006">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini_et_all_2006</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R,. Agostinho A,. Carlos LG. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **32** </span>
+<span class="sd">    - Edges: **140**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 4 species or groups. Hoplias malabaricus, Rhaphiodon vulpinus, Group 1, Group 2*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species in the diet of each predator species.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R,. Agostinho A,. Carlos LG. (2006) Modeling energy flow in a large Neotropical Reservoir: a tool do evaluate fishing and stability. Neotrop. Ichthyol., 4(2):253-260, 2006</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_004&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_004&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R,. Agostinho A,. Carlos LG. (2006) Modeling energy flow in a large Neotropical Reservoir: a tool do evaluate fishing and stability. Neotrop. Ichthyol., 4(2):253-260, 2006&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Torres_et_all_2013"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Torres_et_all_2013.html#dynamicalab.food_webs_Torres_et_all_2013">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Torres_et_all_2013</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Torres MA., Coll M., Heymans JJ., Christensen V,. Sobrino I. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **44** </span>
+<span class="sd">    - Edges: **413**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 14 species or groups. Seabirds, Sharks, Demersal piscivores, Adult hake, Juvenile hake, Benthic cephalopods, Benthopelagic cephalopods, Small benthopelagic fishes, Flatfishes, Small demersal fishes, Crabs, Shrimps, Gelatinous zooplankton, Benthic invertebrates C*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Torres MA., Coll M., Heymans JJ., Christensen V,. Sobrino I. (2013) Food-web structure of and fishing impacts on the Gulf of Cadiz ecosystem (South-western Spain). Ecological Modelling 265 (2013) 26–44</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_005&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_005&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Torres MA., Coll M., Heymans JJ., Christensen V,. Sobrino I. (2013) Food-web structure of and fishing impacts on the Gulf of Cadiz ecosystem (South-western Spain). Ecological Modelling 265 (2013) 26–44&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Escalona_et_all_2007"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Escalona_et_all_2007.html#dynamicalab.food_webs_Escalona_et_all_2007">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Escalona_et_all_2007</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Cruz-Escalona, V.H., Arrequin-Sanchez, F., Zetina-Rejon, M. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **30** </span>
+<span class="sd">    - Edges: **229**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 10 species or groups. Zooplankton, Polychaetes, Rays, Catfish, Herrings, Mollies, Swimming crabs, Shrimp, Infauna, Gastropods*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Cruz-Escalona, V.H., Arrequin-Sanchez, F., Zetina-Rejon, M. (2007)  Analysis of the ecosystem structure of Laguna Alvarado, western Gulf of Mexico, by means of a mass balance model. Estuarine, Coastal and Shelf Science 72 (155-167)</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_006&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_006&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Cruz-Escalona, V.H., Arrequin-Sanchez, F., Zetina-Rejon, M. (2007)  Analysis of the ecosystem structure of Laguna Alvarado, western Gulf of Mexico, by means of a mass balance model. Estuarine, Coastal and Shelf Science 72 (155-167)&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Christian_Luczkovich_1999"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Christian_Luczkovich_1999.html#dynamicalab.food_webs_Christian_Luczkovich_1999">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Christian_Luczkovich_1999</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Christian, RR., Luczkovich JJ. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **48** </span>
+<span class="sd">    - Edges: **221**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 3 species or groups. Microfauna, Meiofauna, Microprotozoa*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Christian, RR., Luczkovich JJ. (1999) Organizing and understanding a winter’s seagrass foodweb network through effective trophic levels</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_007&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_007&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Christian, RR., Luczkovich JJ. (1999) Organizing and understanding a winter’s seagrass foodweb network through effective trophic levels&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Bascompte_et_all_2005"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Bascompte_et_all_2005.html#dynamicalab.food_webs_Bascompte_et_all_2005">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Bascompte_et_all_2005</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of J. Bascompte, C. J. Melián and E. Sala .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **249** </span>
+<span class="sd">    - Edges: **3313**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 11 species or groups. Crabs, Shrimps, Polychaetes, Gastropods, Squids, Octopuses, Asteroids, Echinoids, Mycteroperca venenosa, Scomberomorus cavalla, Tylosurus acus*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    J. Bascompte, C. J. Melián and E. Sala (2005). Interaction strength combinations and the overfishing of a marine food web. Proceedings of the National Academy of Sciences USA, 102: 5443-5447. </span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_008&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_008&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;J. Bascompte, C. J. Melián and E. Sala (2005). Interaction strength combinations and the overfishing of a marine food web. Proceedings of the National Academy of Sciences USA, 102: 5443-5447. &#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<span class="k">def</span> <span class="nf">food_webs_Angelini_et_all_2013</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **40** </span>
+<span class="sd">    - Edges: **241**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_009&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_009&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+    
+
+<div class="viewcode-block" id="food_webs_Angelini_et_all_2013"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini_et_all_2013.html#dynamicalab.food_webs_Angelini_et_all_2013">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini_et_all_2013</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **39** </span>
+<span class="sd">    - Edges: **248**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_010&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_010&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Angelini, R., Morais, R., Catella AC., Resende KE., Libralato, S. (2013) Aquatic food webs of the oxbow lakes in the Pantanal: A new site for fisheries guaranteed by alternated control? Ecological Modelling 253 (82– 96)&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003.html#dynamicalab.food_webs_Thompson_and_Townsend_2003">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **105** </span>
+<span class="sd">    - Edges: **343**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_011&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_011&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_01"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_01.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_01">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_01</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **58** </span>
+<span class="sd">    - Edges: **126**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_012_01&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_012_01&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_02"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_02.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_02">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_02</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **71** </span>
+<span class="sd">    - Edges: **148**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_012_02&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_012_02&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+        
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_03"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_03.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_03">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_03</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **77** </span>
+<span class="sd">    - Edges: **240**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_013_02&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_013_02&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_04"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_04.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_04">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_04</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **78** </span>
+<span class="sd">    - Edges: **241**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_013_03&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_013_03&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_05"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_05.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_05">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_05</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **78** </span>
+<span class="sd">    - Edges: **268**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_013_04&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_013_04&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2003_06"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2003_06.html#dynamicalab.food_webs_Thompson_and_Townsend_2003_06">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2003_06</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **98** </span>
+<span class="sd">    - Edges: **629**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_013_05&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_013_05&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2003) IMPACTS ON STREAM FOOD WEBS OF NATIVE AND EXOTIC FOREST: AN INTERCONTINENTAL COMPARISON. Ecology, 84(1), pp. 145–161&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Townsend_et_all_1998_01"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Townsend_et_all_1998_01.html#dynamicalab.food_webs_Townsend_et_all_1998_01">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Townsend_et_all_1998_01</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **86** </span>
+<span class="sd">    - Edges: **375**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 </span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_014_01&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_014_01&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 &#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Townsend_et_all_1998_02"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Townsend_et_all_1998_02.html#dynamicalab.food_webs_Townsend_et_all_1998_02">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Townsend_et_all_1998_02</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **94** </span>
+<span class="sd">    - Edges: **565**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 1 species or groups. Hydrobiosid sp1 FW_014_02*</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 </span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_014_02&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_014_02&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 &#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Townsend_et_all_1998_03"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Townsend_et_all_1998_03.html#dynamicalab.food_webs_Townsend_et_all_1998_03">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Townsend_et_all_1998_03</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **108** </span>
+<span class="sd">    - Edges: **708**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 1 species or groups. Paranephrops zealandicus*</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 </span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_014_03&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_014_03&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 &#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Townsend_et_all_1998_04"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Townsend_et_all_1998_04.html#dynamicalab.food_webs_Townsend_et_all_1998_04">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Townsend_et_all_1998_04</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **112** </span>
+<span class="sd">    - Edges: **832**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 2 species or groups. Stenoperla prasinia, Psilochorema bidens*</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 </span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_014_04&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_014_04&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Townsend, R. Colin., Thompson, M. Ross., McInstosh, R. Angus., Kilroy, Cathy., Edwards, Eric., Scarsbrook, R. Mike. (1998) Disturbance, resource supply, and food-web architecture in streams. Ecology Letters 1: 200-109 &#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2000_01"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2000_01.html#dynamicalab.food_webs_Thompson_and_Townsend_2000_01">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2000_01</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **96** </span>
+<span class="sd">    - Edges: **634**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_015_01&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_015_01&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2000_02"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2000_02.html#dynamicalab.food_webs_Thompson_and_Townsend_2000_02">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2000_02</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **83** </span>
+<span class="sd">    - Edges: **415**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 1 species or groups. Stenoperla prasinia*</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_015_02&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_015_02&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2000_03"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2000_03.html#dynamicalab.food_webs_Thompson_and_Townsend_2000_03">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2000_03</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **93** </span>
+<span class="sd">    - Edges: **538**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: **</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_015_03&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_015_03&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Thompson_and_Townsend_2000_04"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Thompson_and_Townsend_2000_04.html#dynamicalab.food_webs_Thompson_and_Townsend_2000_04">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Thompson_and_Townsend_2000_04</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Thompson, R., Townsend, C. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **107** </span>
+<span class="sd">    - Edges: **966**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 1 species or groups. Megaleptoperla sp1 FW_015_04*</span>
+<span class="sd">    - Description: **</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_015_04&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_015_04&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Thompson, R., Townsend, C. (2000) Is resolution the solution?: the effect of taxonomic resolution on the calculated properties of three stream food webs. Freshwater Biology  44, 413-422&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
+
+<div class="viewcode-block" id="food_webs_Baeta_et_all_2011_01"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Baeta_et_all_2011_01.html#dynamicalab.food_webs_Baeta_et_all_2011_01">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Baeta_et_all_2011_01</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">):</span>    
+    <span class="sd">&quot;&quot;&quot;Food webs of Baeta, A. , Niquil, A., Marques, J. C., Patrício, J. .</span>
+<span class="sd">    </span>
+<span class="sd">    - Nodes: **37** </span>
+<span class="sd">    - Edges: **242**</span>
+<span class="sd">    - Directed: **True**</span>
+<span class="sd">    - Components: **1**</span>
+<span class="sd">    - Note: *Canibalism has been found in 6 species or groups. Zooplankton, Carcinus maenas, Crangon crangon, Glycera tridactyla, Nephthys sp1 FW_016_01, Nemertini*</span>
+<span class="sd">    - Description: *Cell values indicate the relative frequency of prey species/group in the diet of each predator species/group.*</span>
+
+<span class="sd">    **Reference**</span>
+<span class="sd">    </span>
+<span class="sd">    Baeta, A. , Niquil, A., Marques, J. C., Patrício, J. (2011) Modelling the effects of eutrophication, mitigation measures and an extreme flood event on estuarine benthic food webs. Ecological Modelling 222, 1209–1221</span>
+<span class="sd">    </span>
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    save_path : String : (default=&#39;./data&#39;)</span>
+<span class="sd">        Directory to which the data will be saved.</span>
+
+<span class="sd">    **Returns**</span>
+
+<span class="sd">    Dataset </span>
+<span class="sd">        Object dataset. Use ``dataset.graph()`` to download the graph.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.web-of-life.es/map_networkdetails.php?network=FW_016_01&#39;</span>
+    <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;weboflife_foodwebs_json&#39;</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;networkjson.php?id=FW_016_01&#39;</span>
+    <span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
+         <span class="s1">&#39;download_url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;info_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.web-of-life.es/map.php?type=7&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source&#39;</span> <span class="p">:</span>  <span class="s1">&#39;Baeta, A. , Niquil, A., Marques, J. C., Patrício, J. (2011) Modelling the effects of eutrophication, mitigation measures and an extreme flood event on estuarine benthic food webs. Ecological Modelling 222, 1209–1221&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+    
 
-<span class="sd">	- Nodes: **40** </span>
-<span class="sd">	- Edges: **185**</span>
-<span class="sd">	- Components: **1**</span>
 
 
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Angelini, R., Agostinho A. (2005) Food web model of the Upper Paran ́a River Floodplain: description and aggregation effects. Ecological Modelling 181: 109–121</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_001&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_001&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Angelini, R., Agostinho A. (2005) Food web model of the Upper Paran ́a River Floodplain: description and aggregation effects. Ecological Modelling 181: 109–121&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-
-<div class="viewcode-block" id="food_webs_Angelini2011"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini2011.html#dynamicalab.food_webs_Angelini2011">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini2011</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Angelini 2011 &lt;https://www.researchgate.net/publication/287728990_Mixed_food_web_control_and_stability_in_a_Cerrado_river_Brazil&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **14** </span>
-<span class="sd">	- Edges: **38**</span>
-<span class="sd">	- Components: **1**</span>
-
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Angelini, R., Aloisio, GR., Carvalho, AR. (2011) Mixed food web control and stability in a Cerrado river (Brazil). Pan-American Journal of Aquatic Sciences 5(3):421-431</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_002&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_002&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Angelini, R., Aloisio, GR., Carvalho, AR. (2011) Mixed food web control and stability in a Cerrado river (Brazil). Pan-American Journal of Aquatic Sciences 5(3):421-431&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-<div class="viewcode-block" id="food_webs_Angelini2011b"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini2011b.html#dynamicalab.food_webs_Angelini2011b">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini2011b</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Angelini 2011b &lt;http://scientiamarina.revistas.csic.es/index.php/scientiamarina/article/view/1254&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **28** </span>
-<span class="sd">	- Edges: **127**</span>
-<span class="sd">	- Directed: **True**</span>
-<span class="sd">	- Components: **1**</span>
-<span class="sd">	- Note: **Canibalism has been found in 3 species or groups. Merluccius, Condrichtis, Macrobenthos**</span>
-<span class="sd">	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**</span>
-
-
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Angelini, R., Velho, VF. (2011) Ecosystem structure and trophic analysis of Angolan fishery landings. Scientia Marina 75(2)</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_003&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_003&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Angelini, R., Velho, VF. (2011) Ecosystem structure and trophic analysis of Angolan fishery landings. Scientia Marina 75(2)&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-
-
-
-<div class="viewcode-block" id="food_webs_Angelini2006"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Angelini2006.html#dynamicalab.food_webs_Angelini2006">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Angelini2006</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Angelini 2006 &lt;http://www.scielo.br/scielo.php?pid=S1679-62252006000200011&amp;script=sci_abstract&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **32** </span>
-<span class="sd">	- Edges: **140**</span>
-<span class="sd">	- Directed: **True**</span>
-<span class="sd">	- Components: **1**</span>
-<span class="sd">	- Note: **Canibalism has been found in 4 species or groups. Hoplias malabaricus, Rhaphiodon vulpinus, Group 1, Group 2**</span>
-<span class="sd">	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**</span>
-
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Angelini, R,. Agostinho A,. Carlos LG. (2006) Modeling energy flow in a large Neotropical Reservoir: a tool do evaluate fishing and stability. Neotrop. Ichthyol., 4(2):253-260, 2006</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_004&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_004&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Angelini, R,. Agostinho A,. Carlos LG. (2006) Modeling energy flow in a large Neotropical Reservoir: a tool do evaluate fishing and stability. Neotrop. Ichthyol., 4(2):253-260, 2006&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-<div class="viewcode-block" id="food_webs_Torres2013"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Torres2013.html#dynamicalab.food_webs_Torres2013">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Torres2013</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Torres 2013 &lt;https://www.sciencedirect.com/science/article/pii/S0304380013002822&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **44** </span>
-<span class="sd">	- Edges: **413**</span>
-<span class="sd">	- Directed: **True**</span>
-<span class="sd">	- Components: **1**</span>
-<span class="sd">	- Note: **Canibalism has been found in 14 species or groups. Seabirds, Sharks, Demersal piscivores, Adult hake, Juvenile hake, Benthic cephalopods, Benthopelagic cephalopods, Small benthopelagic fishes, Flatfishes, Small demersal fishes, Crabs, Shrimps, Gelatinous zooplankton, Benthic invertebrates C**</span>
-<span class="sd">	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**</span>
-
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Torres MA., Coll M., Heymans JJ., Christensen V,. Sobrino I. (2013) Food-web structure of and fishing impacts on the Gulf of Cadiz ecosystem (South-western Spain). Ecological Modelling 265 (2013) 26–44</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_005&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_005&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Torres MA., Coll M., Heymans JJ., Christensen V,. Sobrino I. (2013) Food-web structure of and fishing impacts on the Gulf of Cadiz ecosystem (South-western Spain). Ecological Modelling 265 (2013) 26–44&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-
-<div class="viewcode-block" id="food_webs_Cruz2007"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Cruz2007.html#dynamicalab.food_webs_Cruz2007">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Cruz2007</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Cruz 2007 &lt;https://www.sciencedirect.com/science/article/pii/S0272771406005002&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **30** </span>
-<span class="sd">	- Edges: **229**</span>
-<span class="sd">	- Directed: **True**</span>
-<span class="sd">	- Components: **1**</span>
-<span class="sd">	- Note: **Canibalism has been found in 10 species or groups. Zooplankton, Polychaetes, Rays, Catfish, Herrings, Mollies, Swimming crabs, Shrimp, Infauna, Gastropods**</span>
-<span class="sd">	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**</span>
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Cruz-Escalona, V.H., Arrequin-Sanchez, F., Zetina-Rejon, M. (2007) Analysis of the ecosystem structure of Laguna Alvarado, western Gulf of Mexico, by means of a mass balance model. Estuarine, Coastal and Shelf Science 72 (155-167)</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_006&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_006&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Cruz-Escalona, V.H., Arrequin-Sanchez, F., Zetina-Rejon, M. (2007) Analysis of the ecosystem structure of Laguna Alvarado, western Gulf of Mexico, by means of a mass balance model. Estuarine, Coastal and Shelf Science 72 (155-167)&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
-
-
-
-
-<div class="viewcode-block" id="food_webs_Christian1999"><a class="viewcode-back" href="../../../reference/datasets/generated/dynamicalab.food_webs_Christian1999.html#dynamicalab.food_webs_Christian1999">[docs]</a><span class="k">def</span> <span class="nf">food_webs_Christian1999</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">):</span>    
-	<span class="sd">&quot;&quot;&quot;Food webs of `Christian 1999 &lt;https://www.sciencedirect.com/science/article/pii/S0304380099000228&gt;`_ .</span>
-
-<span class="sd">	- Nodes: **48** </span>
-<span class="sd">	- Edges: **221**</span>
-<span class="sd">	- Directed: **True**</span>
-<span class="sd">	- Components: **1**</span>
-<span class="sd">	- Note: **Canibalism has been found in 3 species or groups. Microfauna, Meiofauna, Microprotozoa**</span>
-<span class="sd">	- Description: **Cell values indicate the relative frequency of prey species in the diet of each predator species.**</span>
-
-<span class="sd">	**Reference**</span>
-<span class="sd">	</span>
-<span class="sd">	Christian, RR., Luczkovich JJ. (1999) Organizing and understanding a winter’s seagrass foodweb network through effective trophic levels</span>
-
-<span class="sd">	**Parameters**</span>
-
-<span class="sd">	save_path : String : (default=&quot;./data&quot;)</span>
-<span class="sd">		Directory to which the data will be saved.</span>
-
-<span class="sd">	**Returns**</span>
-
-<span class="sd">	Dataset </span>
-<span class="sd">		Object dataset. Use ``dataset.graph()`` to download the graph.</span>
-<span class="sd">	</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.web-of-life.es/networkjson.php?id=FW_007&quot;</span>
-	<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;weboflife_foodwebs_json&quot;</span>
-	<span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;networkjson.php?id=FW_007&quot;</span>
-	<span class="n">compress_type</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="n">data_type</span><span class="p">,</span>
-		<span class="s2">&quot;download_url&quot;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-		<span class="s2">&quot;info_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.web-of-life.es/map.php?type=7&quot;</span><span class="p">,</span>
-		<span class="s2">&quot;source&quot;</span> <span class="p">:</span> <span class="s1">&#39;Christian, RR., Luczkovich JJ. (1999) Organizing and understanding a winter’s seagrass foodweb network through effective trophic levels&#39;</span>
-	<span class="p">}</span>
-
-	<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">data_name</span><span class="p">,</span> <span class="n">compress_type</span><span class="p">,</span> <span class="n">infos</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">data</span></div>
 </pre></div>
 
           </div>
