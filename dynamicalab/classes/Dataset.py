@@ -176,6 +176,9 @@ class Dataset(object):
 
 		elif self.data_type == "edgelist":
 			return nx.read_edgelist(path, comments="#")
+
+		elif self.data_type == "edgelist_directed":
+			return nx.read_edgelist(path, comments="#", create_using=nx.DiGraph())
 			
 		elif self.data_type == "adjacency":
 			A = np.loadtxt(path)
